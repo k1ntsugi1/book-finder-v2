@@ -1,15 +1,37 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'Rubik';
+  fonst-weight: 400;
+  src:url('./assets/fonts/Rubik/static/Rubik-Regular.ttf')
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: 'Rubik', sans-serif !important;
+  background: url("./assets/images/back2.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
 }
 
 @import url("./styles/glassEffect.css");
+
+
+.list-group-item {
+  color: white !important;
+}
+.w-0 {
+  width: 0;
+}
+
+.vw-20 {
+  width: 20vw;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.transitionSidebar {
+  transition: opacity 0.3s ease;
+
+}

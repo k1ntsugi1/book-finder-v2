@@ -1,7 +1,9 @@
 import { Form } from 'react-bootstrap';
+import { Props } from '../FormSection';
 
-const TypeSection: React.FC = () => {
-    const typesOfBooks = [
+const TypeSection: React.FC<Props> = (props) => {
+    const { values: { currentTypeOfItem }, handleChange } = props.formik;
+    const typesOfItem = [
         'all',
         'books',
         'magazines'
@@ -11,15 +13,16 @@ const TypeSection: React.FC = () => {
             <Form.Label>select type</Form.Label>
             <Form.Select
                 size="sm"
-                id="typesOfBook"
-                name="typesOfBook"
-                aria-label="Select type of book">
-            {typesOfBooks.map(typeOfBook => {
+                name="currentTypeOfItem"
+                value={currentTypeOfItem}
+                onChange={handleChange}
+                aria-label="Select type of item">
+            {typesOfItem.map(typeOfItem => {
                 return (
                     <option 
-                        key={typeOfBook}
-                        value={typeOfBook}>
-                        {typeOfBook}
+                        key={typeOfItem}
+                        value={typeOfItem}>
+                        {typeOfItem}
                     </option>
                 )
             })}

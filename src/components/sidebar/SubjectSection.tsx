@@ -1,7 +1,9 @@
 import { Form } from 'react-bootstrap';
+import { Props } from '../FormSection';
 
-const SubjectSection: React.FC = () => {
-    const categories = [
+const SubjectSection: React.FC<Props> = (props) => {
+    const { values: { currentTypeOfCategory },  handleChange } = props.formik;
+    const typesOfCategory = [
         'all',
         'art',
         'biography',
@@ -15,15 +17,16 @@ const SubjectSection: React.FC = () => {
             <Form.Label>select categories</Form.Label>
             <Form.Select 
                 size="sm"
-                id="typesOfSubject"
-                name="typesOfSubject"
-                aria-label="Select category">
-            {categories.map(category => {
+                name="currentTypeOfCategory"
+                value={currentTypeOfCategory}
+                onChange={handleChange}
+                aria-label="Select category of item">
+            {typesOfCategory.map(typeOfCategory => {
                 return (
                     <option
-                        key={category}
-                        value={category}>
-                        {category}
+                        key={typeOfCategory}
+                        value={typeOfCategory}>
+                        {typeOfCategory}
                     </option>
                 )
             })}

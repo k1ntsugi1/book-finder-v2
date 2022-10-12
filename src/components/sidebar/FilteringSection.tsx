@@ -1,7 +1,10 @@
 import { Form } from 'react-bootstrap';
+import { Props } from '../FormSection';
 
-const FilteringSection: React.FC = () => {
-    const filteringItems = [
+const FilteringSection: React.FC<Props> = (props) => {
+    const { values: { currentTypeOfFilter },  handleChange } = props.formik;
+
+    const typesOfFilter = [
         'partial',
         'full',
         'free-ebooks',
@@ -13,17 +16,17 @@ const FilteringSection: React.FC = () => {
         <Form.Group>
             <Form.Label>type of book</Form.Label>
             <Form.Select
-                id="filterBooks"
                 size="sm"
-                name="filterBooks"
-                value="partial"
+                name="currentTypeOfFilter"
+                value={currentTypeOfFilter}
+                onChange={handleChange}
                 aria-label="Select type of filter">
-                {filteringItems.map(filteringItem => {
+                {typesOfFilter.map(typeOfFilter => {
                     return (
                         <option 
-                            key={filteringItem}
-                            value={filteringItem}>
-                            {filteringItem}
+                            key={typeOfFilter}
+                            value={typeOfFilter}>
+                            {typeOfFilter}
                         </option>
                     )
                 })}
