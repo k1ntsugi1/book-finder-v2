@@ -1,5 +1,5 @@
 import { Form } from 'react-bootstrap';
-import { Props } from '../FormSection';
+import { Props } from './FormSection';
 
 const SubjectSection: React.FC<Props> = (props) => {
     const { values: { currentTypeOfCategory },  handleChange } = props.formik;

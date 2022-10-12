@@ -1,9 +1,9 @@
 import { Form } from 'react-bootstrap';
-import { Props } from '../FormSection';
+import { Props } from './FormSection';
 
-const SortingSection: React.FC<Props> = (props) => {
-    const { values: { currentTypeOfSort },  handleChange } = props.formik;
-    const typesOfSort = [
+const OrderBySection: React.FC<Props> = (props) => {
+    const { values: { currentTypeOfOrder },  handleChange } = props.formik;
+    const typesOfOrder = [
         'newest',
         'relevance',
     ];
@@ -12,16 +12,16 @@ const SortingSection: React.FC<Props> = (props) => {
             <Form.Label>select type of sort</Form.Label>
             <Form.Select
                 size="sm"
-                name="currentTypeOfSort"
-                value={currentTypeOfSort}
+                name="currentTypeOfOrder"
+                value={currentTypeOfOrder}
                 onChange={handleChange}
                 aria-label="Select type of book">
-            {typesOfSort.map(typeOfSort => {
+            {typesOfOrder.map(typeOfOrder => {
                 return (
                     <option 
-                        key={typeOfSort}
-                        value={typeOfSort}>
-                        {typeOfSort}
+                        key={typeOfOrder}
+                        value={typeOfOrder}>
+                        {typeOfOrder}
                     </option>
                 )
             })}
@@ -31,4 +31,4 @@ const SortingSection: React.FC<Props> = (props) => {
     )
 }
 
-export default SortingSection;
+export default OrderBySection;

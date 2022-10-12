@@ -1,5 +1,5 @@
 import { Form } from 'react-bootstrap';
-import { Props } from '../FormSection';
+import { Props } from './FormSection';
 
 const SearchSection: React.FC<Props> = (props) => {
     const { values: { currentNameOfItem, currentAuthorOfItem }, errors, handleChange } = props.formik;

@@ -1,4 +1,4 @@
-import FormSection from "../FormSection";
+import FormSection from "./Form/FormSection";
 import { useState } from 'react';
 import SearchSVG from '../../assets/svg/search.svg'
 import cn from 'classnames';

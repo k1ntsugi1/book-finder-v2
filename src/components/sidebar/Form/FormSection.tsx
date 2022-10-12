@@ -1,12 +1,14 @@
 import { Button, ListGroup, Form } from "react-bootstrap"
 import { FormikProps, useFormik } from 'formik';
 import cn from 'classnames';
-import SearchSection from './sidebar/SearchSection';
-import SubjectSection from "./sidebar/SubjectSection";
-import FilteringSection from "./sidebar/FilteringSection";
-import SortingSection from "./sidebar/SortingSection";
-import TypeSection from "./sidebar/TypeSection";
+import SearchSection from './SearchSection';
+import SubjectSection from "./SubjectSection";
+import FilteringSection from "./FilteringSection";
+import OrderBySection from "./OrderBySection";
+import TypeSection from "./TypeSection";
 import * as Yup from 'yup';
+import fetchDataAsyncThunk from "../../../store/fetchDataAsyncThunk";
+import { useAppDispatch } from '../../../store/hooks';
 
 interface FormProps {
     showStateOfForm: string,
@@ -16,7 +18,7 @@ interface InitialValue {
     currentNameOfItem: string,
     currentAuthorOfItem: string,
     currentTypeOfCategory: string,
-    currentTypeOfSort: string,
+    currentTypeOfOrder: string,
     currentTypeOfItem: string,
     currentTypeOfFilter: string,
 }
@@ -27,6 +29,7 @@ export interface Props {
 
 const FormSection: React.FC<FormProps> = (props) => {
     const { showStateOfForm } = props;
+    const appDispatch = useAppDispatch();
 
     const classnamesOfFormSection = cn(
         'container-glass',
@@ -60,14 +63,22 @@ const FormSection: React.FC<FormProps> = (props) => {
             currentNameOfItem: '',
             currentAuthorOfItem: '',
             currentTypeOfCategory: 'all',
-            currentTypeOfSort: 'relevance',
+            currentTypeOfOrder: 'relevance',
             currentTypeOfItem: 'books',
             currentTypeOfFilter: 'full',
         },
         validationSchema:  inputSchema,
         validateOnChange: false,
         validateOnBlur: false,
-        onSubmit: (values) => { console.log(values) },
+        onSubmit: (values) => { 
+            const { currentNameOfItem, currentAuthorOfItem} = values;
+            const searchParams = {
+                ...values,
+                currentNameOfItem: currentNameOfItem.trim(),
+                currentAuthorOfItem: currentAuthorOfItem.trim(),
+            }
+            appDispatch(fetchDataAsyncThunk(searchParams));
+         },
     })
 
     return (
@@ -84,7 +95,7 @@ const FormSection: React.FC<FormProps> = (props) => {
                     </ListGroup.Item>
 
                     <ListGroup.Item className="bg-transparent border-0">
-                        <SortingSection formik={formik} />
+                        <OrderBySection formik={formik} />
                     </ListGroup.Item>
 
                     <ListGroup.Item className="bg-transparent border-0">
