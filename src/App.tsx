@@ -8,7 +8,7 @@ import { actionsUiValueOfScroll } from './store/uiValueOfScrollSlice';
 const App: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const appDispatch = useAppDispatch();
-  const { searchParams } = useAppSelector(store => store.resultOfSearching);
+  const { searchParams } = useAppSelector(store => store.dataOfSearching);
 
   useEffect(() => {
     const element = ref.current!;

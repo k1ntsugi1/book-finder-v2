@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import fetchDataAsyncThunk from './fetchDataAsyncThunk';
+import { DataOfSearchingParams } from './fetchDataAsyncThunk';
 
 interface InitialState {
     range: {
@@ -10,6 +11,7 @@ interface InitialState {
     statusOfLoading: string,
     statusOfRequest: string,
     statusOfError: string,
+    searchParams: DataOfSearchingParams,
 };
 
 
@@ -22,6 +24,14 @@ const initialState: InitialState  = {
     statusOfLoading: '',
     statusOfError: '',
     statusOfRequest: 'new',
+    searchParams: {
+        currentNameOfItem: '',
+        currentAuthorOfItem: '',
+        currentTypeOfCategory: 'all',
+        currentTypeOfOrder: 'relevance',
+        currentTypeOfItem: 'books',
+        currentTypeOfFilter: 'full',
+    },
 };
 
 const dataOfSearchingSlice = createSlice({
@@ -43,11 +53,12 @@ const dataOfSearchingSlice = createSlice({
             state.statusOfError = '';
         })
         .addCase(fetchDataAsyncThunk.fulfilled, (state, { payload }) => {
-            const { totalItems, startIndex, statusOfRequest } = payload;
+            const { searchParams, totalItems, startIndex, statusOfRequest } = payload;
             state.statusOfLoading = 'fulfilled';
             state.totalItems = totalItems;
             state.statusOfRequest = statusOfRequest === 'new' ? 'old': 'new';
             state.range.startIndex = startIndex;
+            state.searchParams = searchParams;
         })
         .addCase(fetchDataAsyncThunk.rejected, (state, { payload }) => {
             state.statusOfLoading = 'rejected';

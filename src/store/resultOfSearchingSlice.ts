@@ -1,43 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createEntityAdapter  } from "@reduxjs/toolkit";
 import fetchDataAsyncThunk from './fetchDataAsyncThunk';
-import { ParsedItem } from "../helpersFunc/parseResponseItems";
 import { actionsDataOfSearching } from './dataOfSearching';
-import { DataOfSearchingParams } from './fetchDataAsyncThunk';
+import { RootState } from "./index";
+import { ParsedItem } from '../helpersFunc/parseResponseItems'
 
-interface InitialState {
-    items: ParsedItem[],
-    searchParams: DataOfSearchingParams;
-}
-
-const initialState: InitialState = {
-    items: [],
-    searchParams: {
-        currentNameOfItem: '',
-        currentAuthorOfItem: '',
-        currentTypeOfCategory: 'all',
-        currentTypeOfOrder: 'relevance',
-        currentTypeOfItem: 'books',
-        currentTypeOfFilter: 'full',
-    },
-};
-
+const entityAdapterOfResult = createEntityAdapter<ParsedItem>();
 
 const resultOfSearchingSlice = createSlice({
     name: 'result of searching',
-    initialState,
+    initialState: entityAdapterOfResult.getInitialState(),
     reducers: {},
     extraReducers: (builder) => {
         builder
         .addCase(fetchDataAsyncThunk.fulfilled, (state, { payload }) => {
-            const { items, searchParams } = payload;
-            state.items = items;
-            state.searchParams = searchParams
+            const { items } = payload;
+            entityAdapterOfResult.upsertMany(state, items);
         })
         .addCase(actionsDataOfSearching.resetParams, (state) => {
-            state.items = [];
+            entityAdapterOfResult.removeAll(state);
         })
     }
 });
+
+export const selectorsResultOfSearching = entityAdapterOfResult.getSelectors<RootState>(store => store.resultOfSearching);
 
 export const actionsResultOfSearching = resultOfSearchingSlice.actions;
 

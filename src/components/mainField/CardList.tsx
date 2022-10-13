@@ -1,11 +1,12 @@
 import { useAppSelector } from "../../store/hooks";
 import CardOfItem from "./CardOfItem";
+import { selectorsResultOfSearching } from "../../store/resultOfSearchingSlice";
 
 const CardList: React.FC = () => {
-    const { items } = useAppSelector(store => store.resultOfSearching)
+    const items = useAppSelector(selectorsResultOfSearching.selectEntities)
     return (
         <>
-            {items.map(item => <CardOfItem item={item}/>)}
+            {Object.values(items).map(item => <CardOfItem item={item!}/>)}
         </>
     )
 };
