@@ -8,8 +8,8 @@ const Sidebar: React.FC = () => {
     const classnamesOfSearchElement = cn('mx-auto')
     return (
         <>
-            <div className="back-face-of-glass b-rad-10 " style={{background: 'transparent'}}></div>
-            <div className="d-flex flex-column justify-content-around front-face-of-glass">
+            <div className="back-face-of-glass b-rad-10 "></div>
+            <div className="d-flex flex-column justify-content-around front-face-of-glass" style={{background: '#afaecd'}}>
                 <FormSection showStateOfForm={showStateOfForm}/>
             
                 <div className={classnamesOfSearchElement}>

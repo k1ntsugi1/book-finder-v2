@@ -5,12 +5,6 @@ import axios from 'axios';
 import { RootState } from "./index";
 import parseResponseItems from '../helpersFunc/parseResponseItems';
 
-interface ResultOfSearching {
-     items: ParsedItem[],
-     totalItems: number,
-     startIndex: number,
-     statusOfRequest: string,
-}
 export interface DataOfSearchingParams {
     currentNameOfItem: string,
     currentAuthorOfItem: string,
@@ -18,6 +12,14 @@ export interface DataOfSearchingParams {
     currentTypeOfOrder: string,
     currentTypeOfItem: string,
     currentTypeOfFilter: string,
+}
+
+interface ResultOfSearching {
+    items: ParsedItem[],
+    totalItems: number,
+    startIndex: number,
+    statusOfRequest: string,
+    searchParams: DataOfSearchingParams,
 }
 
 interface ThunkAPI {
@@ -65,7 +67,7 @@ const fetchDataAsyncThunk = createAsyncThunk<ResultOfSearching, DataOfSearchingP
     
             const parsedItems = parseResponseItems(items)
     
-            return { items: parsedItems, totalItems, startIndex: currentStartIndex + maxResults, statusOfRequest }
+            return { searchParams, items: parsedItems, totalItems, startIndex: currentStartIndex + maxResults, statusOfRequest }
         } catch(error) {
             return thunkAPI.rejectWithValue({error})
         }

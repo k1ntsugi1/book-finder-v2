@@ -28,7 +28,7 @@ const dataOfSearchingSlice = createSlice({
     name: 'data of searching',
     initialState,
     reducers: {
-        clean(state) {
+        resetParams(state) {
             state.range.startIndex = 0;
             state.totalItems = 0;
             state.statusOfRequest = 'new';

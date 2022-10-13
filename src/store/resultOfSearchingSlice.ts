@@ -2,13 +2,23 @@ import { createSlice } from "@reduxjs/toolkit";
 import fetchDataAsyncThunk from './fetchDataAsyncThunk';
 import { ParsedItem } from "../helpersFunc/parseResponseItems";
 import { actionsDataOfSearching } from './dataOfSearching';
+import { DataOfSearchingParams } from './fetchDataAsyncThunk';
 
 interface InitialState {
     items: ParsedItem[],
+    searchParams: DataOfSearchingParams;
 }
 
 const initialState: InitialState = {
-    items: []
+    items: [],
+    searchParams: {
+        currentNameOfItem: '',
+        currentAuthorOfItem: '',
+        currentTypeOfCategory: 'all',
+        currentTypeOfOrder: 'relevance',
+        currentTypeOfItem: 'books',
+        currentTypeOfFilter: 'full',
+    },
 };
 
 
@@ -19,10 +29,11 @@ const resultOfSearchingSlice = createSlice({
     extraReducers: (builder) => {
         builder
         .addCase(fetchDataAsyncThunk.fulfilled, (state, { payload }) => {
-            const { items } = payload;
+            const { items, searchParams } = payload;
             state.items = items;
+            state.searchParams = searchParams
         })
-        .addCase(actionsDataOfSearching.clean, (state) => {
+        .addCase(actionsDataOfSearching.resetParams, (state) => {
             state.items = [];
         })
     }
