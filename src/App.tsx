@@ -3,6 +3,7 @@ import CardList from './components/mainField/CardList';
 import { useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 import fetchDataAsyncThunk from './store/fetchDataAsyncThunk';
+import { actionsUiValueOfScroll } from './store/uiValueOfScrollSlice';
 
 const App: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -10,12 +11,13 @@ const App: React.FC = () => {
   const { searchParams } = useAppSelector(store => store.resultOfSearching);
 
   useEffect(() => {
-    console.log(ref.current)
     const element = ref.current!;
     const scrollHandler = () => {
+      const clientHeight = document.documentElement.clientHeight;
       const scrollHeight = element.scrollHeight;
       const scrollTop = element.scrollTop + element.clientHeight;
-      console.log(searchParams, scrollHeight, scrollTop)
+      console.log(clientHeight, scrollHeight, scrollTop)
+      appDispatch(actionsUiValueOfScroll.updateHeight({heightOfColumn: ((scrollTop -clientHeight)/(scrollHeight - clientHeight)) * 100}))
       if (scrollHeight - scrollTop < 20) {
         appDispatch(fetchDataAsyncThunk(searchParams));
       }

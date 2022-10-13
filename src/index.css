@@ -16,6 +16,10 @@ body {
 @import url("./styles/glassEffect.css");
 
 
+/* :root {
+  --height-column: 0
+} */
+
 .list-group-item {
   color: white !important;
 }
@@ -34,4 +38,8 @@ body {
 .transitionSidebar {
   transition: opacity 0.3s ease;
 
+}
+
+.scrollStatus{
+  height: calc(var(--height-column) + '%');
 }

@@ -2,10 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import dataOfSearchingReducer from './dataOfSearching';
 import resultOfSearchingReducer from './resultOfSearchingSlice';
+import uiValueOfScrollReducer from './uiValueOfScrollSlice';
 const store = configureStore({
     reducer: {
         dataOfSearching: dataOfSearchingReducer,
-        resultOfSearching: resultOfSearchingReducer
+        resultOfSearching: resultOfSearchingReducer,
+        uiValueOfScroll: uiValueOfScrollReducer
     }
 })
 
