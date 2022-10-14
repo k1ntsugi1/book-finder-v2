@@ -1,6 +1,6 @@
 import { useAppSelector } from "../../store/hooks";
 
-const ViewOfScrollSection: React.FC = () => {
+const ScrollLoaderSection: React.FC = () => {
     const { heightOfColumn } = useAppSelector(store => store.uiValueOfScroll)
     const style = { height: heightOfColumn + '%', background: 'var(--color-scroll-loader)'} as React.CSSProperties
     return (
@@ -10,4 +10,4 @@ const ViewOfScrollSection: React.FC = () => {
     )
 }
 
-export default ViewOfScrollSection;
+export default ScrollLoaderSection;

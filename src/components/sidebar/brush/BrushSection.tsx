@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import { useImmerReducer } from "use-immer";
-import RotateCard from './RotateCard';
+import RotateCard from '../../RotateCard';
 
 import GlassElement from '../../GlassElement';
 
@@ -28,8 +28,8 @@ interface ActionOfReducerImmer {
 const initialState: InitialState = {
     colors: {
         bodyColor: '#78a1a1',
-        sideBarColor: '#78a1a1',
-        textColor: '#78a1a1',
+        sideBarColor: '#C0C3E6',
+        textColor: '#FAFFFF',
         scrollLoaderColor: '#78a1a1',
     },
     stateGlassEffect: true
@@ -62,7 +62,6 @@ const BrushSection: React.FC<BrushProps> = (props) => {
     const { showStateOfBrush } = props;
     const [state, dispatchImmer] = useImmerReducer(reducer, initialState);
     const classnamesOfBrushSection = cn(
-        'container-glass',
         'bg-transparent',
         'vw-20',
         'transitionSidebar',
@@ -83,9 +82,13 @@ const BrushSection: React.FC<BrushProps> = (props) => {
     })
 
     return (
-        <div className={classnamesOfBrushSection} >
-            <div className="back-face-of-glass"></div>
-            <div className="front-face-of-glass" style={{ 'background': 'var(--color-sidebar)' }}>
+        <GlassElement 
+            classesOfContainer={classnamesOfBrushSection}
+            stylesOfFrontFace={{ 
+                'background': 'var(--color-sidebar)',
+                'color': 'var(--color-text)'
+            }}
+        >
                 <RotateCard
                     backFaceOfCard={
                         <Form.Check
@@ -178,9 +181,8 @@ const BrushSection: React.FC<BrushProps> = (props) => {
                     }
                 />
 
-            </div>
-
-        </div>
+        </GlassElement>
+        
     )
 };
 

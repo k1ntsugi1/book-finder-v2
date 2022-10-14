@@ -9,6 +9,7 @@ import TypeSection from "./TypeSection";
 import * as Yup from 'yup';
 import fetchDataAsyncThunk from "../../../store/fetchDataAsyncThunk";
 import { useAppDispatch } from '../../../store/hooks';
+import GlassElement from '../../GlassElement'
 
 interface FormProps {
     showStateOfForm: string,
@@ -32,7 +33,6 @@ const FormSection: React.FC<FormProps> = (props) => {
     const appDispatch = useAppDispatch();
 
     const classnamesOfFormSection = cn(
-        'container-glass',
         'bg-transparent',
         'vw-20',
         'transitionSidebar',
@@ -46,15 +46,15 @@ const FormSection: React.FC<FormProps> = (props) => {
 
     const inputSchema = Yup.object().shape({
         currentNameOfItem: Yup
-                           .string()
-                           .test({
-                                name: 'strangeName',
-                                message: 'have to name',
-                                test: (value, testContext) => {
-                                    const nameOfItem = testContext.parent.currentNameOfItem ?? null
-                                    return !(nameOfItem === null || nameOfItem.trim() === '');
-                                }
-                            })
+            .string()
+            .test({
+                name: 'strangeName',
+                message: 'have to name',
+                test: (value, testContext) => {
+                    const nameOfItem = testContext.parent.currentNameOfItem ?? null
+                    return !(nameOfItem === null || nameOfItem.trim() === '');
+                }
+            })
     })
 
 
@@ -67,59 +67,62 @@ const FormSection: React.FC<FormProps> = (props) => {
             currentTypeOfItem: 'books',
             currentTypeOfFilter: 'full',
         },
-        validationSchema:  inputSchema,
+        validationSchema: inputSchema,
         validateOnChange: false,
         validateOnBlur: false,
-        onSubmit: (values) => { 
-            const { currentNameOfItem, currentAuthorOfItem} = values;
+        onSubmit: (values) => {
+            const { currentNameOfItem, currentAuthorOfItem } = values;
             const searchParams = {
                 ...values,
                 currentNameOfItem: currentNameOfItem.trim(),
                 currentAuthorOfItem: currentAuthorOfItem.trim(),
             }
             appDispatch(fetchDataAsyncThunk(searchParams));
-         },
+        },
     })
 
     return (
-        <div className={classnamesOfFormSection} >
-            <div className="back-face-of-glass"></div>
-            <Form noValidate className='front-face-of-glass' onSubmit={formik.handleSubmit} style={{'background': 'var(--color-sidebar)'}}>
-                <ListGroup>
-                    <ListGroup.Item className="bg-transparent border-0">
-                        <SearchSection formik={formik} />
-                    </ListGroup.Item>
+            <GlassElement
+                classesOfContainer={classnamesOfFormSection}
+                stylesOfFrontFace={{ 
+                    'background': 'var(--color-sidebar)',
+                    'color': 'var(--color-text)'
+                }}
+            >
+                <Form noValidate onSubmit={formik.handleSubmit}>
+                    <ListGroup>
+                        <ListGroup.Item className="bg-transparent border-0">
+                            <SearchSection formik={formik} />
+                        </ListGroup.Item>
 
-                    <ListGroup.Item className="bg-transparent border-0">
-                        <SubjectSection formik={formik} />
-                    </ListGroup.Item>
+                        <ListGroup.Item className="bg-transparent border-0">
+                            <SubjectSection formik={formik} />
+                        </ListGroup.Item>
 
-                    <ListGroup.Item className="bg-transparent border-0">
-                        <OrderBySection formik={formik} />
-                    </ListGroup.Item>
+                        <ListGroup.Item className="bg-transparent border-0">
+                            <OrderBySection formik={formik} />
+                        </ListGroup.Item>
 
-                    <ListGroup.Item className="bg-transparent border-0">
-                        <FilteringSection formik={formik} />
-                    </ListGroup.Item>
+                        <ListGroup.Item className="bg-transparent border-0">
+                            <FilteringSection formik={formik} />
+                        </ListGroup.Item>
 
-                    <ListGroup.Item className="bg-transparent border-0">
-                        <TypeSection formik={formik} />
-                    </ListGroup.Item>
+                        <ListGroup.Item className="bg-transparent border-0">
+                            <TypeSection formik={formik} />
+                        </ListGroup.Item>
 
-                    <ListGroup.Item className="d-flex justify-content-center bg-transparent border-0">
-                        <Button type="submit" className="bg-transparent border-0">Submit</Button>
-                    </ListGroup.Item>
+                        <ListGroup.Item className="d-flex justify-content-center bg-transparent border-0">
+                            <Button type="submit" className="bg-transparent border-0">Submit</Button>
+                        </ListGroup.Item>
 
-                    <ListGroup.Item className="d-flex justify-content-center bg-transparent border-0">
-                        <Button className="bg-transparent border-0">reset all params</Button>
-                    </ListGroup.Item>
+                        <ListGroup.Item className="d-flex justify-content-center bg-transparent border-0">
+                            <Button className="bg-transparent border-0">reset all params</Button>
+                        </ListGroup.Item>
 
-                </ListGroup>
-            </Form>
+                    </ListGroup>
+                </Form>
 
-        </div>
-
-
+            </GlassElement>
     )
 }
 
