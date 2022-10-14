@@ -14,11 +14,7 @@ body {
 }
 
 @import url("./styles/glassEffect.css");
-
-
-/* :root {
-  --height-column: 0
-} */
+@import url("./styles/rotatingElement.css");
 
 .list-group-item {
   color: white !important;
@@ -42,4 +38,10 @@ body {
 
 .scrollStatus{
   height: calc(var(--height-column) + '%');
+}
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

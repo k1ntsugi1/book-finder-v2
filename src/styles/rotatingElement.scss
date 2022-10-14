@@ -1,0 +1,34 @@
+.rotate-container {
+    position: relative;
+    width: 200px;
+    height: 50px;
+
+    .rotate-card {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transition: transform 1s;
+        transition: transform 1s;
+
+        &.back-face-of-card {
+            transform: rotateX(180deg);
+        }
+    }
+
+}
+
+.rotate-container:hover {
+    .rotate-card {
+        &.back-face-of-card {
+            transform: rotateX(0deg);
+        }
+
+        &.front-face-of-card {
+            transform: rotateX(180deg);
+        }
+    }
+}
