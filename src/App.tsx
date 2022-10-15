@@ -12,7 +12,7 @@ const App: React.FC = () => {
   
   useEffect(() => {
     const element = ref.current!;
- 
+    
     const scrollListener = () => {scrollHandler(element, appDispatch, searchParams)};
 
     element.addEventListener('scroll', scrollListener);
@@ -27,8 +27,8 @@ const App: React.FC = () => {
     >
       <Sidebar />
       <div 
-        className='col py-3 h-100 d-flex justify-content-around flex-wrap gap-2 overflow-auto' ref={ref}
-        style={{'color': 'var(--color-text)'}}>
+        className='scroll-elem col py-3 h-100 d-flex justify-content-around flex-wrap gap-2 overflow-auto' ref={ref}
+      >
         <CardList />
         <CardList />
       </div>

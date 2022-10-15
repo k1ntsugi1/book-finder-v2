@@ -11,7 +11,7 @@ import GlassElement from "../GlassElement";
 const Sidebar: React.FC = () => {
     const [showStateOfForm, setNewShowStateOfForm] = useState('unvisible');
     const [showStateOfBrush, setNewShowStateOfBrush] = useState('unvisible');
-    const classnamesOfSearchElement = cn('mx-auto', 'mt-5');
+    const classnamesOfSidebarElement = cn('mx-auto', 'mt-5', 'cursor-pointer');
 
     const handlerOfShowStateOfForm = (type: string): void => {
         if (type === 'visible' && showStateOfBrush === 'visible') {
@@ -27,8 +27,8 @@ const Sidebar: React.FC = () => {
     }
     return (
         <GlassElement
-            classesOfContainer="col-1"
-            classesOfFrontFace="d-flex flex-column justify-content-start gap-5"
+            classesOfContainer="col-1 shadow-lg"
+            classesOfFrontFace="pt-1 d-flex flex-column justify-content-start gap-5"
             stylesOfContainer={{ 'zIndex': '1000' }}
             stylesOfFrontFace={{
                 'background': 'var(--color-sidebar)',
@@ -39,7 +39,7 @@ const Sidebar: React.FC = () => {
             <BrushSection showStateOfBrush={showStateOfBrush} />
 
             <div
-                className={classnamesOfSearchElement}
+                className={classnamesOfSidebarElement}
                 style={{'color': 'var(--color-text)'}}
                 onClick={() => {
                     return showStateOfForm === 'visible'
@@ -53,7 +53,7 @@ const Sidebar: React.FC = () => {
 
             </div>
             <div
-                className={classnamesOfSearchElement}
+                className={classnamesOfSidebarElement}
                 style={{'color': 'var(--color-text)'}}
                 onClick={() => {
                     return showStateOfBrush === 'visible'

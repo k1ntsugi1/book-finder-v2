@@ -84,13 +84,14 @@ const FormSection: React.FC<FormProps> = (props) => {
     return (
             <GlassElement
                 classesOfContainer={classnamesOfFormSection}
+                classesOfFrontFace="pt-4"
                 stylesOfFrontFace={{ 
                     'background': 'var(--color-sidebar)',
                     'color': 'var(--color-text)'
                 }}
             >
-                <Form noValidate onSubmit={formik.handleSubmit}>
-                    <ListGroup>
+                <Form noValidate onSubmit={formik.handleSubmit} >
+                    <ListGroup >
                         <ListGroup.Item className="bg-transparent border-0">
                             <SearchSection formik={formik} />
                         </ListGroup.Item>
