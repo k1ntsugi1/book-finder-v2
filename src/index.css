@@ -7,10 +7,6 @@
 body {
   margin: 0;
   font-family: 'Rubik', sans-serif !important;
-  background-image: url("./assets/images/back2.jpg");
-  background-position: center;
-  background-repeat: repeat;
-  background-size: cover;
 }
 
 @import url("./styles/glassEffect.css");
