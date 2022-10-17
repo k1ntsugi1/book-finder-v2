@@ -135,6 +135,7 @@ const BrushSection: React.FC<BrushProps> = (props) => {
 
     return (
         <GlassElement
+            showState={showStateOfBrush}
             classesOfContainer={classnamesOfBrushSection}
             classesOfFrontFace="pt-4 border-right d-flex flex-column justify-content-start align-items-center gap-3"
             stylesOfFrontFace={{

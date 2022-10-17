@@ -9,7 +9,6 @@ interface InitialState {
         maxResults : number,
     },
     statusOfLoading: string,
-    //statusOfRequest: string,
     statusOfError: string,
     searchParams: DataOfSearchingParams,
 };
@@ -22,7 +21,6 @@ const initialState: InitialState  = {
     },
     statusOfLoading: '',
     statusOfError: '',
-    // statusOfRequest: 'new',
     searchParams: {
         currentNameOfItem: '',
         currentAuthorOfItem: '',
@@ -38,11 +36,10 @@ const dataOfSearchingSlice = createSlice({
     initialState,
     reducers: {
         decreaseStartIndex(state) {
-            state.range.startIndex = state.range.startIndex - state.range.maxResults;
+            state.range.startIndex = state.range.startIndex - 2 * state.range.maxResults;
         },
         resetParams(state) {
             state.range.startIndex = 0;
-            // state.statusOfRequest = 'new';
             state.statusOfLoading = '';
             state.statusOfError = '';
             state.searchParams = initialState.searchParams
@@ -58,7 +55,6 @@ const dataOfSearchingSlice = createSlice({
         .addCase(fetchDataAsyncThunk.fulfilled, (state, { payload }) => {
             const { searchParams, startIndex } = payload;
             state.statusOfLoading = 'fulfilled';
-            //state.statusOfRequest = isNewRequest ? 'new': 'old';
             state.range.startIndex = startIndex;
             
             state.searchParams = searchParams;

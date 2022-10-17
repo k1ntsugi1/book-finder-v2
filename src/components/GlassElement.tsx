@@ -1,8 +1,11 @@
 import cn from 'classnames';
+import { useEffect, useRef } from 'react';
 
 interface IGlassElement {
     classesOfContainer?: string,
     classesOfFrontFace?: string,
+    showState?: string,
+    hovering?: boolean, 
     stylesOfContainer?: {
         [key: string]: string,
     },
@@ -13,18 +16,45 @@ interface IGlassElement {
 }
 
 const GlassElement: React.FC<IGlassElement> = (props) => {
+    const refGlassElement = useRef<HTMLDivElement>(null);
+
     const {
         classesOfContainer,
         classesOfFrontFace,
         stylesOfContainer,
         stylesOfFrontFace,
-        children
+        children,
+        showState,
+        hovering
     } = props;
 
+    useEffect(() => {
+        setTimeout(() => {
+            if (showState === 'unvisible') refGlassElement.current!.style.visibility = 'hidden';
+        }, 400);
+        if (showState === 'visible') refGlassElement.current!.style.visibility = '';
+    }, [showState])
+    const overHandler = () => {
+        if (hovering) {
+            refGlassElement.current!.style.transform = 'scale(1.055)';
+        }
+    }
+    const outHandler = () => {
+        if (hovering) {
+            refGlassElement.current!.style.transform = 'scale(1)';
+        }
+    }
     const classesOfContainerGlass = cn('container-glass',classesOfContainer)
     const classesOfFrontFaceGlass = cn('front-face-of-glass', classesOfFrontFace)
     return (
-        <div className={classesOfContainerGlass} style={stylesOfContainer}>
+        <div 
+            className={classesOfContainerGlass}
+            style={stylesOfContainer}
+            ref={refGlassElement}
+            // onMouseOver={overHandler}
+            // onMouseOut={outHandler}
+        >
+            
             <div className="back-face-of-glass"></div>
             <div className={classesOfFrontFaceGlass} style={stylesOfFrontFace}>
                 {children}

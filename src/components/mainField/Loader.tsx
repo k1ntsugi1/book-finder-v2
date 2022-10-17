@@ -2,6 +2,7 @@ import fetchDataAsyncThunk from "../../store/fetchDataAsyncThunk";
 import cn from 'classnames'
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { actionsDataOfSearching } from "../../store/dataOfSearching";
+import { actionsResultOfSearching } from "../../store/resultOfSearchingSlice";
 import { Button } from 'react-bootstrap';
 
 const Loader: React.FC = () => {
@@ -15,11 +16,17 @@ const Loader: React.FC = () => {
         'border-radius': '0'
     };
 
+    const loadItems = () => {
+        appDispatch(fetchDataAsyncThunk(searchParams))
+    }
+
     const loadNextItems = () => {
+        appDispatch(actionsResultOfSearching.removeItems())
         appDispatch(fetchDataAsyncThunk(searchParams))
     };
     const loadPreviousItems = () => {
-        appDispatch(actionsDataOfSearching.decreaseStartIndex);
+        appDispatch(actionsResultOfSearching.removeItems());
+        appDispatch(actionsDataOfSearching.decreaseStartIndex());
         appDispatch(fetchDataAsyncThunk({...searchParams}))
     };
 
@@ -29,7 +36,7 @@ const Loader: React.FC = () => {
                 <Button variant="" style={stylesOfBtn}>1</Button>
                 <Button variant="" style={stylesOfBtn}>2</Button>
             </div>
-            <Button variant="" style={stylesOfBtn} onClick={loadNextItems}>LOAD</Button>
+            <Button variant="" style={stylesOfBtn} onClick={loadItems}>LOAD</Button>
             <div>
                 { startIndex > maxResults  && <Button variant="" style={stylesOfBtn} onClick={loadPreviousItems}>BACK</Button>}
                 <Button variant="" style={stylesOfBtn} onClick={loadNextItems}>NEXT</Button>

@@ -7,7 +7,7 @@ const ListSection: React.FC = () => {
     return (
         <>
             <CardList />
-            <Loader/>
+            {/* <Loader/> */}
         </>
     )
 };

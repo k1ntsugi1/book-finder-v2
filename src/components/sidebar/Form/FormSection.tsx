@@ -10,6 +10,7 @@ import * as Yup from 'yup';
 import fetchDataAsyncThunk from "../../../store/fetchDataAsyncThunk";
 import { useAppDispatch } from '../../../store/hooks';
 import GlassElement from '../../GlassElement'
+import { useRef } from "react";
 
 interface FormProps {
     showStateOfForm: string,
@@ -83,6 +84,7 @@ const FormSection: React.FC<FormProps> = (props) => {
 
     return (
             <GlassElement
+                showState={showStateOfForm}
                 classesOfContainer={classnamesOfFormSection}
                 classesOfFrontFace="pt-4"
                 stylesOfFrontFace={{ 

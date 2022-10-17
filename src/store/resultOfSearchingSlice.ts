@@ -18,7 +18,6 @@ const resultOfSearchingSlice = createSlice({
     initialState: entityAdapterOfResult.getInitialState(initialState),
     reducers: {
         removeItems(state) {
-            console.log(1)
             state.totalItems = 0;
             entityAdapterOfResult.removeAll(state);
         }
@@ -29,6 +28,7 @@ const resultOfSearchingSlice = createSlice({
             const { items, totalItems, isNewRequest } = payload;
             
             if (isNewRequest) resultOfSearchingSlice.caseReducers.removeItems(state);
+            
             state.totalItems = totalItems;
             entityAdapterOfResult.upsertMany(state, items);
         })
