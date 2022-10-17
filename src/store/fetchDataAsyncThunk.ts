@@ -2,10 +2,12 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import createURL from "../helpersFunc/createUrl";
 import { ParsedItem } from "../helpersFunc/parseResponseItems";
 import axios from 'axios';
-import { RootState } from "./index";
+import { RootState, AppDispatch } from "./index";
 import parseResponseItems from '../helpersFunc/parseResponseItems';
+import { actionsResultOfSearching } from "./resultOfSearchingSlice";
 
 export interface DataOfSearchingParams {
+    [key: string]: string | number,
     currentNameOfItem: string,
     currentAuthorOfItem: string,
     currentTypeOfCategory: string,
@@ -18,12 +20,13 @@ interface ResultOfSearching {
     items: ParsedItem[],
     totalItems: number,
     startIndex: number,
-    statusOfRequest: string,
+    isNewRequest: boolean,
     searchParams: DataOfSearchingParams,
 }
 
 interface ThunkAPI {
     state: RootState,
+    dispatch: AppDispatch,
     rejectValue: {
         error: any;
     },
@@ -58,16 +61,18 @@ const fetchDataAsyncThunk = createAsyncThunk<ResultOfSearching, DataOfSearchingP
         try {
             const state = thunkAPI.getState()
 
-            const { range: { startIndex, maxResults }, statusOfRequest } = state.dataOfSearching;
-            const currentStartIndex = statusOfRequest === 'new' ? 0 : startIndex;
-    
+            const { range: { startIndex, maxResults }, searchParams: previousSearchParams } = state.dataOfSearching;
+
+            const isNewRequest = Object.entries(searchParams).find(([key, value]) => value as string !== previousSearchParams[key]) ? true : false;
+            const currentStartIndex = isNewRequest ? 0 : startIndex;
+
             const url = createURL({ ...searchParams, ...{startIndex: currentStartIndex, maxResults} });
             const response = await axios.get<ResponseData>(url);
             const { totalItems, items } = response.data;
     
             const parsedItems = parseResponseItems(items)
     
-            return { searchParams, items: parsedItems, totalItems, startIndex: currentStartIndex + maxResults, statusOfRequest }
+            return { searchParams, items: parsedItems, totalItems, startIndex: currentStartIndex + maxResults, isNewRequest};
         } catch(error) {
             return thunkAPI.rejectWithValue({error})
         }

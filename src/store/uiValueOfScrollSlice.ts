@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction} from "@reduxjs/toolkit";
-
+import fetchDataAsyncThunk from "./fetchDataAsyncThunk";
 
 const uiValueOfScrollSlice = createSlice({
     name: 'value of scroll',
@@ -10,7 +10,14 @@ const uiValueOfScrollSlice = createSlice({
         updateHeight(state, action: PayloadAction<{heightOfColumn: number}>) {
             state.heightOfColumn = action.payload.heightOfColumn;
         }
-    }
+    },
+    // extraReducers: (builder) => {
+    //     builder
+    //     .addCase(fetchDataAsyncThunk.fulfilled, (state) => {
+    //         const heightOfColumn = state.heightOfColumn + 1;
+    //         uiValueOfScrollSlice.caseReducers.updateHeight(state, {type: 'updateHeight', payload: {heightOfColumn}});
+    //     })
+    // }
 });
 
 export const actionsUiValueOfScroll = uiValueOfScrollSlice.actions;

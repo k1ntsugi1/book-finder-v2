@@ -4,20 +4,36 @@ import { actionsDataOfSearching } from './dataOfSearching';
 import { RootState } from "./index";
 import { ParsedItem } from '../helpersFunc/parseResponseItems'
 
+interface IInitialState {
+    totalItems: number
+}
+
 const entityAdapterOfResult = createEntityAdapter<ParsedItem>();
+const initialState: IInitialState = {
+    totalItems: 0
+}
 
 const resultOfSearchingSlice = createSlice({
     name: 'result of searching',
-    initialState: entityAdapterOfResult.getInitialState(),
-    reducers: {},
+    initialState: entityAdapterOfResult.getInitialState(initialState),
+    reducers: {
+        removeItems(state) {
+            console.log(1)
+            state.totalItems = 0;
+            entityAdapterOfResult.removeAll(state);
+        }
+    },
     extraReducers: (builder) => {
         builder
         .addCase(fetchDataAsyncThunk.fulfilled, (state, { payload }) => {
-            const { items } = payload;
+            const { items, totalItems, isNewRequest } = payload;
+            
+            if (isNewRequest) resultOfSearchingSlice.caseReducers.removeItems(state);
+            state.totalItems = totalItems;
             entityAdapterOfResult.upsertMany(state, items);
         })
         .addCase(actionsDataOfSearching.resetParams, (state) => {
-            entityAdapterOfResult.removeAll(state);
+            resultOfSearchingSlice.caseReducers.removeItems(state);
         })
     }
 });
