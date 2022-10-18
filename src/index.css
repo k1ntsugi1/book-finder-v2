@@ -4,6 +4,12 @@
   src:url('./assets/fonts/Rubik/static/Rubik-Regular.ttf')
 }
 
+@font-face {
+  font-family: 'DM';
+  fonst-weight: 400;
+  src:url('./assets/fonts/DM_Serif_Display/DMSerifDisplay-Italic.ttf')
+}
+
 body {
   margin: 0;
   font-family: 'Rubik', sans-serif !important;
@@ -11,6 +17,11 @@ body {
 
 @import url("./styles/glassEffect.css");
 @import url("./styles/rotatingElement.css");
+@import url("./styles/book.css");
+
+.DM-fonts {
+  font-family: 'DM', sans-serif !important;
+}
 
 .accordion-button {
   background: inherit !important;
@@ -54,4 +65,13 @@ body {
 
 .scroll-elem::-webkit-scrollbar {
   width: 0
+}
+
+.typing-text {
+  overflow:hidden;
+  width: 4ch;
+  animation: type 5s steps(4);
+}
+@keyframes type{
+  from { width: 0; }
 }

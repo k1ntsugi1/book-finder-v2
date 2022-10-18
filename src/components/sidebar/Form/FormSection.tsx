@@ -10,7 +10,9 @@ import * as Yup from 'yup';
 import fetchDataAsyncThunk from "../../../store/fetchDataAsyncThunk";
 import { useAppDispatch } from '../../../store/hooks';
 import GlassElement from '../../GlassElement'
-import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { actionsResultOfSearching } from '../../../store/resultOfSearchingSlice'
 
 interface FormProps {
     showStateOfForm: string,
@@ -32,7 +34,7 @@ export interface Props {
 const FormSection: React.FC<FormProps> = (props) => {
     const { showStateOfForm } = props;
     const appDispatch = useAppDispatch();
-
+    const navigate = useNavigate();
     const classnamesOfFormSection = cn(
         'bg-transparent',
         'vw-20',
@@ -79,6 +81,8 @@ const FormSection: React.FC<FormProps> = (props) => {
                 currentAuthorOfItem: currentAuthorOfItem.trim(),
             }
             appDispatch(fetchDataAsyncThunk(searchParams));
+            appDispatch(actionsResultOfSearching.removeItems());
+            navigate('/result');
         },
     })
 

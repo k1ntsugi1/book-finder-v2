@@ -1,0 +1,67 @@
+.wrapper {
+  perspective: 800px;
+  width: 400px;
+  height: 100px;
+}
+.wrapper .book {
+  transform-style: preserve-3d;
+  width: 200px;
+  background: white;
+  border: 1px solid black;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  border-radius: 10%;
+}
+.wrapper .book .plainList1 {
+  width: 195px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  display: flex;
+  height: 100px;
+  background: white;
+  justify-content: center;
+  border-radius: 10%;
+}
+.wrapper .book .plainList1 .plainList2 {
+  width: 190px;
+  position: relative;
+  box-sizing: border-box;
+  background: white;
+  border: 1px solid black;
+  height: 100px;
+  border-radius: 10%;
+}
+.wrapper .book .plainList1 .plainList2 .list {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  background: white;
+  width: 90px;
+  height: 100px;
+  background: transparent;
+  box-sizing: border-box;
+  transform-origin: left center;
+  border-radius: 0 10% 10% 0;
+  border: 1px solid black;
+}
+.wrapper .book .plainList1 .plainList2 .list1 {
+  animation: rotare-animation 6s infinite;
+}
+.wrapper .book .plainList1 .plainList2 .list2 {
+  animation: rotare-animation 6s 3.5s infinite;
+}
+.wrapper .book .plainList1 .plainList2 .list3 {
+  animation: rotare-animation 6s 5s infinite;
+}
+
+@keyframes rotare-animation {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-180deg);
+  }
+}
+
+/*# sourceMappingURL=book.css.map */

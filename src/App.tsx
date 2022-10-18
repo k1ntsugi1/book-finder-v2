@@ -1,16 +1,19 @@
 import Sidebar from './components/sidebar/SideBar';
-import { useEffect, useRef } from 'react';
-import { useAppDispatch, useAppSelector } from './store/hooks';
+import { useEffect, useRef, useState } from 'react';
+import { useAppDispatch } from './store/hooks';
 import GlassElement from './components/GlassElement';
 import scrollHandler from './helpersFunc/scrollHandler';
-import ListSection from './components/mainField/ListSection';
-import Spinner from './components/mainField/Spinner';
-import Loader from './components/mainField/Loader';
+
+import { Routes, Route } from "react-router-dom";
+import HomePage from './pages/HomePage';
+import ResultOfSearchingPage from './pages/ResultOfSearchingPage';
+import StaredItemsPage from './pages/StaredItemsPage';
+
 const App: React.FC = () => {
+  const [typeOfItems, setNewTypeOfItems] = useState<string>('default');
+
   const ref = useRef<HTMLDivElement>(null);
   const appDispatch = useAppDispatch();
-  const { range: { startIndex }, statusOfLoading } = useAppSelector(store => store.dataOfSearching);
-  const { totalItems } = useAppSelector(store => store.resultOfSearching);
 
   useEffect(() => {
     const element = ref.current!;
@@ -27,14 +30,16 @@ const App: React.FC = () => {
       classesOfContainer='container-fluid h-100 overflow-hidden'
       classesOfFrontFace='m-0 h-100 row'
     >
-      <Sidebar />
+      <Sidebar setNewTypeOfItems={setNewTypeOfItems} />
       <div
         className='scroll-elem col py-3 h-100 d-flex justify-content-around flex-wrap gap-2 overflow-auto' ref={ref}
       >
-        {totalItems !== 0 && <ListSection />}
-        {statusOfLoading === 'pending' && <Spinner />}
-        {totalItems !== 0 && <Loader />}
-        
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/result" element={<ResultOfSearchingPage typeOfItems={typeOfItems}/>} />
+          <Route path="/stared" element={<StaredItemsPage typeOfItems={typeOfItems}/>}></Route>
+          {/* <Route path="*" element={<UndefinedPage />} /> */}
+        </Routes>
       </div>
     </GlassElement>
   );

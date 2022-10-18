@@ -2,11 +2,17 @@ import { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { ParsedItem } from '../../helpersFunc/parseResponseItems';
 import GlassElement from '../GlassElement';
+import { actionsDataOfStaredItems } from '../../store/dataOfStaredItemsSlice';
+import { useAppDispatch } from '../../store/hooks';
 
 const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
-    const [activeStatus, setActiveStatus] = useState('inActive')
+    const [activeStatus, setActiveStatus] = useState('inActive');
+    const dispatch = useAppDispatch();
+
     const activeStatusHandler = () => {
         const newStatus = activeStatus === 'active' ? 'inActive' : 'active';
+        const action = activeStatus === 'active' ? 'removeItem' : 'addItem'
+        dispatch(actionsDataOfStaredItems[action]({id: item.id}))
         setActiveStatus(newStatus);
     }
     return (

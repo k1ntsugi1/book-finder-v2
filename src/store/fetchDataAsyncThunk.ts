@@ -24,7 +24,7 @@ interface ResultOfSearching {
     searchParams: DataOfSearchingParams,
 }
 
-interface ThunkAPI {
+export interface ThunkAPI {
     state: RootState,
     dispatch: AppDispatch,
     rejectValue: {

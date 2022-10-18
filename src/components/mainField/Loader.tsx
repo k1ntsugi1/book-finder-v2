@@ -11,6 +11,7 @@ const Loader: React.FC = () => {
     const { totalItems } = useAppSelector(store => store.resultOfSearching);
     const pagesCount = Math.floor(totalItems / maxResults);
     const classnamesOfButton = cn('border');
+    
     const stylesOfBtn = {
         'border': '1px solid var(--color-text)',
         'border-radius': '0'
