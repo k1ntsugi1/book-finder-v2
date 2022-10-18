@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
             </div>
             
             
-            <div className="wrapper">
+            {/* <div className="wrapper">
                 <div className="book ">
                     <div className="plainList1">
                         <div className="plainList2">
@@ -67,7 +67,7 @@ const HomePage: React.FC = () => {
                     </div>
 
                 </div>
-            </div>
+            </div> */}
 
         </div>
     )
