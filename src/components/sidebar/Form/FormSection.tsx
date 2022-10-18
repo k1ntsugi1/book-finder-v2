@@ -13,6 +13,7 @@ import GlassElement from '../../GlassElement'
 import { useNavigate } from "react-router-dom";
 
 import { actionsResultOfSearching } from '../../../store/resultOfSearchingSlice'
+import { actionsUiActiveElementsOfSidebar }from "../../../store/uiActiveElementsOfSidebar";
 
 interface FormProps {
     showStateOfForm: string,
@@ -82,6 +83,7 @@ const FormSection: React.FC<FormProps> = (props) => {
             }
             appDispatch(fetchDataAsyncThunk(searchParams));
             appDispatch(actionsResultOfSearching.removeItems());
+            appDispatch(actionsUiActiveElementsOfSidebar.setActivePage({page: 'result'}))
             navigate('/result');
         },
     })
