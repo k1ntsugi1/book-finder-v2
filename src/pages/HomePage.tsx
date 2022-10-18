@@ -1,7 +1,7 @@
 const HomePage: React.FC = () => {
     return (
-        <div className="p-5 d-flex justify-content-between w-100 fs-4" style={{ 'color': 'var(--color-text)' }}>
-            <div className="d-flex flex-column justify-content-between gap-5">
+        <div className="p-5 d-flex justify-content-between w-75 h-75 fs-4" style={{ 'color': 'var(--color-text)' }}>
+            <div className="d-flex flex-column justify-content-between gap-3">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-house" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
@@ -40,11 +40,17 @@ const HomePage: React.FC = () => {
             </div>
             <div className="wrapper">
                 <div className="book ">
-                    <div className="plainList1 m-0">
-                        <div className="plainList2 m-0">
-                            <div className="list1 list m-0"></div>
-                            <div className="list2 list m-0"></div>
-                            <div className="list3 list m-0"></div>
+                    <div className="plainList1">
+                        <div className="plainList2">
+                            <div className="list1 list text-break">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,  irure dolor in reprehenderit
+                            </div>
+                            <div className="list2 list text-break">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,  irure dolor in reprehenderit
+                            </div>
+                            <div className="list3 list text-break">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,  irure dolor in reprehenderit
+                            </div>
                         </div>
                     </div>
 

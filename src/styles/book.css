@@ -1,7 +1,8 @@
 .wrapper {
   perspective: 800px;
-  width: 400px;
+  width: 200px;
   height: 100px;
+  margin-left: auto;
 }
 .wrapper .book {
   transform-style: preserve-3d;
@@ -44,6 +45,7 @@
   transform-origin: left center;
   border-radius: 0 10% 10% 0;
   border: 1px solid black;
+  font-size: 10px;
 }
 .wrapper .book .plainList1 .plainList2 .list1 {
   animation: rotare-animation 6s infinite;
