@@ -1,4 +1,4 @@
-import { createSlice, createEntityAdapter  } from "@reduxjs/toolkit";
+import { createSlice, createEntityAdapter, PayloadAction  } from "@reduxjs/toolkit";
 import fetchDataAsyncThunk from './fetchDataAsyncThunk';
 import { actionsDataOfSearching } from './dataOfSearching';
 import { RootState } from "./index";
@@ -6,11 +6,13 @@ import { ParsedItem } from '../helpersFunc/parseResponseItems'
 
 interface IInitialState {
     totalItems: number
+    activeItemId: string | null
 }
 
 const entityAdapterOfResult = createEntityAdapter<ParsedItem>();
 const initialState: IInitialState = {
-    totalItems: 0
+    totalItems: 0,
+    activeItemId: null,
 }
 
 const resultOfSearchingSlice = createSlice({
@@ -20,6 +22,9 @@ const resultOfSearchingSlice = createSlice({
         removeItems(state) {
             state.totalItems = 0;
             entityAdapterOfResult.removeAll(state);
+        },
+        setActiveItem(state, action: PayloadAction<{id: string}>) {
+            state.activeItemId = action.payload.id;
         }
     },
     extraReducers: (builder) => {

@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import ResultOfSearchingPage from './pages/ResultOfSearchingPage';
 import StaredItemsPage from './pages/StaredItemsPage';
+import ItemPage from './pages/ItemPage';
 
 const App: React.FC = () => {
   const [typeOfItems, setNewTypeOfItems] = useState<string>('default');
@@ -37,6 +38,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/result" element={<ResultOfSearchingPage typeOfItems={typeOfItems}/>} />
+          <Route path="/item" element={<ItemPage />} />
           <Route path="/stared" element={<StaredItemsPage typeOfItems={typeOfItems}/>}></Route>
           {/* <Route path="*" element={<UndefinedPage />} /> */}
         </Routes>

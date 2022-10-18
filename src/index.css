@@ -67,11 +67,13 @@ body {
   width: 0
 }
 
-.typing-text {
-  overflow:hidden;
-  width: 4ch;
-  animation: type 5s steps(4);
+.blinking {
+  display: inline-block;
+
+  animation: blinking 0.5s step-start infinite;
 }
-@keyframes type{
-  from { width: 0; }
+
+@keyframes blinking {
+  50% {opacity: 1;}
+  100% {opacity: 0;}
 }

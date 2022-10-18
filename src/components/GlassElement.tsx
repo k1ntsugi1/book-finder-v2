@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 interface IGlassElement {
     classesOfContainer?: string,
     classesOfFrontFace?: string,
+    classesOfBackFace?: string,
     showState?: string,
     hovering?: boolean, 
     stylesOfContainer?: {
@@ -21,6 +22,7 @@ const GlassElement: React.FC<IGlassElement> = (props) => {
     const {
         classesOfContainer,
         classesOfFrontFace,
+        classesOfBackFace,
         stylesOfContainer,
         stylesOfFrontFace,
         children,
@@ -46,6 +48,7 @@ const GlassElement: React.FC<IGlassElement> = (props) => {
     }
     const classesOfContainerGlass = cn('container-glass',classesOfContainer)
     const classesOfFrontFaceGlass = cn('front-face-of-glass', classesOfFrontFace)
+    const classesOfBackFaceGlass = cn('back-face-of-glass', classesOfBackFace)
     return (
         <div 
             className={classesOfContainerGlass}
@@ -55,7 +58,7 @@ const GlassElement: React.FC<IGlassElement> = (props) => {
             // onMouseOut={outHandler}
         >
             
-            <div className="back-face-of-glass"></div>
+            <div className={classesOfBackFaceGlass}></div>
             <div className={classesOfFrontFaceGlass} style={stylesOfFrontFace}>
                 {children}
             </div>

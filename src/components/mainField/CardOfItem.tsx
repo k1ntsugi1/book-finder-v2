@@ -4,15 +4,22 @@ import { ParsedItem } from '../../helpersFunc/parseResponseItems';
 import GlassElement from '../GlassElement';
 import { actionsDataOfStaredItems } from '../../store/dataOfStaredItemsSlice';
 import { useAppDispatch } from '../../store/hooks';
+import { useAppSelector } from '../../store/hooks';
+
+import { actionsResultOfSearching } from '../../store/resultOfSearchingSlice';
+import { useNavigate } from 'react-router-dom';
 
 const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
-    const [activeStatus, setActiveStatus] = useState('inActive');
-    const dispatch = useAppDispatch();
+    const { ids } = useAppSelector(store => store.dataOfStaredItems);
+    const initialState = ids.includes(item.id) ? 'active' : 'inActive'
+    const [activeStatus, setActiveStatus] = useState(initialState);
+    const appDispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const activeStatusHandler = () => {
         const newStatus = activeStatus === 'active' ? 'inActive' : 'active';
         const action = activeStatus === 'active' ? 'removeItem' : 'addItem'
-        dispatch(actionsDataOfStaredItems[action]({id: item.id}))
+        appDispatch(actionsDataOfStaredItems[action]({id: item.id}))
         setActiveStatus(newStatus);
     }
     return (
@@ -28,7 +35,12 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
                 'height': '200px',
             }}
         >
-            <Card className="h-100 bg-transparent">
+            <Card className="h-100 bg-transparent"
+                  onClick={() => {
+                    appDispatch(actionsResultOfSearching.setActiveItem({id: item.id}));
+                    navigate('/item')
+                  }}
+            >
                 <div className='mx-3 d-flex flex-noWrap justify-content-around'>
                     <Card.Img variant="top" src={item.imgUrl} className="mt-3 w-50 shadow-lg" alt="imgBook" style={{ width: '100px', height: '100px' }} />
                     <div className="mt-3 ms-auto inline-block position-relative">

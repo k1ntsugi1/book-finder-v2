@@ -1,3 +1,4 @@
+
 const HomePage: React.FC = () => {
     return (
         <div className="p-5 d-flex justify-content-between w-75 h-75 fs-4" style={{ 'color': 'var(--color-text)' }}>
@@ -38,18 +39,29 @@ const HomePage: React.FC = () => {
                     <span> - styling section</span>
                 </div>
             </div>
+            
+            
             <div className="wrapper">
                 <div className="book ">
                     <div className="plainList1">
                         <div className="plainList2">
-                            <div className="list1 list text-break">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,  irure dolor in reprehenderit
+                            <div className="list1 list">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> 
+                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                             </div>
-                            <div className="list2 list text-break">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,  irure dolor in reprehenderit
+                            <div className="list2 list">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> 
+                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                             </div>
-                            <div className="list3 list text-break">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,  irure dolor in reprehenderit
+                            <div className="list3 list">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> 
+                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                             </div>
                         </div>
                     </div>

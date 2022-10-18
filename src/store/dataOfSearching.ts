@@ -19,7 +19,7 @@ const initialState: InitialState  = {
         startIndex: 0,
         maxResults: 30,
     },
-    statusOfLoading: '',
+    statusOfLoading: 'fulfilled',
     statusOfError: '',
     searchParams: {
         currentNameOfItem: '',
