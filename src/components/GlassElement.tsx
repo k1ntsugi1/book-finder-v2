@@ -6,7 +6,8 @@ interface IGlassElement {
     classesOfFrontFace?: string,
     classesOfBackFace?: string,
     showState?: string,
-    hovering?: boolean, 
+    hovering?: boolean,
+    showingElement?: React.RefObject<HTMLDivElement>,
     stylesOfContainer?: {
         [key: string]: string,
     },
@@ -27,7 +28,8 @@ const GlassElement: React.FC<IGlassElement> = (props) => {
         stylesOfFrontFace,
         children,
         showState,
-        hovering
+        hovering,
+        showingElement,
     } = props;
 
     useEffect(() => {
@@ -36,14 +38,15 @@ const GlassElement: React.FC<IGlassElement> = (props) => {
         }, 400);
         if (showState === 'visible') refGlassElement.current!.style.visibility = '';
     }, [showState])
+
     const overHandler = () => {
-        if (hovering) {
-            refGlassElement.current!.style.transform = 'scale(1.055)';
+        if (hovering && showingElement) {
+            showingElement.current!.style.visibility = 'visible';
         }
     }
     const outHandler = () => {
-        if (hovering) {
-            refGlassElement.current!.style.transform = 'scale(1)';
+        if (hovering && showingElement) {
+            showingElement.current!.style.visibility = 'hidden';
         }
     }
     const classesOfContainerGlass = cn('container-glass',classesOfContainer)
@@ -54,8 +57,8 @@ const GlassElement: React.FC<IGlassElement> = (props) => {
             className={classesOfContainerGlass}
             style={stylesOfContainer}
             ref={refGlassElement}
-            // onMouseOver={overHandler}
-            // onMouseOut={outHandler}
+            onMouseOver={overHandler}
+            onMouseOut={outHandler}
         >
             
             <div className={classesOfBackFaceGlass}></div>

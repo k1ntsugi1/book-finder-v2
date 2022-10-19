@@ -6,11 +6,14 @@ import { Form, Button, Accordion } from 'react-bootstrap';
 import { useImmerReducer } from "use-immer";
 import RotateCard from '../../RotateCard';
 
+import { actionsUiNotification } from '../../../store/uiNotificationSlice';
+
 import DefaultImageBackground from '../../../assets/images/back2.jpg'
 
 import GlassElement from '../../GlassElement';
 
 import saveOptionsOfStyleHandler from '../../../helpersFunc/saveOptionsOfStyleHandler'
+import { useAppDispatch } from '../../../store/hooks';
 
 interface IResponseData {
     data: {
@@ -95,7 +98,7 @@ const BrushSection: React.FC<BrushProps> = (props) => {
     const uploadFileRef = useRef<HTMLInputElement>(null)
     const { showStateOfBrush } = props;
     const [state, dispatchImmer] = useImmerReducer(reducer, initialState);
-
+    const appDispatch = useAppDispatch();
     const classnamesOfBrushSection = cn(
         'bg-transparent',
         'vw-20',
@@ -258,14 +261,16 @@ const BrushSection: React.FC<BrushProps> = (props) => {
             <RotateCard
                 classnames={classnamesOfRotateCard}
                 backFaceOfCard={
-                    <Form.Control
-                        className="w-75"
-                        type="color"
-                        name="textColor"
-                        value={state.colors.textColor}
-                        onChange={(event) => dispatchImmer({ type: 'updateTextColor', value: event.target.value })}
-                        aria-label="select-color"
-                    />
+                    <>
+                        <Form.Control
+                            className="w-75"
+                            type="color"
+                            name="textColor"
+                            value={state.colors.textColor}
+                            onChange={(event) => dispatchImmer({ type: 'updateTextColor', value: event.target.value })}
+                            aria-label="select-color"
+                        />
+                    </>
                 }
                 frontFaceOfCard={
                     <Form.Label>Select text color</Form.Label>
@@ -290,13 +295,20 @@ const BrushSection: React.FC<BrushProps> = (props) => {
             />
             <Button
                 className="w-75 bg-transparent border-0"
-                onClick={() => saveOptionsOfStyleHandler(state)}
+                onClick={() => {
+                    saveOptionsOfStyleHandler(state);
+                    appDispatch(actionsUiNotification.show({ message: 'saved', type: 'success', statusOfVisibility: 'visible' }))
+                }}
+
             >
                 Save
             </Button>
             <Button
                 className="bg-transparent border-0"
-                onClick={() => { dispatchImmer({ type: 'reset' }) }}
+                onClick={() => {
+                    dispatchImmer({ type: 'reset' });
+                    appDispatch(actionsUiNotification.show({ message: 'reseted', type: 'success', statusOfVisibility: 'visible' }))
+                }}
             >
                 Reset all params
             </Button>
