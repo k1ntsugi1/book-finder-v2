@@ -1,17 +1,13 @@
 import { Form } from 'react-bootstrap';
-import { Props } from './FormSection';
+import { ISearchItemsProps } from '../interfaces';
 
-const SubjectSection: React.FC<Props> = (props) => {
+import { useContextOfSearchOprions } from '../context/useContextOfSearchOptions';
+
+const SubjectItem: React.FC<ISearchItemsProps> = (props) => {
+
     const { values: { currentTypeOfCategory },  handleChange } = props.formik;
-    const typesOfCategory = [
-        'all',
-        'art',
-        'biography',
-        'computers',
-        'history',
-        'medical',
-        'poetry'
-    ];
+    const { typesOfCategory } = useContextOfSearchOprions();
+
     return (
         <Form.Group>
             <Form.Label>select categories</Form.Label>
@@ -35,4 +31,4 @@ const SubjectSection: React.FC<Props> = (props) => {
     )
 }
 
-export default SubjectSection;
+export default SubjectItem;

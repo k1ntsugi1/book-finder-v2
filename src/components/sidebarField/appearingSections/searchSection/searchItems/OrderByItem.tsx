@@ -1,12 +1,13 @@
 import { Form } from 'react-bootstrap';
-import { Props } from './FormSection';
+import { ISearchItemsProps } from '../interfaces';
 
-const OrderBySection: React.FC<Props> = (props) => {
+import { useContextOfSearchOprions } from '../context/useContextOfSearchOptions';
+
+const OrderByItem: React.FC<ISearchItemsProps> = (props) => {
+    
     const { values: { currentTypeOfOrder },  handleChange } = props.formik;
-    const typesOfOrder = [
-        'newest',
-        'relevance',
-    ];
+    const { typesOfOrder } = useContextOfSearchOprions();
+
     return (
         <Form.Group>
             <Form.Label>select type of sort</Form.Label>
@@ -31,4 +32,4 @@ const OrderBySection: React.FC<Props> = (props) => {
     )
 }
 
-export default OrderBySection;
+export default OrderByItem;

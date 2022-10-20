@@ -1,7 +1,7 @@
 import fetchDataAsyncThunk from "../../store/fetchDataAsyncThunk";
 import cn from 'classnames'
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { actionsDataOfSearching } from "../../store/dataOfSearching";
+import { actionsDataOfSearching } from "../../store/dataOfSearchingSlice";
 import { actionsResultOfSearching } from "../../store/resultOfSearchingSlice";
 import { Button } from 'react-bootstrap';
 

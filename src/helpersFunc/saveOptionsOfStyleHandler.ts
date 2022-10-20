@@ -1,6 +1,6 @@
-import { IInitialStateImmer } from "../components/sidebar/brush/BrushSection";
+import { IInitialStateImmer } from "../components/sidebarField/appearingSections/stylingSection/interfaces";
 
-const saveOptionsOfStyleHandler = (state:IInitialStateImmer): void => {
+const saveOptionsOfStyleHandler = (state: IInitialStateImmer): void => {
     const {
         images: {
             activeImage,
@@ -13,7 +13,7 @@ const saveOptionsOfStyleHandler = (state:IInitialStateImmer): void => {
             textColor,
             scrollLoaderColor,
         },
-        stateOfBackground,
+        stateOfBodyBackground,
 
     } = state;
 
@@ -22,7 +22,7 @@ const saveOptionsOfStyleHandler = (state:IInitialStateImmer): void => {
     localStorage.setItem('cardColor', cardColor);
     localStorage.setItem('textColor', textColor);
     localStorage.setItem('scrollLoaderColor', scrollLoaderColor);
-    localStorage.setItem('stateOfBackground', stateOfBackground);
+    localStorage.setItem('stateOfBackground', stateOfBodyBackground);
     localStorage.setItem('activeImage', activeImage);
     localStorage.setItem('bodyImages', JSON.stringify(bodyImages));
 }

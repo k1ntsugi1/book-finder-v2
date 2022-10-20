@@ -1,49 +1,30 @@
-import Sidebar from './components/sidebar/SideBar';
-import { useEffect, useRef, useState } from 'react';
-import { useAppDispatch } from './store/hooks';
-import GlassElement from './components/GlassElement';
-import scrollHandler from './helpersFunc/scrollHandler';
+import { useState } from 'react';
+import { useAppSelector } from './store/hooks';
 
-import { Routes, Route } from "react-router-dom";
-import HomePage from './pages/HomePage';
-import ResultOfSearchingPage from './pages/ResultOfSearchingPage';
-import StaredItemsPage from './pages/StaredItemsPage';
-import ItemPage from './pages/ItemPage';
+import SidebarField from './components/sidebarField/SidebarField';
+import MainField from './components/mainField/MainField';
+import Notification from './components/Notification'
+
 
 const App: React.FC = () => {
+
   const [typeOfItems, setNewTypeOfItems] = useState<string>('default');
-
-  const ref = useRef<HTMLDivElement>(null);
-  const appDispatch = useAppDispatch();
-
-  useEffect(() => {
-    const element = ref.current!;
-
-    const scrollListener = () => { scrollHandler(element, appDispatch) };
-
-    element.addEventListener('scroll', scrollListener);
-    return () => { element.removeEventListener('scroll', scrollListener) };
-
-  }, []);
+  const { message, type, statusOfVisibility } = useAppSelector(store => store.uiNotificationSlice)
 
   return (
-    <GlassElement
-      classesOfContainer='container-fluid h-100 overflow-hidden'
-      classesOfFrontFace='m-0 h-100 row'
-    >
-      <Sidebar setNewTypeOfItems={setNewTypeOfItems} />
-      <div
-        className='scroll-elem col py-3 h-100 d-flex justify-content-around flex-wrap gap-2 overflow-auto' ref={ref}
-      >
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/result" element={<ResultOfSearchingPage typeOfItems={typeOfItems}/>} />
-          <Route path="/item" element={<ItemPage />} />
-          <Route path="/stared" element={<StaredItemsPage typeOfItems={typeOfItems}/>}></Route>
-          {/* <Route path="*" element={<UndefinedPage />} /> */}
-        </Routes>
+    <div className="p-0 container-fluid h-100 overflow-hidden">
+
+      <div className='row h-100'>
+        <SidebarField setNewTypeOfItems={setNewTypeOfItems} />
+        <MainField typeOfItems={typeOfItems} />
       </div>
-    </GlassElement>
+
+      <Notification 
+        message={message} 
+        type={type} 
+        visibilityStatus={statusOfVisibility}
+      />
+    </div>
   );
 }
 

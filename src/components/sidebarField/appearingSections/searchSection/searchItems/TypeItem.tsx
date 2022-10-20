@@ -1,13 +1,13 @@
 import { Form } from 'react-bootstrap';
-import { Props } from './FormSection';
+import { ISearchItemsProps } from '../interfaces';
 
-const TypeSection: React.FC<Props> = (props) => {
+import { useContextOfSearchOprions } from '../context/useContextOfSearchOptions';
+
+const TypeItem: React.FC<ISearchItemsProps> = (props) => {
+    
     const { values: { currentTypeOfItem }, handleChange } = props.formik;
-    const typesOfItem = [
-        'all',
-        'books',
-        'magazines'
-    ];
+    const { typesOfItem } = useContextOfSearchOprions();
+
     return (
         <Form.Group>
             <Form.Label>select type</Form.Label>
@@ -32,4 +32,4 @@ const TypeSection: React.FC<Props> = (props) => {
     )
 }
 
-export default TypeSection;
+export default TypeItem;

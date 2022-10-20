@@ -1,16 +1,12 @@
 import { Form } from 'react-bootstrap';
-import { Props } from './FormSection';
+import { ISearchItemsProps } from '../interfaces';
 
-const FilteringSection: React.FC<Props> = (props) => {
+import { useContextOfSearchOprions } from '../context/useContextOfSearchOptions';
+
+const FilterItem: React.FC<ISearchItemsProps> = (props) => {
+    
     const { values: { currentTypeOfFilter },  handleChange } = props.formik;
-
-    const typesOfFilter = [
-        'partial',
-        'full',
-        'free-ebooks',
-        'paid-ebooks',
-        'ebooks'
-    ];
+    const { typesOfFilter } = useContextOfSearchOprions();
 
     return (
         <Form.Group>
@@ -35,4 +31,4 @@ const FilteringSection: React.FC<Props> = (props) => {
     )
 }
 
-export default FilteringSection
+export default FilterItem

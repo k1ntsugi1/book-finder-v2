@@ -77,3 +77,115 @@ body {
   50% {opacity: 1;}
   100% {opacity: 0;}
 }
+
+.notification {
+  opacity: 1;
+  border-radius: 4px;
+  -webkit-animation: fadeOut 0.1s linear;
+          animation: fadeOut 0.1s linear;
+  display: none;
+  position: fixed;
+  right: 75px;
+  bottom: 75px;
+  z-index: 10000;
+}
+
+.notification.show {
+  display: block;
+  -webkit-animation: fadeIn 0.1s linear;
+          animation: fadeIn 0.1s linear;
+}
+
+.notification-content {
+  padding: 16px 24px 16px 64px;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--white);
+  position: relative;
+}
+
+.notification.notification-success .notification-content:after,
+.notification.notification-error .notification-content:after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translate(0, -50%);
+  background-size: 24px 24px;
+}
+
+.notification.notification-success .notification-content:after {
+  background: url(./assets/svg/check-all.svg) center no-repeat;
+}
+
+.notification.notification-error .notification-content:after {
+  background: url(./assets/svg/heartbreak.svg) center no-repeat;
+} 
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+
+.slider {
+  margin-left: 10px;
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.slider-line {
+  position: relative;
+  width: 100px;
+  height: 2px;
+  background: blue;
+  margin-left: 5px;
+  margin-right: 5px;
+
+}
+
+.slider-runner {
+  width: 10px;
+  height: 10px;
+  background: gray;
+  border-radius: 50%; 
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+}

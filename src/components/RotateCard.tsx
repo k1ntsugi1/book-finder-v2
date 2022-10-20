@@ -18,7 +18,7 @@ const RotateCard: React.FC<IRotateCard> = (props) => {
             <div className="rotate-card back-face-of-card centered-content">
                 {backFaceOfCard}
             </div>
-            <div className="rotate-card front-face-of-card centered-content" style={{ 'background': 'var(--color-sidebar)' }}>
+            <div className="rotate-card front-face-of-card centered-content">
                 {frontFaceOfCard}
             </div>
         </div>

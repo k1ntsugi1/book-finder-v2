@@ -2,13 +2,13 @@ import cn from 'classnames';
 import { useEffect, useRef } from 'react';
 
 interface IGlassElement {
-    classesOfContainer?: string,
+    className?: string,
     classesOfFrontFace?: string,
     classesOfBackFace?: string,
     showState?: string,
     hovering?: boolean,
     showingElement?: React.RefObject<HTMLDivElement>,
-    stylesOfContainer?: {
+    style?: {
         [key: string]: string,
     },
     stylesOfFrontFace?: {
@@ -21,10 +21,10 @@ const GlassElement: React.FC<IGlassElement> = (props) => {
     const refGlassElement = useRef<HTMLDivElement>(null);
 
     const {
-        classesOfContainer,
+        className,
         classesOfFrontFace,
         classesOfBackFace,
-        stylesOfContainer,
+        style,
         stylesOfFrontFace,
         children,
         showState,
@@ -49,22 +49,22 @@ const GlassElement: React.FC<IGlassElement> = (props) => {
             showingElement.current!.style.visibility = 'hidden';
         }
     }
-    const classesOfContainerGlass = cn('container-glass',classesOfContainer)
-    const classesOfFrontFaceGlass = cn('front-face-of-glass', classesOfFrontFace)
-    const classesOfBackFaceGlass = cn('back-face-of-glass', classesOfBackFace)
+    const classesOfContainerGlass = cn('container-glass',className)
+    // const classesOfFrontFaceGlass = cn('front-face-of-glass', classesOfFrontFace)
+    // const classesOfBackFaceGlass = cn('back-face-of-glass', classesOfBackFace)
     return (
         <div 
             className={classesOfContainerGlass}
-            style={stylesOfContainer}
+            style={style}
             ref={refGlassElement}
             onMouseOver={overHandler}
             onMouseOut={outHandler}
         >
             
-            <div className={classesOfBackFaceGlass}></div>
-            <div className={classesOfFrontFaceGlass} style={stylesOfFrontFace}>
+            {/* <div className={classesOfBackFaceGlass}></div>
+            <div className={classesOfFrontFaceGlass} style={stylesOfFrontFace}> */}
                 {children}
-            </div>
+            {/* </div> */}
         </div>
 
     )

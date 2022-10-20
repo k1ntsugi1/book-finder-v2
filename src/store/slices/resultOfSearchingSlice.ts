@@ -1,6 +1,6 @@
 import { createSlice, createEntityAdapter, PayloadAction  } from "@reduxjs/toolkit";
 import fetchDataAsyncThunk from './fetchDataAsyncThunk';
-import { actionsDataOfSearching } from './dataOfSearching';
+import { actionsDataOfSearching } from './dataOfSearchingSlice';
 import { RootState } from "./index";
 import { ParsedItem } from '../helpersFunc/parseResponseItems'
 

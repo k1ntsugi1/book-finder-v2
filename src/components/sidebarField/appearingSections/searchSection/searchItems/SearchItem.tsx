@@ -1,8 +1,14 @@
 import { Form } from 'react-bootstrap';
-import { Props } from './FormSection';
+import { ISearchItemsProps } from '../interfaces';
 
-const SearchSection: React.FC<Props> = (props) => {
-    const { values: { currentNameOfItem, currentAuthorOfItem }, errors, handleChange } = props.formik;
+const SearchItem: React.FC<ISearchItemsProps> = (props) => {
+
+    const { 
+        values: { currentNameOfItem, currentAuthorOfItem },
+        errors,
+        handleChange 
+    } = props.formik;
+
     return (
         <>
             <Form.Group>
@@ -30,4 +36,4 @@ const SearchSection: React.FC<Props> = (props) => {
     )
 }
 
-export default SearchSection;
+export default SearchItem;
