@@ -6,6 +6,7 @@ const ProviderOfSearchOptions: React.FC<{children: React.ReactNode}> = (props) =
 
     const searchOptions = {
         typesOfFilter: [
+            'all',
             'partial',
             'full',
             'free-ebooks',
@@ -13,6 +14,7 @@ const ProviderOfSearchOptions: React.FC<{children: React.ReactNode}> = (props) =
             'ebooks'
         ],
         typesOfOrder: [
+            'all',
             'newest',
             'relevance',
         ],

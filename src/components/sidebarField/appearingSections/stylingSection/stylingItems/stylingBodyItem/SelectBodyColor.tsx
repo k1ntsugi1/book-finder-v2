@@ -11,7 +11,7 @@ const SelectBodyColor: React.FC<IStylingBodyItemProps> = (props) => {
             classnames={classNamesOfRotatingCard}
             backFaceOfCard={
                 <Form.Control
-                    className="w-75"
+                    className="w-75 mx-auto"
                     type="color"
                     name="bodyColor"
                     value={stateImmer.colors.bodyColor}
@@ -20,7 +20,7 @@ const SelectBodyColor: React.FC<IStylingBodyItemProps> = (props) => {
                 />
             }
             frontFaceOfCard={
-                <Form.Label>Select body color</Form.Label>
+                <Form.Label className="ms-3">Select body color</Form.Label>
             }
         />
     )

@@ -5,11 +5,17 @@ import { useContextOfSearchOprions } from '../context/useContextOfSearchOptions'
 
 const OrderByItem: React.FC<ISearchItemsProps> = (props) => {
     
-    const { values: { currentTypeOfOrder },  handleChange } = props.formik;
+    const { 
+            formik: { 
+                values: { currentTypeOfOrder },  handleChange
+            },
+            className 
+        } = props;
+        
     const { typesOfOrder } = useContextOfSearchOprions();
 
     return (
-        <Form.Group>
+        <Form.Group className={className}>
             <Form.Label>select type of sort</Form.Label>
             <Form.Select
                 size="sm"

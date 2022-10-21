@@ -198,7 +198,7 @@ body {
   height: 100%;
   z-index: -10;
   /* background: linear-gradient(145deg, white 40%, #001eff); */
-  filter: blur(12px);
+  /* filter: blur(12px); */
 }
 
 .container-color {
@@ -229,7 +229,7 @@ body {
 }
 
 .color-3 {
-  background-color: cornflowerblue;
+  background-color: #f7f7f7;
   animation: TranslateBottomTop 5s ease infinite,
   /* TranslateLeftRight 5s ease infinite; */
 }
@@ -271,4 +271,8 @@ body {
 
 .w-200px {
   width: 200px;
+}
+
+.accordion-header > button {
+  padding-left: 0;
 }

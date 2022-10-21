@@ -5,11 +5,17 @@ import { useContextOfSearchOprions } from '../context/useContextOfSearchOptions'
 
 const FilterItem: React.FC<ISearchItemsProps> = (props) => {
     
-    const { values: { currentTypeOfFilter },  handleChange } = props.formik;
+    const { 
+            formik: {
+                values: { currentTypeOfFilter },
+                handleChange
+            },
+            className
+        } = props;
     const { typesOfFilter } = useContextOfSearchOprions();
 
     return (
-        <Form.Group>
+        <Form.Group className={className}>
             <Form.Label>type of book</Form.Label>
             <Form.Select
                 size="sm"

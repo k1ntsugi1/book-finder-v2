@@ -39,9 +39,10 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
         TypeItem
     ]
 
-    const classnamesOfListGroupItems = cn('bg-transparent border-0');
+    const classnamesOfItems = cn('ms-3 w-75 bg-transparent border-0 px-0');
 
     const classnamesOfFormSection = cn(
+        'pt-3',
         'h-100',
         'vw-20',
         'transitionSidebar',
@@ -96,23 +97,25 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
                 style={{ 'background': 'var(--color-sidebar)' }}
                 ref={formRef}
             >
-                <ListGroup style={{ 'color': 'var(--color-text)' }} className="d-flex flex-column align-items-start">
+                <div style={{ 'color': 'var(--color-text)' }} className="d-flex flex-column align-items-start gap-2">
 
                     {formItems.map((Item, index) => (
-                        <ListGroup.Item className={classnamesOfListGroupItems}>
-                            <Item key={index} formik={formik} />
-                        </ListGroup.Item>
+
+                        <Item key={index} formik={formik} className={classnamesOfItems} />
+
                     ))}
+                    <div className="mx-auto d-flex flex-column align-items-center">
 
-                    <ListGroup.Item className={classnamesOfListGroupItems}>
                         <Button type="submit" className="bg-transparent border-0">Submit</Button>
-                    </ListGroup.Item>
 
-                    <ListGroup.Item className={classnamesOfListGroupItems}>
+
+
                         <Button className="bg-transparent border-0">reset all params</Button>
-                    </ListGroup.Item>
 
-                </ListGroup>
+                    </div>
+
+
+                </div>
             </Form>
         </ProviderOfSearchOptions>
 

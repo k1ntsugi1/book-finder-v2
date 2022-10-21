@@ -9,7 +9,7 @@ const StylingScrollLoaderItem: React.FC<IStylingItemProps> = (props) => {
             classnames={classNamesOfRotatingCard}
             backFaceOfCard={
                 <Form.Control
-                    className="w-75"
+                    className="w-75 mx-auto"
                     type="color"
                     name="scrollLoaderColor"
                     value={stateImmer.colors.scrollLoaderColor}

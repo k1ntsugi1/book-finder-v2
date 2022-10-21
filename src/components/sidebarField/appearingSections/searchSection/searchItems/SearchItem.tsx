@@ -4,14 +4,17 @@ import { ISearchItemsProps } from '../interfaces';
 const SearchItem: React.FC<ISearchItemsProps> = (props) => {
 
     const { 
-        values: { currentNameOfItem, currentAuthorOfItem },
-        errors,
-        handleChange 
-    } = props.formik;
+        formik: {
+            values: { currentNameOfItem, currentAuthorOfItem },
+            errors,
+            handleChange
+        },
+        className
+    } = props;
 
     return (
         <>
-            <Form.Group>
+            <Form.Group className={className}>
                 <Form.Label>Enter Book-name</Form.Label>
                 <Form.Control
                     type="text"
@@ -22,7 +25,8 @@ const SearchItem: React.FC<ISearchItemsProps> = (props) => {
                     placeholder="enter Book-name" 
                     isInvalid={!!errors.currentNameOfItem}/>
             </Form.Group>
-            <Form.Group>
+            
+            <Form.Group className={className}>
                 <Form.Label>Enter Author</Form.Label>
                 <Form.Control
                     type="text"

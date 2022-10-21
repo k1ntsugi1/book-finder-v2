@@ -5,11 +5,17 @@ import { useContextOfSearchOprions } from '../context/useContextOfSearchOptions'
 
 const SubjectItem: React.FC<ISearchItemsProps> = (props) => {
 
-    const { values: { currentTypeOfCategory },  handleChange } = props.formik;
+    const { 
+            formik: {
+                values: { currentTypeOfCategory },
+                handleChange 
+            },
+            className
+        } = props;
     const { typesOfCategory } = useContextOfSearchOprions();
 
     return (
-        <Form.Group>
+        <Form.Group className={className}>
             <Form.Label>select categories</Form.Label>
             <Form.Select 
                 size="sm"

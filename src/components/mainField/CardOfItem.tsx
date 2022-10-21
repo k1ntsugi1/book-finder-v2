@@ -38,7 +38,7 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
             showingElement={refOfWrapper}
             className='border rounded'
             style={{
-                'background': 'var(--color-card)',
+                // 'background': 'var(--color-card)',
                 'color': 'var(--color-text)',
                 'width': '200px',
                 'height': '200px',

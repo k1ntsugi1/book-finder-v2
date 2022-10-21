@@ -10,7 +10,8 @@ export interface IInitialValueOfFormik {
 }
 
 export interface ISearchItemsProps {
-    formik: FormikProps<IInitialValueOfFormik>
+    formik: FormikProps<IInitialValueOfFormik>,
+    className: string,
 }
 
 export interface IContextOfSearchOptions {

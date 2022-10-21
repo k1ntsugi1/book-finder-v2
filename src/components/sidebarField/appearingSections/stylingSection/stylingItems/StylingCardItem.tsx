@@ -9,7 +9,7 @@ const StylingCardItem: React.FC<IStylingItemProps> = (props) => {
             classnames={classNamesOfRotatingCard}
             backFaceOfCard={
                 <Form.Control
-                    className="w-75"
+                    className="w-75 mx-auto"
                     type="color"
                     name="cardColor"
                     value={stateImmer.colors.cardColor}

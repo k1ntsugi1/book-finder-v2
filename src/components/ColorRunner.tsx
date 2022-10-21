@@ -4,6 +4,7 @@ const ColorRunner: React.FC = () => {
         <div 
             className="wrapper-color overflow-hidden"
             style={{'background': 'linear-gradient(145deg, white 40%, var(--color-body))'}}
+            data-element='color-spinner'
         >
             <div className="container-color d-flex justify-content-center flex-wrap">
             <div className='color color-1'></div>

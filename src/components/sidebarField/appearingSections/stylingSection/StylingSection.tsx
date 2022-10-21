@@ -29,6 +29,8 @@ const setVariousOfColorsHandler = (stateImmer: IInitialStateImmer) => {
 
 const setBackgroundBodyImageHandler = (stateImmer: IInitialStateImmer) => {
     const imageLink = stateImmer.images.activeImage;
+    const colorWrapper = document.querySelector('[data-element="color-spinner"]') as HTMLDivElement;
+    if (colorWrapper) colorWrapper.style.visibility = 'hidden';
     document.body.style.setProperty('background-image', `url(${imageLink})`);
     document.body.style.setProperty('background-position', 'center');
     document.body.style.setProperty('background-repeat', 'repeat');
@@ -36,6 +38,8 @@ const setBackgroundBodyImageHandler = (stateImmer: IInitialStateImmer) => {
 }
 
 const setBackgroundBodyColorHandlet = (stateImmer: IInitialStateImmer) => {
+    const colorWrapper= document.querySelector('[data-element="color-spinner"]') as HTMLDivElement;
+    if (colorWrapper) colorWrapper.style.visibility = 'visible';
     document.body.style.setProperty('background', `${stateImmer.colors.bodyColor}`)
 }
 
@@ -50,12 +54,13 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
     const stylingItems = [
         StylingBodyItem,
         StylingSidebarItem,
-        StylingCardItem,
+        // StylingCardItem,
         StylingTextItem,
         StylingScrollLoaderItem
     ]
 
     const classnamesOfBrushSection = cn(
+        'pt-3',
         'h-100',
         'w-200px',
         'd-flex',
@@ -106,26 +111,26 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
                     classNamesOfRotatingCard={classNamesOfRotatingCard}
                 />
             ))}
-
-            <Button
-                className="w-75 bg-transparent border-0"
-                onClick={() => {
-                    saveOptionsOfStyleHandler(stateImmer);
-                    appDispatch(actionsUiNotification.show({ message: 'saved', type: 'success', statusOfVisibility: 'visible' }))
-                }}
-            >
-                Save
-            </Button>
-            <Button
-                className="bg-transparent border-0"
-                onClick={() => {
-                    dispatchImmer({ type: 'reset' });
-                    appDispatch(actionsUiNotification.show({ message: 'reseted', type: 'success', statusOfVisibility: 'visible' }))
-                }}
-            >
-                Reset all params
-            </Button>
-
+            <div className="d-flex flex-column align-items-center justify-content-center">
+                <Button
+                    className="w-75 bg-transparent border-0"
+                    onClick={() => {
+                        saveOptionsOfStyleHandler(stateImmer);
+                        appDispatch(actionsUiNotification.show({ message: 'saved', type: 'success', statusOfVisibility: 'visible' }))
+                    }}
+                >
+                    Save
+                </Button>
+                <Button
+                    className="bg-transparent border-0"
+                    onClick={() => {
+                        dispatchImmer({ type: 'reset' });
+                        appDispatch(actionsUiNotification.show({ message: 'reseted', type: 'success', statusOfVisibility: 'visible' }))
+                    }}
+                >
+                    Reset all params
+                </Button>
+            </div>
         </div >
 
     )

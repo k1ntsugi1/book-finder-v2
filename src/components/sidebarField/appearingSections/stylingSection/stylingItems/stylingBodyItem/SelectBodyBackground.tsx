@@ -5,7 +5,7 @@ const SelectBodyBackground: React.FC<ISelectBodyBackground> = (props) => {
     const { stateImmer, dispatchImmer } = props;
 
     return (
-        <div className="d-flex flex-wrap gap-2">
+        <div className="mt-3 ms-3 d-flex flex-wrap gap-2">
             {stateImmer.images.bodyImages.map(imageURL => {
                 return (
                     <img

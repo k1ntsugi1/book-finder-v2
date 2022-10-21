@@ -10,7 +10,7 @@ const StylingTextItem: React.FC<IStylingItemProps> = (props) => {
             backFaceOfCard={
                 <>
                     <Form.Control
-                        className="w-75"
+                        className="w-75 mx-auto"
                         type="color"
                         name="textColor"
                         value={stateImmer.colors.textColor}
