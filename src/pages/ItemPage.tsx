@@ -1,7 +1,10 @@
-import { useAppSelector } from "../store/hooks";
-import { selectorsResultOfSearching } from "../store/resultOfSearchingSlice";
 import GlassElement from "../components/GlassElement";
 import EmptyResultOfSearching from "../components/mainField/EmptyResultOfSearching";
+
+import { useAppSelector } from "../store/hooks";
+import { selectorsResultOfSearching } from "../store/slices/resultOfSearchingSlice";
+
+
 const ItemPage: React.FC = () => {
     const activeItemId = useAppSelector(store => store.resultOfSearching.activeItemId)
     const item = useAppSelector(store => selectorsResultOfSearching.selectById(store, activeItemId!));
@@ -17,12 +20,11 @@ const ItemPage: React.FC = () => {
             ? <EmptyResultOfSearching />
             : (
                 <GlassElement
-                    stylesOfFrontFace={{
+                    style={{
                         'background': 'var(--color-sidebar)',
                         'color': 'var(--color-text)'
                     }}
-                    classesOfFrontFace="px-4 d-flex flex-column justify-content-around rounded"
-                    classesOfBackFace="rounded"
+                    className="px-4 d-flex flex-column justify-content-around rounded"
                 >
                     <div className="d-flex flex-nowrap justify-content-around gap-4">
                         {

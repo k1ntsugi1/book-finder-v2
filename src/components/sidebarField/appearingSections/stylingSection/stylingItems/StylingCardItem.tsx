@@ -18,7 +18,7 @@ const StylingCardItem: React.FC<IStylingItemProps> = (props) => {
                 />
             }
             frontFaceOfCard={
-                <Form.Label>Select card color</Form.Label>
+                <Form.Label className='ms-3'>Select card color</Form.Label>
             }
         />
     )

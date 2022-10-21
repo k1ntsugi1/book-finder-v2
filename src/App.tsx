@@ -4,7 +4,7 @@ import { useAppSelector } from './store/hooks';
 import SidebarField from './components/sidebarField/SidebarField';
 import MainField from './components/mainField/MainField';
 import Notification from './components/Notification'
-
+import ColorRunner from './components/mainField/ColorRunner';
 
 const App: React.FC = () => {
 
@@ -12,19 +12,24 @@ const App: React.FC = () => {
   const { message, type, statusOfVisibility } = useAppSelector(store => store.uiNotificationSlice)
 
   return (
-    <div className="p-0 container-fluid h-100 overflow-hidden">
+    <>
+      <div className="p-0 container-fluid h-100 overflow-hidden">
 
-      <div className='row h-100'>
-        <SidebarField setNewTypeOfItems={setNewTypeOfItems} />
-        <MainField typeOfItems={typeOfItems} />
+        <div className='row h-100'>
+          <SidebarField setNewTypeOfItems={setNewTypeOfItems} />
+          <MainField typeOfItems={typeOfItems} />
+
+        </div>
+
+        <Notification
+          message={message}
+          type={type}
+          visibilityStatus={statusOfVisibility}
+        />
+
       </div>
-
-      <Notification 
-        message={message} 
-        type={type} 
-        visibilityStatus={statusOfVisibility}
-      />
-    </div>
+      <ColorRunner />
+    </>
   );
 }
 

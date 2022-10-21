@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import fetchDataAsyncThunk from './fetchDataAsyncThunk';
-import { DataOfSearchingParams } from './fetchDataAsyncThunk';
+import fetchDataAsyncThunk from '../fetchDataAsyncThunk';
+import { DataOfSearchingParams } from '../fetchDataAsyncThunk';
 import actionsResultOfSearching from './resultOfSearchingSlice';
 
 interface InitialState {

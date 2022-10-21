@@ -1,8 +1,11 @@
+import { memo } from 'react';
+
 import Spinner from "../components/mainField/Spinner";
 import Loader from "../components/mainField/Loader";
-import { useAppSelector } from "../store/hooks";
 import CardList from "../components/mainField/CardList";
-import { memo } from 'react';
+
+import { useAppSelector } from "../store/hooks";
+
 const ResultOfSearchingPage: React.FC<{ typeOfItems: string }> = (props) => {
     const { typeOfItems } = props;
     const { range: { maxResults }, statusOfLoading } = useAppSelector(store => store.dataOfSearching);

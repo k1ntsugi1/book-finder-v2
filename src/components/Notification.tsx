@@ -2,25 +2,26 @@ import cn from 'classnames'
 import { useEffect } from 'react';
 import { useAppDispatch } from '../store/hooks';
 
-import { actionsUiNotification } from '../store/uiNotificationSlice';
+import { actionsUiNotification } from '../store/slices/uiNotificationSlice';
 
-interface IProps {
-    [index: string]: string
-}
+const Notification: React.FC<{[index: string]: string}> = (props) => {
 
-const Notification: React.FC<IProps> = (props) => {
-    const appDispatch = useAppDispatch();
     const { message, visibilityStatus, type } = props;
+
+    const appDispatch = useAppDispatch();
+    
     const classnamesOfParentContainer = cn('notification', {
         'notification-success': type === 'success' ? true : false,
         'notification-error': type === 'error' ? true : false,
         'show': visibilityStatus === 'visible' ? true : false,
-    })
+    });
+
     useEffect(() => {
         const id = setTimeout(() => {appDispatch(actionsUiNotification.hide())}, 1000);
         return () => {clearTimeout(id)};
         
-    })
+    });
+    
     return (
         <div 
             className={classnamesOfParentContainer}
@@ -31,7 +32,6 @@ const Notification: React.FC<IProps> = (props) => {
                 <div className="notification-content">{message}</div>
         </div>
     )
-
 };
 
 export default Notification;

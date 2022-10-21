@@ -4,7 +4,7 @@ import { ParsedItem } from "../helpersFunc/parseResponseItems";
 import axios from 'axios';
 import { RootState, AppDispatch } from "./index";
 import parseResponseItems from '../helpersFunc/parseResponseItems';
-import { actionsResultOfSearching } from "./resultOfSearchingSlice";
+import { actionsResultOfSearching } from "./slices/resultOfSearchingSlice";
 
 export interface DataOfSearchingParams {
     [key: string]: string | number,

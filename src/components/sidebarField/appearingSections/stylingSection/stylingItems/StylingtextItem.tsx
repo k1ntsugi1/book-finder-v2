@@ -20,7 +20,7 @@ const StylingTextItem: React.FC<IStylingItemProps> = (props) => {
                 </>
             }
             frontFaceOfCard={
-                <Form.Label>Select text color</Form.Label>
+                <Form.Label className='ms-3'>Select text color</Form.Label>
             }
         />
     )

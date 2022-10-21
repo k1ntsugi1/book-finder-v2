@@ -1,6 +1,7 @@
-import Spinner from "../components/mainField/Spinner";
-import { useAppSelector } from "../store/hooks";
 import CardList from "../components/mainField/CardList";
+import Spinner from "../components/mainField/Spinner";
+
+import { useAppSelector } from "../store/hooks";
 
 const StaredItemsPage: React.FC<{ typeOfItems: string }> = (props) => {
     const { typeOfItems } = props;

@@ -18,7 +18,7 @@ const StylingSidebarItem: React.FC<IStylingItemProps> = (props) => {
                 />
             }
             frontFaceOfCard={
-                <Form.Label>Select sidebar color</Form.Label>
+                <Form.Label className='ms-3'>Select sidebar color</Form.Label>
             }
         />
     )

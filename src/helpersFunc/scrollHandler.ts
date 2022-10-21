@@ -1,4 +1,4 @@
-import { actionsUiValueOfScroll } from "../store/uiValueOfScrollSlice";
+import { actionsUiValueOfScroll } from "../store/slices/uiValueOfScrollSlice";
 import { AppDispatch } from "../store";
 
 interface IScrollHandler {

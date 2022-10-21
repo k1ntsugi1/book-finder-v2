@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useImmerReducer } from "use-immer";
 import cn from 'classnames';
 import { Button } from 'react-bootstrap';
@@ -7,7 +7,7 @@ import reducerImmer from './immer/reducerImmer';
 import initialStateImmer from './immer/initialStateImmer';
 
 import { useAppDispatch } from '../../../../store/hooks';
-import { actionsUiNotification } from '../../../../store/uiNotificationSlice';
+import { actionsUiNotification } from '../../../../store/slices/uiNotificationSlice';
 
 import saveOptionsOfStyleHandler from '../../../../helpersFunc/saveOptionsOfStyleHandler'
 
@@ -44,7 +44,7 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
     const { showStateOfBrush } = props;
 
     const appDispatch = useAppDispatch();
-
+    const brushRef = useRef<HTMLDivElement>(null);
     const [stateImmer, dispatchImmer] = useImmerReducer(reducerImmer, initialStateImmer);
 
     const stylingItems = [
@@ -57,12 +57,10 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
 
     const classnamesOfBrushSection = cn(
         'h-100',
-        'vw-20',
+        'w-200px',
         'd-flex',
         'flex-column',
-        'justify-content-start',
         'gap-3',
-        'align-items-start',
         'transitionSidebar',
         'position-absolute',
         'start-100',
@@ -85,12 +83,20 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
 
     }, [stateImmer.images.bodyImages, stateImmer.images.activeImage, stateImmer.colors.bodyColor, stateImmer.stateOfBodyBackground])
 
+    useEffect(() => {
+        setTimeout(() => {
+            if (showStateOfBrush === 'unvisible') brushRef.current!.style.visibility = 'hidden';
+        }, 400);
+        if (showStateOfBrush === 'visible') brushRef.current!.style.visibility = '';
+    }, [showStateOfBrush]);
+
     return (
         <div
             className={classnamesOfBrushSection}
             style={{
                 'background': 'var(--color-sidebar)',
             }}
+            ref={brushRef}
         >
             {stylingItems.map((StylingItem, index) => (
                 <StylingItem

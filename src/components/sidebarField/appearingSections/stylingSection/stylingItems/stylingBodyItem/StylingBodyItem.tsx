@@ -16,8 +16,8 @@ const StylingBodyItem: React.FC<IStylingItemProps> = (props) => {
                 eventKey="0"
                 style={{ 'background': 'var(--color-sidebar)', 'color': 'var(--color-text)' }}
             >
-                <Accordion.Header>Select background</Accordion.Header>
-                <Accordion.Body className='d-flex flex-column gap-1'>
+                <Accordion.Header className="p-0 ms-3">Select background</Accordion.Header>
+                <Accordion.Body className='p-0 d-flex flex-column gap-1'>
 
                     <SelectBodyBackground 
                         stateImmer={stateImmer}

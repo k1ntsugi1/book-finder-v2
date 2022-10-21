@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import cn from 'classnames';
 import { useNavigate } from "react-router-dom";
 import { FormikProps, useFormik } from 'formik';
@@ -13,8 +14,8 @@ import TypeItem from "./searchItems/TypeItem";
 import fetchDataAsyncThunk from "../../../../store/fetchDataAsyncThunk";
 import { useAppDispatch } from '../../../../store/hooks';
 
-import { actionsResultOfSearching } from '../../../../store/resultOfSearchingSlice'
-import { actionsUiActiveElementsOfSidebar } from "../../../../store/uiActiveElementsOfSidebar";
+import { actionsResultOfSearching } from '../../../../store/slices/resultOfSearchingSlice'
+import { actionsUiActiveElementsOfSidebar } from "../../../../store/slices/uiActiveElementsOfSidebarSlice";
 
 import validationSchema from './validationSchema'
 
@@ -22,11 +23,13 @@ import { IInitialValueOfFormik } from './interfaces';
 
 import ProviderOfSearchOptions from './context/ProviderOfSearchOptions';
 
+
 const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
 
     const { showStateOfForm } = props;
     const appDispatch = useAppDispatch();
     const navigate = useNavigate();
+    const formRef = useRef<HTMLFormElement>(null);
 
     const formItems = [
         SearchItem,
@@ -76,6 +79,14 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
         },
     })
 
+    useEffect(() => {
+        setTimeout(() => {
+            if (showStateOfForm === 'unvisible') formRef.current!.style.visibility = 'hidden';
+        }, 400);
+        if (showStateOfForm === 'visible') formRef.current!.style.visibility = '';
+    }, [showStateOfForm]);
+
+
     return (
         <ProviderOfSearchOptions>
             <Form
@@ -83,6 +94,7 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
                 className={classnamesOfFormSection}
                 onSubmit={formik.handleSubmit}
                 style={{ 'background': 'var(--color-sidebar)' }}
+                ref={formRef}
             >
                 <ListGroup style={{ 'color': 'var(--color-text)' }} className="d-flex flex-column align-items-start">
 

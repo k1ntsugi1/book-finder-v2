@@ -1,15 +1,17 @@
-import { useState, MouseEvent, useRef } from 'react';
-import { Card } from 'react-bootstrap';
-import { ParsedItem } from '../../helpersFunc/parseResponseItems';
-import GlassElement from '../GlassElement';
-import { actionsDataOfStaredItems } from '../../store/dataOfStaredItemsSlice';
-import { useAppDispatch } from '../../store/hooks';
-import { useAppSelector } from '../../store/hooks';
-import { actionsUiActiveElementsOfSidebar } from '../../store/uiActiveElementsOfSidebar';
-import { actionsResultOfSearching } from '../../store/resultOfSearchingSlice';
+import { MouseEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { actionsUiNotification } from '../../store/uiNotificationSlice';
-import cn from 'classnames';
+import { Card } from 'react-bootstrap';
+
+import GlassElement from '../GlassElement';
+
+import { ParsedItem } from '../../helpersFunc/parseResponseItems';
+
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+
+import { actionsDataOfStaredItems } from '../../store/slices/dataOfStaredItemsSlice';
+import { actionsUiActiveElementsOfSidebar } from '../../store/slices/uiActiveElementsOfSidebarSlice';
+import { actionsResultOfSearching } from '../../store/slices/resultOfSearchingSlice';
+import { actionsUiNotification } from '../../store/slices/uiNotificationSlice';
 
 const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
     const { ids } = useAppSelector(store => store.dataOfStaredItems);

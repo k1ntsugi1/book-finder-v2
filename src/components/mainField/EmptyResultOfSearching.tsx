@@ -1,8 +1,8 @@
-
 import { useEffect, useRef } from "react";
 import GlassElement from "../GlassElement";
 
 const EmptyResultOfSearching: React.FC = () => {
+
     const textRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {

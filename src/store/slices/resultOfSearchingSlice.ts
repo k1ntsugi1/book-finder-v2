@@ -1,8 +1,8 @@
 import { createSlice, createEntityAdapter, PayloadAction  } from "@reduxjs/toolkit";
-import fetchDataAsyncThunk from './fetchDataAsyncThunk';
+import fetchDataAsyncThunk from '../fetchDataAsyncThunk';
 import { actionsDataOfSearching } from './dataOfSearchingSlice';
-import { RootState } from "./index";
-import { ParsedItem } from '../helpersFunc/parseResponseItems'
+import { RootState } from "../index";
+import { ParsedItem } from '../../helpersFunc/parseResponseItems'
 
 interface IInitialState {
     totalItems: number

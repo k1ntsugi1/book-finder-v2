@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import dataOfSearchingReducer from './dataOfSearchingSlice';
-import dataOfStaredItemsReducer from './dataOfStaredItemsSlice';
-import resultOfSearchingReducer from './resultOfSearchingSlice';
+import dataOfSearchingReducer from './slices/dataOfSearchingSlice';
+import dataOfStaredItemsReducer from './slices/dataOfStaredItemsSlice';
+import resultOfSearchingReducer from './slices/resultOfSearchingSlice';
 
-import uiValueOfScrollReducer from './uiValueOfScrollSlice';
-import uiActiveElementsOfSidebarReducer from './uiActiveElementsOfSidebar';
-import uiNotificationSliceReducer from './uiNotificationSlice';
+import uiValueOfScrollReducer from './slices/uiValueOfScrollSlice';
+import uiActiveElementsOfSidebarReducer from './slices/uiActiveElementsOfSidebarSlice';
+import uiNotificationSliceReducer from './slices/uiNotificationSlice';
 
 const store = configureStore({
     reducer: {

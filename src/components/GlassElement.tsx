@@ -3,29 +3,22 @@ import { useEffect, useRef } from 'react';
 
 interface IGlassElement {
     className?: string,
-    classesOfFrontFace?: string,
-    classesOfBackFace?: string,
     showState?: string,
     hovering?: boolean,
     showingElement?: React.RefObject<HTMLDivElement>,
     style?: {
         [key: string]: string,
     },
-    stylesOfFrontFace?: {
-        [key: string]: string,
-    },
     children?: React.ReactNode,
 }
 
 const GlassElement: React.FC<IGlassElement> = (props) => {
+
     const refGlassElement = useRef<HTMLDivElement>(null);
 
     const {
         className,
-        classesOfFrontFace,
-        classesOfBackFace,
         style,
-        stylesOfFrontFace,
         children,
         showState,
         hovering,
@@ -37,34 +30,31 @@ const GlassElement: React.FC<IGlassElement> = (props) => {
             if (showState === 'unvisible') refGlassElement.current!.style.visibility = 'hidden';
         }, 400);
         if (showState === 'visible') refGlassElement.current!.style.visibility = '';
-    }, [showState])
+    }, [showState]);
 
-    const overHandler = () => {
+    const mouseOverHandler = () => {
         if (hovering && showingElement) {
             showingElement.current!.style.visibility = 'visible';
         }
-    }
-    const outHandler = () => {
+    };
+
+    const mouseOutHandler = () => {
         if (hovering && showingElement) {
             showingElement.current!.style.visibility = 'hidden';
         }
-    }
-    const classesOfContainerGlass = cn('container-glass',className)
-    // const classesOfFrontFaceGlass = cn('front-face-of-glass', classesOfFrontFace)
-    // const classesOfBackFaceGlass = cn('back-face-of-glass', classesOfBackFace)
+    };
+
+    const classesOfContainerGlass = cn('container-glass', className);
+    
     return (
-        <div 
+        <div
             className={classesOfContainerGlass}
             style={style}
             ref={refGlassElement}
-            onMouseOver={overHandler}
-            onMouseOut={outHandler}
+            onMouseOver={mouseOverHandler}
+            onMouseOut={mouseOutHandler}
         >
-            
-            {/* <div className={classesOfBackFaceGlass}></div>
-            <div className={classesOfFrontFaceGlass} style={stylesOfFrontFace}> */}
-                {children}
-            {/* </div> */}
+            {children}
         </div>
 
     )

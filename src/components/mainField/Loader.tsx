@@ -1,9 +1,12 @@
-import fetchDataAsyncThunk from "../../store/fetchDataAsyncThunk";
 import cn from 'classnames'
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { actionsDataOfSearching } from "../../store/dataOfSearchingSlice";
-import { actionsResultOfSearching } from "../../store/resultOfSearchingSlice";
 import { Button } from 'react-bootstrap';
+
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import fetchDataAsyncThunk from "../../store/fetchDataAsyncThunk";
+
+import { actionsDataOfSearching } from "../../store/slices/dataOfSearchingSlice";
+import { actionsResultOfSearching } from "../../store/slices/resultOfSearchingSlice";
+
 
 const Loader: React.FC = () => {
     const appDispatch = useAppDispatch();

@@ -1,7 +1,8 @@
-import { useAppSelector } from "../../store/hooks";
 import CardOfItem from "./CardOfItem";
-import { selectorsResultOfSearching } from "../../store/resultOfSearchingSlice";
 import EmptyResultOfSearching from './EmptyResultOfSearching'
+
+import { useAppSelector } from "../../store/hooks";
+import { selectorsResultOfSearching } from "../../store/slices/resultOfSearchingSlice";
 
 const CardList: React.FC<{typeOfItems: string}> = (props) => {
     const { typeOfItems } = props;

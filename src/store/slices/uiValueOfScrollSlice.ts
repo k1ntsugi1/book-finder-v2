@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction} from "@reduxjs/toolkit";
-import fetchDataAsyncThunk from "./fetchDataAsyncThunk";
+import fetchDataAsyncThunk from "../fetchDataAsyncThunk";
 
 const uiValueOfScrollSlice = createSlice({
     name: 'value of scroll',

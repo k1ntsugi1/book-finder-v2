@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import _ from 'lodash';
-import { ParsedItem } from '../helpersFunc/parseResponseItems'
-import fetchDataofStaredItems from './fetchDataOfStaredItems';
+import { ParsedItem } from '../../helpersFunc/parseResponseItems'
+import fetchDataofStaredItems from '../fetchDataOfStaredItems';
 
 // const entityAdapterOfStaredItems = createEntityAdapter<{ids: string[]}>();
 

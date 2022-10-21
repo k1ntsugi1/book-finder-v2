@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
-import { actionsUiActiveElementsOfSidebar } from "../../../../store/uiActiveElementsOfSidebar";
+import { actionsUiActiveElementsOfSidebar } from "../../../../store/slices/uiActiveElementsOfSidebarSlice";
 import fetchDataOfStaredItems from "../../../../store/fetchDataOfStaredItems";
 
 import { INavigationItemsProps } from "../interfaces";
 
 const StarredItem: React.FC<INavigationItemsProps> = (props) => {
+
     const { classnamesOfSidebarElement, setNewTypeOfItems } = props;
 
     const { activePage } = useAppSelector(store => store.uiActiveElementsOfSidebar);
