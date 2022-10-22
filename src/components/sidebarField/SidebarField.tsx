@@ -18,7 +18,7 @@ const SidebarField: React.FC<{setNewTypeOfItems: (type: string) => void}> = (pro
 
     const { activeItemOfOptions } = useAppSelector(store => store.uiActiveElementsOfSidebar);
 
-    const classnamesOfSidebarElement = cn('mx-auto', 'cursor-pointer', 'mt-4');
+    const classnamesOfSidebarElement = cn('mx-auto cursor-pointer mt-4 hover');
 
     return (
         <div

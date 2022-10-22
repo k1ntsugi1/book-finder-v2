@@ -1,4 +1,4 @@
-import './index.css';
+import './styles/index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createRoot } from 'react-dom/client';
 import App from './App';

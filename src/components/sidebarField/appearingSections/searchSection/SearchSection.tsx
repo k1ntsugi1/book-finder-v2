@@ -73,8 +73,9 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
                 currentNameOfItem: currentNameOfItem.trim(),
                 currentAuthorOfItem: currentAuthorOfItem.trim(),
             }
-            appDispatch(fetchDataAsyncThunk(searchParams));
             appDispatch(actionsResultOfSearching.removeItems());
+            appDispatch(fetchDataAsyncThunk(searchParams));
+            
             appDispatch(actionsUiActiveElementsOfSidebar.setActivePage({ page: 'result' }))
             navigate('/result');
         },
