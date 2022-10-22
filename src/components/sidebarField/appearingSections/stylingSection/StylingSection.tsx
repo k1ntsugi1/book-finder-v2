@@ -113,23 +113,26 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
             ))}
             <div className="d-flex flex-column align-items-center justify-content-center">
                 <Button
-                    className="w-75 bg-transparent border-0"
+                    className="w-75 bg-transparent border-0 wrapperOfRunnerBorderBottom"
                     onClick={() => {
                         saveOptionsOfStyleHandler(stateImmer);
                         appDispatch(actionsUiNotification.show({ message: 'saved', type: 'success', statusOfVisibility: 'visible' }))
                     }}
                 >
-                    Save
+                    <div>Save</div>
+                    <div className='runnerBorderBottom' style={{'background': 'var(--color-text)'}}></div>
                 </Button>
                 <Button
-                    className="bg-transparent border-0"
+                    className="bg-transparent border-0 wrapperOfRunnerBorderBottom"
                     onClick={() => {
                         dispatchImmer({ type: 'reset' });
                         appDispatch(actionsUiNotification.show({ message: 'reseted', type: 'success', statusOfVisibility: 'visible' }))
                     }}
                 >
-                    Reset all params
+                    <div>Reset all params</div>
+                    <div className='runnerBorderBottom' style={{'background': 'var(--color-text)'}}></div>
                 </Button>
+                
             </div>
         </div >
 

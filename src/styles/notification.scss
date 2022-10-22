@@ -17,32 +17,33 @@
 
     &.notification-success,
     &.notification-error {
-        content: "";
-        position: absolute;
-        left: 24px;
-        top: 50%;
-        width: 24px;
-        height: 24px;
-        transform: translate(0, -50%);
-        background-size: 24px 24px;
-
         .notification-content {
             padding: 16px 24px 16px 64px;
             font-size: 16px;
             line-height: 20px;
             color: var(--white);
             position: relative;
+            &::after {
+              content: "";
+              position: absolute;
+              left: 24px;
+              top: 50%;
+              width: 24px;
+              height: 24px;
+              transform: translate(0, -50%);
+              background-size: 24px 24px;
+            }
         }
     }
 
     &.notification-success {
-        .notification-content {
+        .notification-content::after {
             background: url(../assets/svg/check-all.svg) center no-repeat;
         }
     }
 
     &.notification-error {
-        .notification-content {
+        .notification-content::after {
             background: url(../assets/svg/heartbreak.svg) center no-repeat;
         }
     }

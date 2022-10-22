@@ -21,14 +21,16 @@ const App: React.FC = () => {
 
         </div>
 
-        <Notification
+      </div>
+      
+      <ColorRunner />
+
+      <Notification
           message={message}
           type={type}
           visibilityStatus={statusOfVisibility}
-        />
+      />
 
-      </div>
-      <ColorRunner />
     </>
   );
 }

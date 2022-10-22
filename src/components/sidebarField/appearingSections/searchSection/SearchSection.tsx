@@ -107,11 +107,17 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
                     ))}
                     <div className="mx-auto d-flex flex-column align-items-center">
 
-                        <Button type="submit" className="bg-transparent border-0">Submit</Button>
+                        <Button type="submit" className="w-100 bg-transparent border-0 wrapperOfRunnerBorderBottom">
+                            <div>Submit</div>
+                            <div className='runnerBorderBottom' style={{'background': 'var(--color-text)'}}></div>
+                        </Button>
 
 
 
-                        <Button className="bg-transparent border-0">reset all params</Button>
+                        <Button className="w-100 bg-transparent border-0 wrapperOfRunnerBorderBottom">
+                            <div>reset all params</div>
+                            <div className='runnerBorderBottom' style={{'background': 'var(--color-text)'}}></div>
+                        </Button>
 
                     </div>
 
