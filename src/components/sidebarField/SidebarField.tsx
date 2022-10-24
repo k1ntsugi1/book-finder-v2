@@ -1,15 +1,16 @@
 import cn from 'classnames';
 
 
-import SearchSection from './appearingSections/searchSection/SearchSection';
-import StylingSection from './appearingSections/stylingSection/StylingSection';
+import SearchSection from './searchSection/SearchSection';
+import StylingSection from './settingSection/SettingSection';
 
-import ScrollLoaderSection from "./ScrollLoaderSection";
+import StraightProgressBar from "./progressBars/StraightProgressBar";
+import CircleProgressBar from './progressBars/CircleProgressBar';
 
 import { useAppSelector } from "../../store/hooks";
 
-import NavigationSection from './navigationSection/NavigationSection';
-import SettingSection from './settingSection/SettingSection';
+import NavigationSection from './navigationLinksSection/NavigationLinksSection';
+import SettingSection from './configurationLinksSection/ConfigurationLinksSection';
 
 
 const SidebarField: React.FC<{setNewTypeOfItems: (type: string) => void}> = (props) => {
@@ -17,7 +18,7 @@ const SidebarField: React.FC<{setNewTypeOfItems: (type: string) => void}> = (pro
     const { setNewTypeOfItems } = props;
 
     const { activeItemOfOptions } = useAppSelector(store => store.uiActiveElementsOfSidebar);
-
+    const { typeOfProgressBar } = useAppSelector(store => store.uiProgressBar)
     const classnamesOfSidebarElement = cn('mx-auto cursor-pointer mt-4 hover');
 
     return (
@@ -36,7 +37,12 @@ const SidebarField: React.FC<{setNewTypeOfItems: (type: string) => void}> = (pro
             <NavigationSection classnamesOfSidebarElement={classnamesOfSidebarElement} setNewTypeOfItems={setNewTypeOfItems}/>
             <SettingSection classnamesOfSidebarElement={classnamesOfSidebarElement}/>
 
-            <ScrollLoaderSection />
+            { typeOfProgressBar === 'straight' 
+                ? <StraightProgressBar />
+                : <CircleProgressBar />
+            }
+            
+           
         </div>
     )
 }

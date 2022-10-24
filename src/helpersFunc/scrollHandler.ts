@@ -1,4 +1,4 @@
-import { actionsUiValueOfScroll } from "../store/slices/uiValueOfScrollSlice";
+import { actionsUiProgressBar } from "../store/slices/uiProgressBar";
 import { AppDispatch } from "../store";
 
 interface IScrollHandler {
@@ -12,7 +12,7 @@ const scrollHandler:IScrollHandler = (element, appDispatch) => {
     const clientHeight = document.documentElement.clientHeight;
     const scrollHeight = element.scrollHeight;
     const scrollTop = element.scrollTop + element.clientHeight;
-    appDispatch(actionsUiValueOfScroll.updateHeight({ heightOfColumn: ((scrollTop - clientHeight) / (scrollHeight - clientHeight)) * 100 }))
+    appDispatch(actionsUiProgressBar.updatepPercentOfFilling({ percentOfFilling: ((scrollTop - clientHeight) / (scrollHeight - clientHeight)) * 100 }))
 };
 
 export default scrollHandler

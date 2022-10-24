@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import Spinner from "../components/mainField/Spinner";
+import SpinnerOfLoading from "../components/SpinnerOfLoading";
 import Loader from "../components/mainField/Loader";
 import CardList from "../components/mainField/CardList";
 
@@ -14,7 +14,7 @@ const ResultOfSearchingPage: React.FC<{ typeOfItems: string }> = (props) => {
         <>
             {statusOfLoading === 'fulfilled' && <CardList typeOfItems={typeOfItems} />}
             
-            {statusOfLoading === 'pending' && <Spinner />}
+            {statusOfLoading === 'pending' && <SpinnerOfLoading />}
             {(totalItems > maxResults) && <Loader />}
         </>
     );

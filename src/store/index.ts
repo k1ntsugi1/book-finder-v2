@@ -4,7 +4,7 @@ import dataOfSearchingReducer from './slices/dataOfSearchingSlice';
 import dataOfStaredItemsReducer from './slices/dataOfStaredItemsSlice';
 import resultOfSearchingReducer from './slices/resultOfSearchingSlice';
 
-import uiValueOfScrollReducer from './slices/uiValueOfScrollSlice';
+import uiProgressBarReducer from './slices/uiProgressBar';
 import uiActiveElementsOfSidebarReducer from './slices/uiActiveElementsOfSidebarSlice';
 import uiNotificationSliceReducer from './slices/uiNotificationSlice';
 
@@ -13,7 +13,7 @@ const store = configureStore({
         dataOfSearching: dataOfSearchingReducer,
         resultOfSearching: resultOfSearchingReducer,
         dataOfStaredItems: dataOfStaredItemsReducer,
-        uiValueOfScroll: uiValueOfScrollReducer,
+        uiProgressBar: uiProgressBarReducer,
         uiActiveElementsOfSidebar: uiActiveElementsOfSidebarReducer,
         uiNotificationSlice: uiNotificationSliceReducer, 
     }

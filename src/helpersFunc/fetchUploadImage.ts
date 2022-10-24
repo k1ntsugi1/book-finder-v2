@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IAxiosResponseData } from "../components/sidebarField/appearingSections/stylingSection/interfaces";
+import { IAxiosResponseData } from "../components/sidebarField/settingSection/interfaces";
 
 const fetchUploadImage = async (file: File): Promise<string> => {
     const formData = new FormData();

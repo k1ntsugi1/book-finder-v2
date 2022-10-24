@@ -5,7 +5,7 @@ import SidebarField from './components/sidebarField/SidebarField';
 import MainField from './components/mainField/MainField';
 import Notification from './components/Notification'
 import ColorRunner from './components/ColorRunner';
-import CircleProgressBar from './components/sidebarField/CircleProgressBar';
+
 const App: React.FC = () => {
 
   const [typeOfItems, setNewTypeOfItems] = useState<string>('default');

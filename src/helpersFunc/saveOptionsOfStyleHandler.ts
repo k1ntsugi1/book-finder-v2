@@ -1,4 +1,4 @@
-import { IInitialStateImmer } from "../components/sidebarField/appearingSections/stylingSection/interfaces";
+import { IInitialStateImmer } from "../components/sidebarField/settingSection/interfaces";
 
 const saveOptionsOfStyleHandler = (state: IInitialStateImmer): void => {
     const {
