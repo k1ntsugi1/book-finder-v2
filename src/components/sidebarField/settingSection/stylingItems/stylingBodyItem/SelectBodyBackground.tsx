@@ -5,13 +5,19 @@ const SelectBodyBackground: React.FC<ISelectBodyBackground> = (props) => {
     const { stateImmer, dispatchImmer } = props;
 
     return (
-        <div className="mt-3 ms-3 d-flex flex-wrap gap-2">
+        <div className="m-3 p-3 border-top border-bottom d-flex flex-nowrap overflow-auto gap-2">
+            <div
+                className="w-50px flex-shrink-0 p-1 border centered-content border cursor-pointer"
+                onClick={() => dispatchImmer({ type: 'updateStateOfBodyBackground', value: 'color' })}
+            >
+                <div className="w-100 h-100" style={{ 'background': 'var(--color-body)' }}></div>
+            </div>
             {stateImmer.images.bodyImages.map(imageURL => {
                 return (
                     <img
                         src={imageURL}
                         alt="imgItem"
-                        className="p-1 w-25 h-100 cursor-pointer border"
+                        className="p-1 w-50px h-100 cursor-pointer border"
                         key={imageURL}
                         id={imageURL}
                         onClick={() => {
@@ -20,14 +26,7 @@ const SelectBodyBackground: React.FC<ISelectBodyBackground> = (props) => {
                         }} />
                 )
             })}
-            <div
-                className="w-25 p-1 border centered-content border cursor-pointer"
-                onClick={() => dispatchImmer({ type: 'updateStateOfBodyBackground', value: 'color' })}
-            >
-                <div className="w-100 h-100" style={{ 'background': 'var(--color-body)' }}></div>
-            </div>
         </div>
-
     )
 };
 

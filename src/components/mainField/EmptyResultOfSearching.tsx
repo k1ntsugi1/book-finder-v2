@@ -31,7 +31,6 @@ const EmptyResultOfSearching: React.FC = () => {
             style={{
                 'width': '200px',
                 'height': '100px',
-                'background': 'var(--color-sidebar)',
                 'color': 'var(--color-text)'
             }}
         >

@@ -6,7 +6,7 @@ import SidebarStyling from '../stylingItems/SidebarStyling';
 import TextStyling from '../stylingItems/TextStyling';
 import ProgressBarStyling from '../stylingItems/ProgressBarStyling';
 
-import { IStylingItemProps, IActionOfReducerImmer } from "../interfaces";
+import { IStylingItemProps } from "../interfaces";
 
 
 const SelectParamsOfStylingAccordionItem: React.FC<IStylingItemProps> = (props) => {
@@ -29,7 +29,7 @@ const SelectParamsOfStylingAccordionItem: React.FC<IStylingItemProps> = (props) 
             style={{ 'background': 'var(--color-sidebar)', 'color': 'var(--color-text)' }}
         >
             <Accordion.Header className="p-0 ms-3">Styling</Accordion.Header>
-            <Accordion.Body className="d-flex flex-column">
+            <Accordion.Body className="p-0 ps-3 pe-4 d-flex flex-column">
                 <div className='d-flex flex-column border-bottom gap-1'>
                     {stylingItems.map((StylingItem, index) => (
                         <StylingItem

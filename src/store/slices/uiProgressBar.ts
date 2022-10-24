@@ -10,7 +10,7 @@ const uiProgressBar = createSlice({
         updatepPercentOfFilling(state, action: PayloadAction<{percentOfFilling: number}>) {
             state.percentOfFilling = action.payload.percentOfFilling;
         },
-        updateTypeOFProgressBar(state, action: PayloadAction<{typeOfProgressBar: string}>) {
+        updateTypeOfProgressBar(state, action: PayloadAction<{typeOfProgressBar: string}>) {
             state.typeOfProgressBar = action.payload.typeOfProgressBar;
         }
     },

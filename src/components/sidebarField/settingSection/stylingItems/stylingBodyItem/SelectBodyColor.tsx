@@ -20,7 +20,7 @@ const SelectBodyColor: React.FC<IStylingBodyItemProps> = (props) => {
                 />
             }
             frontFaceOfCard={
-                <Form.Label className="ms-3">Select body color</Form.Label>
+                <Form.Label className="ms-3">Body color</Form.Label>
             }
         />
     )
