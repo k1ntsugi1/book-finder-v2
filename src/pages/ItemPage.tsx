@@ -36,7 +36,7 @@ const ItemPage: React.FC = () => {
                     style={{
                         'color': 'var(--color-text)'
                     }}
-                    className="mx-3 px-4 d-flex flex-column justify-content-around rounded overflow-hidden"
+                    className="mx-3 px-4 d-flex flex-column justify-content-start gap-5 rounded overflow-hidden"
                 >
 
                     <div className='d-flex flex-column flex-nowrap'>

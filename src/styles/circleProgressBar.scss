@@ -1,0 +1,20 @@
+.wrapper-circle-progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: conic-gradient(#5769e9 180deg, white 0deg);
+    .face {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: white;
+    }
+    
+}

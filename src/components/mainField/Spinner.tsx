@@ -10,7 +10,7 @@ const Spinner: React.FC = () => {
                 ariaLabel="MagnifyingGlass-loading"
                 wrapperStyle={{}}
                 wrapperClass="MagnifyingGlass-wrapper"
-                glassColor='var(--color-body)'
+                glassColor='rgb(248 249 250 / 54%)'
                 color='var(--color-text)'
             />
         </div>
