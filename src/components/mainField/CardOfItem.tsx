@@ -14,6 +14,7 @@ import { actionsResultOfSearching } from '../../store/slices/resultOfSearchingSl
 import { actionsUiNotification } from '../../store/slices/uiNotificationSlice';
 
 const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
+
     const { ids } = useAppSelector(store => store.dataOfStaredItems);
     const activeStatus = ids.includes(item.id) ? 'active' : 'unActive'
     const appDispatch = useAppDispatch();
@@ -28,8 +29,8 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
         appDispatch(actionsDataOfStaredItems[action]({ id: item.id }));
         appDispatch(actionsUiNotification.hide());
         newStatus === 'active'
-            ? appDispatch(actionsUiNotification.show({message: 'saved', type: 'success', statusOfVisibility: 'visible'}))
-            : appDispatch(actionsUiNotification.show({message: 'removed', type: 'success', statusOfVisibility: 'visible'}));
+            ? appDispatch(actionsUiNotification.show({ message: 'saved', type: 'success', statusOfVisibility: 'visible' }))
+            : appDispatch(actionsUiNotification.show({ message: 'removed', type: 'success', statusOfVisibility: 'visible' }));
     }
     return (
         <GlassElement
@@ -38,7 +39,6 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
             showingElement={refOfWrapper}
             className='border rounded'
             style={{
-                // 'background': 'var(--color-card)',
                 'color': 'var(--color-text)',
                 'width': '200px',
                 'height': '200px',
@@ -47,7 +47,7 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
         >
             <Card className="h-100 bg-transparent position-relative">
                 <div className='mx-3 d-flex flex-noWrap justify-content-around'>
-                    <Card.Img variant="top" src={item.imgUrl} className="mt-3 w-50 shadow-lg" alt="imgBook" style={{ width: '100px', height: '100px' }} />
+                    {item.imgUrl && <Card.Img variant="top" src={item.imgUrl} className="mt-3 w-50 shadow-lg" alt="imgBook" style={{ width: '100px', height: '100px' }} />}
                     <div className="mt-3 ms-auto inline-block position-relative">
                         <div className='cursor-pointer' onClick={activeStatusHandler}>
                             {activeStatus === 'unActive' &&
@@ -65,12 +65,14 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
 
                 </div>
 
+                {item.title &&
+                    <Card.Body className="px-1 my-auto ">
 
-                <Card.Body className="px-1 my-auto ">
+                        <Card.Title className="text-center text-nowrap text-truncate">{item.title}</Card.Title>
 
-                    <Card.Title className="text-center text-nowrap text-truncate">{item.name}</Card.Title>
+                    </Card.Body>
+                }
 
-                </Card.Body>
             </Card>
             <div
                 className="cursor-pointer centered-content position-absolute start-0 top-50 translate-middle-y w-100 h-25 "
@@ -83,7 +85,7 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
                 }}
             >
                 <div className='p-2 centered-content rounded w-75 fw-bold'
-                style={{ 'background': 'var(--color-sidebar)' }}>
+                    style={{ 'background': 'var(--color-sidebar)' }}>
                     show-more
                 </div>
             </div>

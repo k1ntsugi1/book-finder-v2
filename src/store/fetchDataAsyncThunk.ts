@@ -35,16 +35,18 @@ export interface ResponseItem {
     id: string,
     volumeInfo: {
         title?: string,
+        subtitle?: string,
         authors?: string[],
-        description?: string,
-        pageCount?: number,
+        publisher?: string,
+        publishedDate?: string,
+        printType?: string;
         categories?: string[],
-        contentVersion: string,
+        pageCount?: number,
+        language?: string,
+        description?: string,
         imageLinks?: {
             smallThumbnail: string,
-            thumbnail: string
         },
-        language: string,
     },
 };
 
@@ -68,7 +70,7 @@ const fetchDataAsyncThunk = createAsyncThunk<ResultOfSearching, DataOfSearchingP
             const url = createURL({ ...searchParams, ...{startIndex: currentStartIndex, maxResults} });
             const response = await axios.get<ResponseData>(url);
             const { totalItems, items } = response.data;
-    
+
             const parsedItems = parseResponseItems(items)
     
             return { searchParams, items: parsedItems, totalItems, startIndex: currentStartIndex + maxResults, isNewRequest};
