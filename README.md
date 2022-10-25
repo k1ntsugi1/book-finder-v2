@@ -1,7 +1,7 @@
 # book-finder-v2
 ## In Process
 
-[**Versel**](https://book-finder-v2-hrptnujut-k1ntsugi1.vercel.app/) - текущий деплой
+[**Versel**](https://book-finder-v2-czsuh7h6h-k1ntsugi1.vercel.app/) - текущий деплой
 
 Задачи: 
   - ~~Создать слайс сайдбара ( для отображения активной вкладке при переходе между страницами )~~
