@@ -28,6 +28,6 @@ const uiActiveSectionOfSidebarSlice = createSlice({
 });
 
 
-export const actionsUiActiveElementsOfSidebar = uiActiveSectionOfSidebarSlice.actions;
+export const actionsUiActiveSectionOfSidebar = uiActiveSectionOfSidebarSlice.actions;
 
 export default uiActiveSectionOfSidebarSlice.reducer;

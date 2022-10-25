@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import RotateCard from "../../../../RotateCard"
 
 import { IUploadBodyBackgroundImage } from "../../interfaces"
-import fetchUploadImage from "../../../../../helpersFunc/fetchPostImage";
+import fetchPostImage from "../../../../../helpersFunc/fetchPostImage";
 
 const UploadBodyBackgroundImage: React.FC<IUploadBodyBackgroundImage> = (props) => {
 
@@ -25,7 +25,7 @@ const UploadBodyBackgroundImage: React.FC<IUploadBodyBackgroundImage> = (props) 
                         onChange={async () => {
                             if (!uploadFileRef.current?.files) { return; }
                             const file = uploadFileRef.current.files[0];
-                            const value = await fetchUploadImage(file);
+                            const value = await fetchPostImage(file);
                             dispatchImmer({ type: 'updateBodyImages', value })
                         }}
                     />

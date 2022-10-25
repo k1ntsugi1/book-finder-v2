@@ -1,20 +1,20 @@
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
-import { actionsUiActiveElementsOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
+import { actionsUiActiveSectionOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
 
 import { ISettingItemsProps } from "../interfaces";
 
 const SearchItem: React.FC<ISettingItemsProps> = (props) => {
     const { classnamesOfSidebarElement } = props;
     const appDispatch = useAppDispatch();
-    const { activeItemOfOptions } = useAppSelector(store => store.uiActiveElementsOfSidebar);
+    const { activeItemOfOptions } = useAppSelector(store => store.uiActiveSectionOfSidebar);
     return (
         <div
             className={classnamesOfSidebarElement}
             style={{ 'color': 'var(--color-text)' }}
             onClick={() => {
                 activeItemOfOptions === 'search'
-                    ? appDispatch(actionsUiActiveElementsOfSidebar.removeActiveItemOfOptions())
-                    : appDispatch(actionsUiActiveElementsOfSidebar.setActiveItemOfOptions({ item: 'search' }));
+                    ? appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions())
+                    : appDispatch(actionsUiActiveSectionOfSidebar.setActiveItemOfOptions({ item: 'search' }));
             }}
         >
             {activeItemOfOptions === 'search'

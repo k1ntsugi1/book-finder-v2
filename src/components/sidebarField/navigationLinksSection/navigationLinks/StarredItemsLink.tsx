@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
-import { actionsUiActiveElementsOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
-import fetchDataOfStaredItems from "../../../../store/fetchDataOfStaredItems";
+
+import { actionsUiActiveSectionOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
+import fetchGetDataByStarredItemsIDs from "../../../../store/asyncThunks/fetchGetDataByStarredItemsIDs";
 
 import { INavigationLinksProps } from "../interfaces";
 
@@ -9,7 +10,7 @@ const StarredItemsLink: React.FC<INavigationLinksProps> = (props) => {
 
     const { classnamesOfSidebarElement, setNewTypeOfItems } = props;
 
-    const { activePage } = useAppSelector(store => store.uiActiveElementsOfSidebar);
+    const { activePage } = useAppSelector(store => store.uiActiveSectionOfSidebar);
     const appDispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -19,8 +20,8 @@ const StarredItemsLink: React.FC<INavigationLinksProps> = (props) => {
             style={{ 'color': 'var(--color-text)' }}
             onClick={() => {
                 setNewTypeOfItems!('stared');
-                appDispatch(actionsUiActiveElementsOfSidebar.setActivePage({ page: 'star' }));
-                appDispatch(fetchDataOfStaredItems());
+                appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'star' }));
+                appDispatch(fetchGetDataByStarredItemsIDs());
                 navigate("/stared");
             }}
         >

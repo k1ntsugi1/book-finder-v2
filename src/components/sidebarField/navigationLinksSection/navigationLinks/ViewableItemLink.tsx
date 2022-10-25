@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
-import { actionsUiActiveElementsOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
+import { actionsUiActiveSectionOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
 
 import { INavigationLinksProps } from "../interfaces";
 
 const ViewableItemLink: React.FC<INavigationLinksProps> = (props) => {
     const { classnamesOfSidebarElement } = props;
 
-    const { activePage } = useAppSelector(store => store.uiActiveElementsOfSidebar);
+    const { activePage } = useAppSelector(store => store.uiActiveSectionOfSidebar);
     const appDispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const ViewableItemLink: React.FC<INavigationLinksProps> = (props) => {
             className={classnamesOfSidebarElement}
             style={{ 'color': 'var(--color-text)' }}
             onClick={() => {
-                appDispatch(actionsUiActiveElementsOfSidebar.setActivePage({ page: 'item' }));
+                appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'item' }));
                 navigate("/item");
             }}
         >

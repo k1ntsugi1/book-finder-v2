@@ -1,9 +1,13 @@
 @use  './default.scss';
-@use './rotatingElement.scss';
-@use './glassEffect.scss';
 @use './notification.scss';
-@use './backgroundColorSpinner.scss';
-@use './runnerBorderBottom.scss';
-@use './circleProgressBar.scss';
-@use './straightProgressBar.scss';
-@use './element-runner.scss';
+
+@use './rotating-element.scss';
+
+@use './backgrounds/glass-effect-background.scss';
+@use './backgrounds/rotating-circles-background.scss';
+
+@use './runners/border-bottom-runner.scss';
+@use './runners/element-runner.scss';
+
+@use './progressBars/circle-progress-bar.scss';
+@use './progressBars/straightProgressBar.scss';

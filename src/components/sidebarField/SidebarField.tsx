@@ -17,7 +17,7 @@ const SidebarField: React.FC<{setNewTypeOfItems: (type: string) => void}> = (pro
 
     const { setNewTypeOfItems } = props;
 
-    const { activeItemOfOptions } = useAppSelector(store => store.uiActiveElementsOfSidebar);
+    const { activeItemOfOptions } = useAppSelector(store => store.uiActiveSectionOfSidebar);
     const { typeOfProgressBar } = useAppSelector(store => store.uiProgressBar)
     const classnamesOfSidebarElement = cn('mx-auto cursor-pointer mt-4 hover');
 

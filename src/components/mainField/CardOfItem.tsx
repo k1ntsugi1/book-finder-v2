@@ -8,14 +8,14 @@ import { ParsedItem } from '../../helpersFunc/parseResponseItems';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
-import { actionsDataOfStaredItems } from '../../store/slices/dataOfStarredItemsSlice';
-import { actionsUiActiveElementsOfSidebar } from '../../store/slices/uiActiveSectionOfSidebarSlice';
+import { actionsDataOfStarredItems } from '../../store/slices/dataOfStarredItemsSlice';
+import { actionsUiActiveSectionOfSidebar } from '../../store/slices/uiActiveSectionOfSidebarSlice';
 import { actionsResultOfSearching } from '../../store/slices/resultOfSearchingBySearchingOptionsSlice';
 import { actionsUiNotification } from '../../store/slices/uiNotificationSlice';
 
 const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
 
-    const { ids } = useAppSelector(store => store.dataOfStaredItems);
+    const { ids } = useAppSelector(store => store.dataOfStarredItems);
     const activeStatus = ids.includes(item.id) ? 'active' : 'unActive'
     const appDispatch = useAppDispatch();
     const navigate = useNavigate();
@@ -26,7 +26,7 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
         event.stopPropagation();
         const newStatus = activeStatus === 'active' ? 'unActive' : 'active';
         const action = activeStatus === 'active' ? 'removeItem' : 'addItem'
-        appDispatch(actionsDataOfStaredItems[action]({ id: item.id }));
+        appDispatch(actionsDataOfStarredItems[action]({ id: item.id }));
         appDispatch(actionsUiNotification.hide());
         newStatus === 'active'
             ? appDispatch(actionsUiNotification.show({ message: 'saved', type: 'success', statusOfVisibility: 'visible' }))
@@ -80,7 +80,7 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
                 style={{ 'background': 'transparent', 'visibility': 'hidden', 'zIndex': '1000' }}
                 onClick={() => {
                     appDispatch(actionsResultOfSearching.setActiveItem({ id: item.id }));
-                    appDispatch(actionsUiActiveElementsOfSidebar.setActivePage({ page: 'item' }));
+                    appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'item' }));
                     navigate('/item')
                 }}
             >

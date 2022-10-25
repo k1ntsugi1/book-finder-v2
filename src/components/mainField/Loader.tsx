@@ -2,16 +2,16 @@ import cn from 'classnames'
 import { Button } from 'react-bootstrap';
 
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import fetchDataAsyncThunk from "../../store/fetchDataAsyncThunk";
+import fetchGetDataBySearchingOptions from '../../store/asyncThunks/fetchGetDataBySearchingOptions';
 
-import { actionsDataOfSearching } from "../../store/slices/dataOfSearchingOptionsSlice";
+import { actionsDataOfSearchingOptions } from "../../store/slices/dataOfSearchingOptionsSlice";
 import { actionsResultOfSearching } from "../../store/slices/resultOfSearchingBySearchingOptionsSlice";
 
 
 const Loader: React.FC = () => {
     const appDispatch = useAppDispatch();
-    const { searchParams, range: { startIndex, maxResults } } = useAppSelector(store => store.dataOfSearching);
-    const { totalItems } = useAppSelector(store => store.resultOfSearching);
+    const { searchParams, range: { startIndex, maxResults } } = useAppSelector(store => store.dataOfSearchingOptions);
+    const { totalItems } = useAppSelector(store => store.resultOfSearchingBySearchingOptions);
     const pagesCount = Math.floor(totalItems / maxResults);
     const classnamesOfButton = cn('border');
     
@@ -21,17 +21,17 @@ const Loader: React.FC = () => {
     };
 
     const loadItems = () => {
-        appDispatch(fetchDataAsyncThunk(searchParams))
+        appDispatch(fetchGetDataBySearchingOptions(searchParams))
     }
 
     const loadNextItems = () => {
         appDispatch(actionsResultOfSearching.removeItems())
-        appDispatch(fetchDataAsyncThunk(searchParams))
+        appDispatch(fetchGetDataBySearchingOptions(searchParams))
     };
     const loadPreviousItems = () => {
         appDispatch(actionsResultOfSearching.removeItems());
-        appDispatch(actionsDataOfSearching.decreaseStartIndex());
-        appDispatch(fetchDataAsyncThunk({...searchParams}))
+        appDispatch(actionsDataOfSearchingOptions.decreaseStartIndex());
+        appDispatch(fetchGetDataBySearchingOptions({...searchParams}))
     };
 
     return (

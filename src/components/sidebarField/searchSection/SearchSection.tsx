@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import cn from 'classnames';
 import { useNavigate } from "react-router-dom";
 import { FormikProps, useFormik } from 'formik';
-import { Button, ListGroup, Form } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 
 
 import EnterSearchItems from './searchItems/EnterSearchItems';
@@ -15,7 +15,7 @@ import fetchDataBySearchingOptions from "../../../store/asyncThunks/fetchGetData
 import { useAppDispatch } from '../../../store/hooks';
 
 import { actionsResultOfSearching } from '../../../store/slices/resultOfSearchingBySearchingOptionsSlice'
-import { actionsUiActiveElementsOfSidebar } from "../../../store/slices/uiActiveSectionOfSidebarSlice";
+import { actionsUiActiveSectionOfSidebar } from "../../../store/slices/uiActiveSectionOfSidebarSlice";
 
 import validationSchema from './validationSchema'
 
@@ -76,7 +76,7 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
             appDispatch(actionsResultOfSearching.removeItems());
             appDispatch(fetchDataBySearchingOptions(searchParams));
             
-            appDispatch(actionsUiActiveElementsOfSidebar.setActivePage({ page: 'result' }))
+            appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'result' }))
             navigate('/result');
         },
     })

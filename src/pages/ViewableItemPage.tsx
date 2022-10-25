@@ -6,7 +6,7 @@ import { selectorsResultOfSearching } from "../store/slices/resultOfSearchingByS
 
 
 const ViewableItemPage: React.FC = () => {
-    const activeItemId = useAppSelector(store => store.resultOfSearching.activeItemId)
+    const activeItemId = useAppSelector(store => store.resultOfSearchingBySearchingOptions.activeItemId)
     const item = useAppSelector(store => selectorsResultOfSearching.selectById(store, activeItemId!));
 
     const {

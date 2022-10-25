@@ -4,7 +4,7 @@ import { useAppSelector } from './store/hooks';
 import SidebarField from './components/sidebarField/SidebarField';
 import MainField from './components/mainField/MainField';
 import Notification from './components/Notification'
-import ColorRunner from './components/ColorRunner';
+import ColorRunner from './components/RotatingCircles';
 
 const App: React.FC = () => {
 

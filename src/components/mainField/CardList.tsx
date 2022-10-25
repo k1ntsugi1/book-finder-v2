@@ -7,7 +7,7 @@ import { selectorsResultOfSearching } from "../../store/slices/resultOfSearching
 const CardList: React.FC<{typeOfItems: string}> = (props) => {
     const { typeOfItems } = props;
     const defaultItems = useAppSelector(selectorsResultOfSearching.selectEntities);
-    const staredItems = useAppSelector(store => store.dataOfStaredItems.entities);
+    const staredItems = useAppSelector(store => store.dataOfStarredItems.entities);
     const showingItems = typeOfItems === 'default' ? defaultItems : staredItems;
     const isNotEmpty = showingItems && Object.values(showingItems).length ? true : false;
     

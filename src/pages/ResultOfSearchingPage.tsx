@@ -8,8 +8,8 @@ import { useAppSelector } from "../store/hooks";
 
 const ResultOfSearchingPage: React.FC<{ typeOfItems: string }> = (props) => {
     const { typeOfItems } = props;
-    const { range: { maxResults }, statusOfLoading } = useAppSelector(store => store.dataOfSearching);
-    const { totalItems } = useAppSelector(store => store.resultOfSearching);
+    const { range: { maxResults }, statusOfLoading } = useAppSelector(store => store.dataOfSearchingOptions);
+    const { totalItems } = useAppSelector(store => store.resultOfSearchingBySearchingOptions);
     return (
         <>
             {statusOfLoading === 'fulfilled' && <CardList typeOfItems={typeOfItems} />}
