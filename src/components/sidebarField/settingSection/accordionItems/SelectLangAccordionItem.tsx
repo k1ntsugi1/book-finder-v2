@@ -1,52 +1,54 @@
 import { Accordion, Button } from "react-bootstrap"
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
+import RunnerBorderBottom from "../../../RunnerBorderBottom";
+
+import CheckSVGElement from "../../../SVGElements/CheckSVGElement";
+
 
 const SelectLangAccordionItem: React.FC = () => {
-    const [langState, setNewLang] = useState<string>('RU');
+
+    const [langState, setNewLang] = useState<string>(localStorage.getItem('currentLang') ?? 'ru');
+    const { t, i18n } = useTranslation();
+
     return (
         <Accordion.Item
             className="border-0"
             eventKey="1"
             style={{ 'background': 'var(--color-sidebar)', 'color': 'var(--color-text)' }}
         >
-            <Accordion.Header className="p-0 ms-3">Language</Accordion.Header>
+            <Accordion.Header className="p-0 ms-3">{t("sidebarField.settingSection.language.name")}</Accordion.Header>
             <Accordion.Body className="d-flex flex-column">
 
-                <Button variant="" className="wrapperOfRunnerBorderBottom" onClick={()=> setNewLang('RU')}>
-                    <div className='d-flex justify-content-between'>
-                        <span>RU</span>
-                        {
-                            langState === 'RU'
-                                ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
-                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-                                </svg>
-                                : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-slash-fill" viewBox="0 0 16 16">
-                                    <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
-                                    <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z" />
-                                </svg>
-                        }
-                    </div>
-                    <div className='runnerBorderBottom' style={{ 'background': 'var(--color-text)' }}></div>
-                </Button>
+                <RunnerBorderBottom>
+                    <Button variant="" className="w-100" onClick={() => {
+                        setNewLang('ru');
+                        i18n.changeLanguage('ru')
+                    }}>
+                        <div className="d-flex justify-content-between">
+                            <span>{t("sidebarField.settingSection.language.ru")}</span>
+                            {langState === 'ru' && <CheckSVGElement width="25" height="25" />}
+                        </div>
 
-                <Button variant="" className="wrapperOfRunnerBorderBottom" onClick={()=> setNewLang('EN')}>
-                <div className='d-flex justify-content-between'>
-                        <span>EN</span>
-                        {
-                            langState === 'EN'
-                                ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-fill" viewBox="0 0 16 16">
-                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-                                </svg>
-                                : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye-slash-fill" viewBox="0 0 16 16">
-                                    <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
-                                    <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z" />
-                                </svg>
-                        }
-                    </div>
-                    <div className='runnerBorderBottom' style={{ 'background': 'var(--color-text)' }}></div>
-                </Button>
+                    </Button>
+
+                </RunnerBorderBottom>
+
+
+                <RunnerBorderBottom>
+                    <Button variant="" className="w-100" onClick={() => {
+                        setNewLang('en');
+                        i18n.changeLanguage('en')
+                    }}>
+                        <div className="d-flex justify-content-between">
+                            <span>{t("sidebarField.settingSection.language.en")}</span>
+                            {langState === 'en' && <CheckSVGElement width="25" height="25" />}
+                        </div>
+
+                    </Button>
+                </RunnerBorderBottom>
+
 
             </Accordion.Body>
 

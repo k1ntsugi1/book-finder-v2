@@ -1,9 +1,12 @@
 import { Form } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import RotateCard from "../../../RotateCard";
 import { IStylingItemProps } from "../interfaces";
 
 const SidebarStyling: React.FC<IStylingItemProps> = (props) => {
+
     const { stateImmer, dispatchImmer, classNamesOfRotatingCard } = props;
+    const { t } = useTranslation();
     return (
         <RotateCard
             classnames={classNamesOfRotatingCard}
@@ -18,7 +21,7 @@ const SidebarStyling: React.FC<IStylingItemProps> = (props) => {
                 />
             }
             frontFaceOfCard={
-                <Form.Label className='ms-3'>Sidebar</Form.Label>
+                <Form.Label className='ms-3'>{t("sidebarField.settingSection.styling.stylingItems.sidebar")}</Form.Label>
             }
         />
     )

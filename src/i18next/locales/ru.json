@@ -13,7 +13,7 @@
                 "name": "Стилизация",
                 "stylingItems": {
                     "text": "Текс",
-                    "sidebar": "",
+                    "sidebar": "Меню",
                     "progressBar": "Идикатор прокрутки",
                     "body": {
                         "name": "Тело",
@@ -23,9 +23,9 @@
                 }
             },
             "language": {
-                "name": "Language",
+                "name": "Язык",
                 "ru": "RU",
-                "EN": "EN"
+                "en": "EN"
             },
             "progressBar": {
                 "name": "Идикатор прокрутки",
@@ -35,14 +35,16 @@
         }
     },
     "mainField": {
-        "emptyResult": "Пусто",
-        "homePage": {
-            "toHomeLink": "Домашняя страница",
-            "toResultOfSearchingLink": "Результат поиска",
-            "toStarredItemsLink": "Понравившиеся продукты",
-            "toViewableItem": "Просматриваемый продукт",
-            "optionOfSearching": "Опции поиска",
-            "optionOfSetting": "Настройка"
+        "emptyResult": "Пусто....",
+        "transcriptionCard": {
+            "navigation": "Навигация",
+            "homeLink": " - Домашняя страница",
+            "resultOfSearchingLink": " - Результаты поиска",
+            "viewableItemLink": " - Просматриваемый продукт",
+            "starredItemsLink": " - Понравившиеся продукты",
+            "configuration": "Конфигурация",
+            "searchOption": " - Опции поиска",
+            "settingOption": " - Настройка"
         }
     }
 }

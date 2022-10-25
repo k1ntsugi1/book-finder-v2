@@ -1,6 +1,5 @@
 import cn from 'classnames';
 
-
 import SearchSection from './searchSection/SearchSection';
 import StylingSection from './settingSection/SettingSection';
 
@@ -32,7 +31,7 @@ const SidebarField: React.FC<{setNewTypeOfItems: (type: string) => void}> = (pro
         >
 
             <SearchSection showStateOfForm={activeItemOfOptions === 'search' ? 'visible' : 'unvisible'} />
-            <StylingSection showStateOfBrush={activeItemOfOptions === 'brush' ? 'visible' : 'unvisible'} />
+            <StylingSection showStateOfBrush={activeItemOfOptions === 'setting' ? 'visible' : 'unvisible'} />
 
             <NavigationSection classnamesOfSidebarElement={classnamesOfSidebarElement} setNewTypeOfItems={setNewTypeOfItems}/>
             <SettingSection classnamesOfSidebarElement={classnamesOfSidebarElement}/>

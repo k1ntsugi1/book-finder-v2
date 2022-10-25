@@ -3,7 +3,9 @@ import RotateCard from "../../../RotateCard";
 import { IStylingItemProps } from "../interfaces";
 
 const StylingCardItem: React.FC<IStylingItemProps> = (props) => {
+
     const { stateImmer, dispatchImmer, classNamesOfRotatingCard } = props;
+    
     return (
         <RotateCard
             classnames={classNamesOfRotatingCard}

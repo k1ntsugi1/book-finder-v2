@@ -4,13 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { FormikProps, useFormik } from 'formik';
 import { Button, Form } from "react-bootstrap"
 
-
-import EnterSearchItems from './searchItems/EnterSearchItems';
-import SelectCategoryOfItem from "./searchItems/SelectCategoryOfItem";
-import SelectOrderTypeOfItem from "./searchItems/SelectOrderTypeOfItem";
-import SelectFilterOfItem from "./searchItems/SelectFilterOfItem";
-import SelectTypeOfItem from "./searchItems/SelectTypeOfItem";
-
 import fetchDataBySearchingOptions from "../../../store/asyncThunks/fetchGetDataBySearchingOptions";
 import { useAppDispatch } from '../../../store/hooks';
 
@@ -23,6 +16,13 @@ import { IInitialValueOfFormik } from './interfaces';
 
 import ProviderOfSearchOptions from './context/ProviderOfSearchOptions';
 
+import EnterSearchItems from './searchItems/EnterSearchItems';
+import SelectCategoryOfItem from "./searchItems/SelectCategoryOfItem";
+import SelectOrderTypeOfItem from "./searchItems/SelectOrderTypeOfItem";
+import SelectFilterOfItem from "./searchItems/SelectFilterOfItem";
+import SelectTypeOfItem from "./searchItems/SelectTypeOfItem";
+
+import RunnerBorderBottom from '../../RunnerBorderBottom';
 
 const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
 
@@ -75,7 +75,7 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
             }
             appDispatch(actionsResultOfSearching.removeItems());
             appDispatch(fetchDataBySearchingOptions(searchParams));
-            
+
             appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'result' }))
             navigate('/result');
         },
@@ -106,21 +106,19 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
 
                     ))}
                     <div className="mx-auto d-flex flex-column align-items-center">
+                        <RunnerBorderBottom>
+                            <Button type="submit" className="w-100 bg-transparent border-0">
+                                <span>Submit</span>
+                            </Button>
+                        </RunnerBorderBottom>
 
-                        <Button type="submit" className="w-100 bg-transparent border-0 wrapperOfRunnerBorderBottom">
-                            <div>Submit</div>
-                            <div className='runnerBorderBottom' style={{'background': 'var(--color-text)'}}></div>
-                        </Button>
-
-
-
-                        <Button className="w-100 bg-transparent border-0 wrapperOfRunnerBorderBottom">
-                            <div>reset all params</div>
-                            <div className='runnerBorderBottom' style={{'background': 'var(--color-text)'}}></div>
-                        </Button>
+                        <RunnerBorderBottom>
+                            <Button className="w-100 bg-transparent border-0">
+                                <div>reset all params</div>
+                            </Button>
+                        </RunnerBorderBottom>
 
                     </div>
-
 
                 </div>
             </Form>

@@ -9,6 +9,8 @@ import initialStateImmer from './immer/initialStateImmer';
 import { useAppDispatch } from '../../../store/hooks';
 import { actionsUiNotification } from '../../../store/slices/uiNotificationSlice';
 
+import RunnerBorderBottom from '../../RunnerBorderBottom';
+
 import saveOptionsOfStyleHandler from '../../../helpersFunc/saveOptionsOfSettingSection'
 
 import SelectLangAccordionItem from './accordionItems/SelectLangAccordionItem';
@@ -64,7 +66,7 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
             'opacity-100 ': showStateOfBrush === 'visible' ? true : false,
             'opacity-0 ': showStateOfBrush === 'visible' ? false : true,
         });
-        const classNamesOfRotatingCard = cn('')
+    const classNamesOfRotatingCard = cn('')
 
     useEffect(() => {
         setVariousOfColorsHandler(stateImmer)
@@ -93,34 +95,37 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
             ref={brushRef}
         >
             <Accordion>
-                <SelectParamsOfStylingAccordionItem stateImmer={stateImmer} dispatchImmer={dispatchImmer} classNamesOfRotatingCard={classNamesOfRotatingCard}/>
+                <SelectParamsOfStylingAccordionItem stateImmer={stateImmer} dispatchImmer={dispatchImmer} classNamesOfRotatingCard={classNamesOfRotatingCard} />
                 <SelectLangAccordionItem />
                 <SelectProgressBarAccordionItem />
             </Accordion>
 
             <div className="d-flex flex-column align-items-center justify-content-center">
-                <Button
-                    variant=""
-                    className="wrapperOfRunnerBorderBottom"
-                    onClick={() => {
-                        saveOptionsOfStyleHandler(stateImmer);
-                        appDispatch(actionsUiNotification.show({ message: 'saved', type: 'success', statusOfVisibility: 'visible' }))
-                    }}
-                >
-                    <div>Save</div>
-                    <div className='runnerBorderBottom' style={{ 'background': 'var(--color-text)' }}></div>
-                </Button>
-                <Button
-                    variant=""
-                    className="wrapperOfRunnerBorderBottom"
-                    onClick={() => {
-                        dispatchImmer({ type: 'reset' });
-                        appDispatch(actionsUiNotification.show({ message: 'reseted', type: 'success', statusOfVisibility: 'visible' }))
-                    }}
-                >
-                    <div>Reset all params</div>
-                    <div className='runnerBorderBottom' style={{ 'background': 'var(--color-text)' }}></div>
-                </Button>
+
+                <RunnerBorderBottom>
+                    <Button
+                        variant=""
+                        onClick={() => {
+                            saveOptionsOfStyleHandler(stateImmer);
+                            appDispatch(actionsUiNotification.show({ message: 'saved', type: 'success', statusOfVisibility: 'visible' }))
+                        }}
+                    >
+                        <span>Save</span>
+                    </Button>
+                </RunnerBorderBottom>
+
+                <RunnerBorderBottom>
+                    <Button
+                        variant=""
+                        onClick={() => {
+                            dispatchImmer({ type: 'reset' });
+                            appDispatch(actionsUiNotification.show({ message: 'reseted', type: 'success', statusOfVisibility: 'visible' }))
+                        }}
+                    >
+                        <span>Reset all params</span>
+                    </Button>
+                </RunnerBorderBottom>
+
 
             </div>
         </section >

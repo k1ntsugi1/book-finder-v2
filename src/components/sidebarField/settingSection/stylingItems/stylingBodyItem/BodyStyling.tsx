@@ -5,9 +5,12 @@ import SelectBodyColor from "./SelectBodyColor";
 import SelectBodyBackground from "./SelectBodyBackground";
 
 import { IStylingItemProps } from "../../interfaces";
+import { useTranslation } from "react-i18next";
 
 const BodyStyling: React.FC<IStylingItemProps> = (props) => {
+
     const { stateImmer, dispatchImmer, classNamesOfRotatingCard } = props;
+    const { t } = useTranslation();
 
     return (
         <Accordion>
@@ -16,7 +19,7 @@ const BodyStyling: React.FC<IStylingItemProps> = (props) => {
                 eventKey="0"
                 style={{ 'background': 'var(--color-sidebar)', 'color': 'var(--color-text)' }}
             >
-                <Accordion.Header className="p-0 ms-3">Body</Accordion.Header>
+                <Accordion.Header className="p-0 ms-3">{t("sidebarField.settingSection.styling.stylingItems.body.name")}</Accordion.Header>
                 <Accordion.Body className='p-0 d-flex flex-column gap-1'>
 
                     <SelectBodyBackground 

@@ -1,0 +1,50 @@
+{
+    "sidebarField": {
+        "searchSection": {
+            "intitle": "Product",
+            "inauthor": "Author",
+            "category":"Category",
+            "filterOfItem":"",
+            "orderType":"",
+            "typeOfItem":""
+        },
+        "settingSection": {
+            "styling": {
+                "name": "Styling",
+                "stylingItems": {
+                    "text": "Text",
+                    "sidebar": "Sidebar",
+                    "progressBar": "Progress bar",
+                    "body": {
+                        "name": "Body",
+                        "uploadImageBtn": "Upload image",
+                        "colorOfBody": "Body color"
+                    }
+                }
+            },
+            "language": {
+                "name": "Language",
+                "ru": "RU",
+                "en": "EN"
+            },
+            "progressBar": {
+                "name": "Progress bar",
+                "straight": "Straight",
+                "circle": "Circle"
+            }
+        }
+    },
+    "mainField": {
+        "emptyResult": "Empty....",
+        "transcriptionCard": {
+            "navigation": "Navigation",
+            "homeLink": " - Home page",
+            "resultOfSearchingLink": " - Result of searching",
+            "viewableItemLink": " - Viewable product",
+            "starredItemsLink": " - Starred products",
+            "configuration": "Configuration",
+            "searchOption": " - Option of search",
+            "settingOption": " - Option of setting"
+        }
+    }
+}

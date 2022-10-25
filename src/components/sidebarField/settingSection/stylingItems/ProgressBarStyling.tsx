@@ -1,9 +1,13 @@
 import { Form } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import RotateCard from "../../../RotateCard";
 import { IStylingItemProps } from "../interfaces";
 
 const ProgressBarStyling: React.FC<IStylingItemProps> = (props) => {
+
     const { stateImmer, dispatchImmer, classNamesOfRotatingCard } = props;
+    const { t } = useTranslation();
+
     return (
         <RotateCard
             classnames={classNamesOfRotatingCard}
@@ -18,7 +22,7 @@ const ProgressBarStyling: React.FC<IStylingItemProps> = (props) => {
                 />
             }
             frontFaceOfCard={
-                <Form.Label className='ms-3'>Progress bar</Form.Label>
+                <Form.Label className='ms-3'>{t("sidebarField.settingSection.styling.stylingItems.progressBar")}</Form.Label>
             }
         />
 

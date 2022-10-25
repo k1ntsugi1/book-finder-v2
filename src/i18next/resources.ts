@@ -1,12 +1,12 @@
-import RU from './locales/RU.json';
-import EN from './locales/EN.json';
+import ru from './locales/ru.json';
+import en from './locales/en.json';
 
 const resources = {
   ru: {
-    translation: RU,
+    translation: ru,
   },
   en: {
-    translation: EN,
+    translation: en,
   },
 };
 export default resources;
