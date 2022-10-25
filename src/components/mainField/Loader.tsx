@@ -4,8 +4,8 @@ import { Button } from 'react-bootstrap';
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import fetchDataAsyncThunk from "../../store/fetchDataAsyncThunk";
 
-import { actionsDataOfSearching } from "../../store/slices/dataOfSearchingSlice";
-import { actionsResultOfSearching } from "../../store/slices/resultOfSearchingSlice";
+import { actionsDataOfSearching } from "../../store/slices/dataOfSearchingOptionsSlice";
+import { actionsResultOfSearching } from "../../store/slices/resultOfSearchingBySearchingOptionsSlice";
 
 
 const Loader: React.FC = () => {

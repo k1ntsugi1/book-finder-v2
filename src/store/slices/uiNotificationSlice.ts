@@ -13,7 +13,7 @@ const initialState: IInitialState = {
 }
 
 const uiNotificationSlice = createSlice({
-    name: 'ui notification',
+    name: 'Ui notification',
     initialState,
     reducers: {
         show(state, action: PayloadAction<IInitialState>) {

@@ -8,9 +8,9 @@ import { ParsedItem } from '../../helpersFunc/parseResponseItems';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
-import { actionsDataOfStaredItems } from '../../store/slices/dataOfStaredItemsSlice';
-import { actionsUiActiveElementsOfSidebar } from '../../store/slices/uiActiveElementsOfSidebarSlice';
-import { actionsResultOfSearching } from '../../store/slices/resultOfSearchingSlice';
+import { actionsDataOfStaredItems } from '../../store/slices/dataOfStarredItemsSlice';
+import { actionsUiActiveElementsOfSidebar } from '../../store/slices/uiActiveSectionOfSidebarSlice';
+import { actionsResultOfSearching } from '../../store/slices/resultOfSearchingBySearchingOptionsSlice';
 import { actionsUiNotification } from '../../store/slices/uiNotificationSlice';
 
 const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {

@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
-import { actionsUiActiveElementsOfSidebar } from "../../../../store/slices/uiActiveElementsOfSidebarSlice";
+import { actionsUiActiveElementsOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
 
 import { ISettingItemsProps } from "../interfaces";
 

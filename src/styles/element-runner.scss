@@ -1,0 +1,55 @@
+.container-element-runner {
+    position: relative;
+    overflow: hidden;
+    .element-runner {
+        position: absolute;
+        top: 50%;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        transform: translateY(-50%);
+    };
+    .front-element-runner {
+        left: 0;
+    };
+    .back-element-runner {
+        left: 100%;
+        cursor: pointer;
+    };
+    &:hover {
+        .front-element-runner {
+            animation: run-left-from-0perc ease 2s forwards;
+        };
+        .back-element-runner {
+            animation: run-left-from-100perc ease 2s forwards;
+        };
+    }
+    .front-element-runner {
+        animation: run-left-from-100perc ease 2s forwards;
+    };
+    .back-element-runner {
+        animation: run-left-from-0perc ease 2s forwards;
+    };
+}
+
+
+
+@keyframes run-left-from-0perc {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: -100%;;
+    }
+}
+
+@keyframes run-left-from-100perc {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: 0;;
+    }
+}

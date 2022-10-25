@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import fetchDataAsyncThunk from '../fetchDataAsyncThunk';
-import { DataOfSearchingParams } from '../fetchDataAsyncThunk';
-import actionsResultOfSearching from './resultOfSearchingSlice';
+
+import fetchGetDataBySearchingOptions from '../asyncThunks/fetchGetDataBySearchingOptions';
+
+import { IDataOfSearchingParams } from "../asyncThunks/interfaces";
+
 
 interface InitialState {
     range: {
@@ -10,7 +12,7 @@ interface InitialState {
     },
     statusOfLoading: string,
     statusOfError: string,
-    searchParams: DataOfSearchingParams,
+    searchParams: IDataOfSearchingParams,
 };
 
 
@@ -31,7 +33,7 @@ const initialState: InitialState  = {
     },
 };
 
-const dataOfSearchingSlice = createSlice({
+const dataOfSearchingOptionsSlice = createSlice({
     name: 'data of searching',
     initialState,
     reducers: {
@@ -48,24 +50,24 @@ const dataOfSearchingSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-        .addCase(fetchDataAsyncThunk.pending, (state) => {
+        .addCase(fetchGetDataBySearchingOptions.pending, (state) => {
             state.statusOfLoading = 'pending';
             state.statusOfError = '';
         })
-        .addCase(fetchDataAsyncThunk.fulfilled, (state, { payload }) => {
+        .addCase(fetchGetDataBySearchingOptions.fulfilled, (state, { payload }) => {
             const { searchParams, startIndex } = payload;
             state.statusOfLoading = 'fulfilled';
             state.range.startIndex = startIndex;
             
             state.searchParams = searchParams;
         })
-        .addCase(fetchDataAsyncThunk.rejected, (state, { payload }) => {
+        .addCase(fetchGetDataBySearchingOptions.rejected, (state, { payload }) => {
             state.statusOfLoading = 'rejected';
             state.statusOfError = payload?.error.toString();
         } )
     }
 });
 
-export const actionsDataOfSearching = dataOfSearchingSlice.actions;
+export const actionsDataOfSearchingOptions = dataOfSearchingOptionsSlice.actions;
 
-export default dataOfSearchingSlice.reducer;
+export default dataOfSearchingOptionsSlice.reducer;

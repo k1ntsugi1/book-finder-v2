@@ -1,24 +1,24 @@
-import { ResponseItem } from "../store/fetchDataAsyncThunk";
+import { IResponseItem } from "../store/asyncThunks/interfaces";
 
-type Item = string | null;
+type TPropOfParsedItem = string | null;
 
 export interface ParsedItem {
     id: string,
-    title: Item,
-    subtitle: Item,
-    authors: Item,
-    publisher: Item,
-    publishedDate: Item,
-    printType: Item,
-    categories: Item,
-    pageCount: Item,
-    language: Item,
-    description: Item,
-    imgUrl: Item,
+    title: TPropOfParsedItem,
+    subtitle: TPropOfParsedItem,
+    authors: TPropOfParsedItem,
+    publisher: TPropOfParsedItem,
+    publishedDate: TPropOfParsedItem,
+    printType: TPropOfParsedItem,
+    categories: TPropOfParsedItem,
+    pageCount: TPropOfParsedItem,
+    language: TPropOfParsedItem,
+    description: TPropOfParsedItem,
+    imgUrl: TPropOfParsedItem,
 }
 
 
-const parseResponseItems = (items: ResponseItem[]): ParsedItem[] => {
+const parseResponseItems = (items: IResponseItem[]): ParsedItem[] => {
     const parsedItems = items.map(item => {
 
         const volumeInfo = item.volumeInfo;

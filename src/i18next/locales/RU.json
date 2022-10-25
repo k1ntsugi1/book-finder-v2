@@ -1,0 +1,48 @@
+{
+    "sidebarField": {
+        "searchSection": {
+            "intitle": "Продукт",
+            "inauthor": "Автор",
+            "category":"Категория",
+            "filterOfItem":"",
+            "orderType":"",
+            "typeOfItem":""
+        },
+        "settingSection": {
+            "styling": {
+                "name": "Стилизация",
+                "stylingItems": {
+                    "text": "Текс",
+                    "sidebar": "",
+                    "progressBar": "Идикатор прокрутки",
+                    "body": {
+                        "name": "Тело",
+                        "uploadImageBtn": "Загрузить изображение",
+                        "colorOfBody": "Цвет тела"
+                    }
+                }
+            },
+            "language": {
+                "name": "Language",
+                "ru": "RU",
+                "EN": "EN"
+            },
+            "progressBar": {
+                "name": "Идикатор прокрутки",
+                "straight": "Прямой",
+                "circle": "Круглый"
+            }
+        }
+    },
+    "mainField": {
+        "emptyResult": "Пусто",
+        "homePage": {
+            "toHomeLink": "Домашняя страница",
+            "toResultOfSearchingLink": "Результат поиска",
+            "toStarredItemsLink": "Понравившиеся продукты",
+            "toViewableItem": "Просматриваемый продукт",
+            "optionOfSearching": "Опции поиска",
+            "optionOfSetting": "Настройка"
+        }
+    }
+}

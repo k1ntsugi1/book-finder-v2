@@ -1,11 +1,11 @@
-import { DataOfSearchingParams } from "../store/fetchDataAsyncThunk";
+import { IDataOfSearchingParams } from "../store/asyncThunks/interfaces";
 
-interface SearchParams extends DataOfSearchingParams {
-    startIndex: number,
-    maxResults : number,
+interface ISearchParams extends IDataOfSearchingParams {
+    startIndex: string,
+    maxResults : string,
 }
 
-const createURL = (searchParams: SearchParams): string => {
+const createURLBySearchingOptions = (searchParams: ISearchParams): string => {
 
     const url = new URL('books/v1/volumes', 'https://www.googleapis.com');
     
@@ -27,16 +27,16 @@ const createURL = (searchParams: SearchParams): string => {
 
     url.searchParams.set('q', q);
 
-    if(currentTypeOfOrder !== 'all')url.searchParams.set('orderBy', currentTypeOfOrder);
+    if(currentTypeOfOrder !== 'all') url.searchParams.set('orderBy', currentTypeOfOrder);
     if(currentTypeOfFilter !== 'all') url.searchParams.set('filter', currentTypeOfFilter);
     if(currentTypeOfItem !== 'all') url.searchParams.set('printType', currentTypeOfItem);
     
     url.searchParams.set('key', 'AIzaSyBqzQ4Z66g5kISJG2QrjMdANI61Fw2hWKo');
-    url.searchParams.set('startIndex ', `${startIndex}`);
-    url.searchParams.set('maxResults ', `${maxResults}`);
+    url.searchParams.set('startIndex ', startIndex);
+    url.searchParams.set('maxResults ', maxResults);
 
     return url.toString().replace(/\+/g,  "");
 
 }
 
-export default createURL;
+export default createURLBySearchingOptions;

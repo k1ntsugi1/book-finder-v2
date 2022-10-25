@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import RotateCard from "../../../../RotateCard"
 
 import { IUploadBodyBackgroundImage } from "../../interfaces"
-import fetchUploadImage from "../../../../../helpersFunc/fetchUploadImage";
+import fetchUploadImage from "../../../../../helpersFunc/fetchPostImage";
 
 const UploadBodyBackgroundImage: React.FC<IUploadBodyBackgroundImage> = (props) => {
 

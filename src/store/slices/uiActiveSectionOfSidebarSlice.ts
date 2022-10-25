@@ -11,7 +11,7 @@ const initialState: IInitialState = {
 }
 
 
-const uiActiveElementsOfSidebarSlice = createSlice({
+const uiActiveSectionOfSidebarSlice = createSlice({
     name: 'active page',
     initialState,
     reducers: {
@@ -28,6 +28,6 @@ const uiActiveElementsOfSidebarSlice = createSlice({
 });
 
 
-export const actionsUiActiveElementsOfSidebar = uiActiveElementsOfSidebarSlice.actions;
+export const actionsUiActiveElementsOfSidebar = uiActiveSectionOfSidebarSlice.actions;
 
-export default uiActiveElementsOfSidebarSlice.reducer;
+export default uiActiveSectionOfSidebarSlice.reducer;

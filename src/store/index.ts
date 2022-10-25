@@ -1,20 +1,21 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import dataOfSearchingReducer from './slices/dataOfSearchingSlice';
-import dataOfStaredItemsReducer from './slices/dataOfStaredItemsSlice';
-import resultOfSearchingReducer from './slices/resultOfSearchingSlice';
+import dataOfSearchingOptionsReducer from './slices/dataOfSearchingOptionsSlice';
+import dataOfStarredItemsReducer from './slices/dataOfStarredItemsSlice';
+import resultOfSearchingBySearchingOptionsReducer from './slices/resultOfSearchingBySearchingOptionsSlice';
 
-import uiProgressBarReducer from './slices/uiProgressBar';
-import uiActiveElementsOfSidebarReducer from './slices/uiActiveElementsOfSidebarSlice';
+import uiProgressBarReducer from './slices/uiProgressBarSlice';
+import uiActiveSectionOfSidebarReducer from './slices/uiActiveSectionOfSidebarSlice';
 import uiNotificationSliceReducer from './slices/uiNotificationSlice';
 
 const store = configureStore({
     reducer: {
-        dataOfSearching: dataOfSearchingReducer,
-        resultOfSearching: resultOfSearchingReducer,
-        dataOfStaredItems: dataOfStaredItemsReducer,
+        dataOfSearchingOptions: dataOfSearchingOptionsReducer,
+        dataOfStarredItems: dataOfStarredItemsReducer,
+        resultOfSearchingBySearchingOptions: resultOfSearchingBySearchingOptionsReducer,
+
         uiProgressBar: uiProgressBarReducer,
-        uiActiveElementsOfSidebar: uiActiveElementsOfSidebarReducer,
+        uiActiveSectionOfSidebar: uiActiveSectionOfSidebarReducer,
         uiNotificationSlice: uiNotificationSliceReducer, 
     }
 })

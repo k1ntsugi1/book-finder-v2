@@ -1,6 +1,6 @@
 import { Accordion, Button } from "react-bootstrap";
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
-import { actionsUiProgressBar } from "../../../../store/slices/uiProgressBar";
+import { actionsUiProgressBar } from "../../../../store/slices/uiProgressBarSlice";
 
 const SelectProgressBarAccordionItem: React.FC = () => {
     const { typeOfProgressBar } = useAppSelector(store => store.uiProgressBar)

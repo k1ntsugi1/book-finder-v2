@@ -7,12 +7,6 @@ export interface IActionOfReducerImmer {
     value?: string
 }
 
-export interface IAxiosResponseData {
-    data: {
-        url: string,
-    }
-}
-
 export interface IStylingItemProps {
     stateImmer: IInitialStateImmer,
     dispatchImmer: (value: IActionOfReducerImmer) => void,

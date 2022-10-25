@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction} from "@reduxjs/toolkit";
 
-const uiProgressBar = createSlice({
-    name: 'value of scroll',
+const uiProgressBarSlice = createSlice({
+    name: 'Ui progress bar',
     initialState: {
         percentOfFilling: 0,
         typeOfProgressBar: 'straight',
@@ -16,6 +16,6 @@ const uiProgressBar = createSlice({
     },
 });
 
-export const actionsUiProgressBar = uiProgressBar.actions;
+export const actionsUiProgressBar = uiProgressBarSlice.actions;
 
-export default uiProgressBar.reducer;
+export default uiProgressBarSlice.reducer;

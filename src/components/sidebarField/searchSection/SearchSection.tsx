@@ -11,11 +11,11 @@ import SelectOrderTypeOfItem from "./searchItems/SelectOrderTypeOfItem";
 import SelectFilterOfItem from "./searchItems/SelectFilterOfItem";
 import SelectTypeOfItem from "./searchItems/SelectTypeOfItem";
 
-import fetchDataAsyncThunk from "../../../store/fetchDataAsyncThunk";
+import fetchDataBySearchingOptions from "../../../store/asyncThunks/fetchGetDataBySearchingOptions";
 import { useAppDispatch } from '../../../store/hooks';
 
-import { actionsResultOfSearching } from '../../../store/slices/resultOfSearchingSlice'
-import { actionsUiActiveElementsOfSidebar } from "../../../store/slices/uiActiveElementsOfSidebarSlice";
+import { actionsResultOfSearching } from '../../../store/slices/resultOfSearchingBySearchingOptionsSlice'
+import { actionsUiActiveElementsOfSidebar } from "../../../store/slices/uiActiveSectionOfSidebarSlice";
 
 import validationSchema from './validationSchema'
 
@@ -74,7 +74,7 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
                 currentAuthorOfItem: currentAuthorOfItem.trim(),
             }
             appDispatch(actionsResultOfSearching.removeItems());
-            appDispatch(fetchDataAsyncThunk(searchParams));
+            appDispatch(fetchDataBySearchingOptions(searchParams));
             
             appDispatch(actionsUiActiveElementsOfSidebar.setActivePage({ page: 'result' }))
             navigate('/result');

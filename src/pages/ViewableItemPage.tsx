@@ -2,7 +2,7 @@ import GlassElement from "../components/GlassElement";
 import EmptyResultOfSearching from "../components/mainField/EmptyResultOfSearching";
 
 import { useAppSelector } from "../store/hooks";
-import { selectorsResultOfSearching } from "../store/slices/resultOfSearchingSlice";
+import { selectorsResultOfSearching } from "../store/slices/resultOfSearchingBySearchingOptionsSlice";
 
 
 const ViewableItemPage: React.FC = () => {

@@ -1,6 +1,6 @@
 import { IInitialStateImmer } from "../components/sidebarField/settingSection/interfaces";
 
-const saveOptionsOfStyleHandler = (state: IInitialStateImmer): void => {
+const saveOptionsOfSettingSection = (state: IInitialStateImmer): void => {
     const {
         images: {
             activeImage,
@@ -27,4 +27,4 @@ const saveOptionsOfStyleHandler = (state: IInitialStateImmer): void => {
     localStorage.setItem('bodyImages', JSON.stringify(bodyImages));
 }
 
-export default saveOptionsOfStyleHandler;
+export default saveOptionsOfSettingSection;

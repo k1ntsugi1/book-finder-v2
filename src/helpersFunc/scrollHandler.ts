@@ -1,4 +1,4 @@
-import { actionsUiProgressBar } from "../store/slices/uiProgressBar";
+import { actionsUiProgressBar } from "../store/slices/uiProgressBarSlice";
 import { AppDispatch } from "../store";
 
 interface IScrollHandler {

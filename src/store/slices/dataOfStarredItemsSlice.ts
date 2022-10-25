@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import _ from 'lodash';
 import { ParsedItem } from '../../helpersFunc/parseResponseItems'
-import fetchDataofStaredItems from '../fetchDataOfStaredItems';
+import fetchGetDataByStarredItemsIDs from '../asyncThunks/fetchGetDataByStarredItemsIDs';
 
-// const entityAdapterOfStaredItems = createEntityAdapter<{ids: string[]}>();
 
 interface IInitialState {
     statusOfLoading: string,
@@ -25,8 +24,8 @@ const initialState: IInitialState = {
 
 type Payload = PayloadAction<{id: string}>;
 
-const dataOfStaredItemsSlice = createSlice({
-    name: 'data of stared items',
+const dataOfStarredItemsSlice = createSlice({
+    name: 'data of starred items',
     initialState: initialState,
     reducers: {
         addItem(state, action: Payload) {
@@ -44,11 +43,11 @@ const dataOfStaredItemsSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-        .addCase(fetchDataofStaredItems.pending, (state) => {
+        .addCase(fetchGetDataByStarredItemsIDs.pending, (state) => {
             state.statusOfLoading = 'pending';
             state.statusOfError = '';
         })
-        .addCase(fetchDataofStaredItems.fulfilled, (state, { payload }) => {
+        .addCase(fetchGetDataByStarredItemsIDs.fulfilled, (state, { payload }) => {
             state.statusOfLoading = 'fulfilled';
             const { items } = payload;
             state.entities = {...state.entities, ...items.reduce((acc: { [key: string]: ParsedItem}, item) => {
@@ -56,7 +55,7 @@ const dataOfStaredItemsSlice = createSlice({
                 return acc;
             }, {})};
         })
-        .addCase(fetchDataofStaredItems.rejected, (state) => {
+        .addCase(fetchGetDataByStarredItemsIDs.rejected, (state) => {
             state.statusOfLoading = 'rejected';
         })
     }
@@ -65,7 +64,7 @@ const dataOfStaredItemsSlice = createSlice({
 
 
 
-export const actionsDataOfStaredItems = dataOfStaredItemsSlice.actions;
+export const actionsDataOfStarredItems = dataOfStarredItemsSlice.actions;
 
-export default dataOfStaredItemsSlice.reducer;
+export default dataOfStarredItemsSlice.reducer;
 

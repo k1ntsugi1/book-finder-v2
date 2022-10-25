@@ -1,7 +1,10 @@
 import { createSlice, createEntityAdapter, PayloadAction  } from "@reduxjs/toolkit";
-import fetchDataAsyncThunk from '../fetchDataAsyncThunk';
-import { actionsDataOfSearching } from './dataOfSearchingSlice';
+
 import { RootState } from "../index";
+
+import fetchDataBySearchingOptions from '../asyncThunks/fetchGetDataBySearchingOptions';
+import { actionsDataOfSearchingOptions } from './dataOfSearchingOptionsSlice';
+
 import { ParsedItem } from '../../helpersFunc/parseResponseItems'
 
 interface IInitialState {
@@ -10,12 +13,13 @@ interface IInitialState {
 }
 
 const entityAdapterOfResult = createEntityAdapter<ParsedItem>();
+
 const initialState: IInitialState = {
     totalItems: 0,
     activeItemId: null,
 }
 
-const resultOfSearchingSlice = createSlice({
+const resultOfSearchingBySearchingOptionsSlice = createSlice({
     name: 'result of searching',
     initialState: entityAdapterOfResult.getInitialState(initialState),
     reducers: {
@@ -29,22 +33,22 @@ const resultOfSearchingSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-        .addCase(fetchDataAsyncThunk.fulfilled, (state, { payload }) => {
+        .addCase(fetchDataBySearchingOptions.fulfilled, (state, { payload }) => {
             const { items, totalItems, isNewRequest } = payload;
             
-            if (isNewRequest) resultOfSearchingSlice.caseReducers.removeItems(state);
+            if (isNewRequest) resultOfSearchingBySearchingOptionsSlice.caseReducers.removeItems(state);
             
             state.totalItems = totalItems;
             entityAdapterOfResult.upsertMany(state, items);
         })
-        .addCase(actionsDataOfSearching.resetParams, (state) => {
-            resultOfSearchingSlice.caseReducers.removeItems(state);
+        .addCase(actionsDataOfSearchingOptions.resetParams, (state) => {
+            resultOfSearchingBySearchingOptionsSlice.caseReducers.removeItems(state);
         })
     }
 });
 
-export const selectorsResultOfSearching = entityAdapterOfResult.getSelectors<RootState>(store => store.resultOfSearching);
+export const selectorsResultOfSearching = entityAdapterOfResult.getSelectors<RootState>(store => store.resultOfSearchingBySearchingOptions);
 
-export const actionsResultOfSearching = resultOfSearchingSlice.actions;
+export const actionsResultOfSearching = resultOfSearchingBySearchingOptionsSlice.actions;
 
-export default resultOfSearchingSlice.reducer;
+export default resultOfSearchingBySearchingOptionsSlice.reducer;

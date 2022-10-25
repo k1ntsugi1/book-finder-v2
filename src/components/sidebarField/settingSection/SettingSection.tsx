@@ -9,7 +9,7 @@ import initialStateImmer from './immer/initialStateImmer';
 import { useAppDispatch } from '../../../store/hooks';
 import { actionsUiNotification } from '../../../store/slices/uiNotificationSlice';
 
-import saveOptionsOfStyleHandler from '../../../helpersFunc/saveOptionsOfStyleHandler'
+import saveOptionsOfStyleHandler from '../../../helpersFunc/saveOptionsOfSettingSection'
 
 import SelectLangAccordionItem from './accordionItems/SelectLangAccordionItem';
 import SelectParamsOfStylingAccordionItem from './accordionItems/SelectParamsOfStylingAccordionItem';

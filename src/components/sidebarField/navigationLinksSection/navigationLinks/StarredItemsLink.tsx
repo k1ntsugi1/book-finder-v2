@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
-import { actionsUiActiveElementsOfSidebar } from "../../../../store/slices/uiActiveElementsOfSidebarSlice";
+import { actionsUiActiveElementsOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
 import fetchDataOfStaredItems from "../../../../store/fetchDataOfStaredItems";
 
 import { INavigationLinksProps } from "../interfaces";
