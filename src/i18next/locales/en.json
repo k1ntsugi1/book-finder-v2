@@ -38,13 +38,13 @@
         "emptyResult": "Empty....",
         "transcriptionCard": {
             "navigation": "Navigation",
-            "homeLink": " - Home page",
-            "resultOfSearchingLink": " - Result of searching",
-            "viewableItemLink": " - Viewable product",
-            "starredItemsLink": " - Starred products",
+            "homeLink": "Home page",
+            "resultOfSearchingLink": "Result of searching",
+            "viewableItemLink": "Viewable product",
+            "starredItemsLink": "Starred products",
             "configuration": "Configuration",
-            "searchOption": " - Option of search",
-            "settingOption": " - Option of setting"
+            "searchOption": "Option of search",
+            "settingOption": "Option of setting"
         }
     }
 }

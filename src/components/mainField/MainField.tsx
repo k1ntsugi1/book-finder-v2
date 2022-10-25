@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 import scrollHandler from '../../helpersFunc/scrollHandler';
 
@@ -17,17 +17,21 @@ const MainField: React.FC<{ typeOfItems: string }> = (props) => {
     const { typeOfItems } = props;
 
     const appDispatch = useAppDispatch();
+    const { range: { startIndex } } = useAppSelector(store => store.dataOfSearchingOptions);
     const refScrollElement = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        
         const scrollElement = refScrollElement.current!;
+        
+        scrollHandler(scrollElement, appDispatch);
 
         const scrollListener = () => { scrollHandler(scrollElement, appDispatch) };
 
         scrollElement.addEventListener('scroll', scrollListener);
 
         return () => { scrollElement.removeEventListener('scroll', scrollListener) };
-    }, []);
+    }, [startIndex]);
 
     return (
         <GlassElement className='col'>

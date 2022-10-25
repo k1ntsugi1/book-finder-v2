@@ -6,7 +6,7 @@ import SettingTranscription from "./transcriptionItems/SettingTranscription";
 const TranscriptionCard: React.FC = () => {
     return (
         <GlassElement
-            className="p-2 h-75 w-25 fs-5 rounded"
+            className="transcription-card-container p-2 h-75 w-25 fs-5 rounded"
             style={{ 'color': 'var(--color-text)' }}
         >
             <div className="h-100 d-flex flex-column justify-content-around">

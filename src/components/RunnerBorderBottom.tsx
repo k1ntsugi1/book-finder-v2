@@ -1,12 +1,20 @@
+import cn from 'classnames';
+
 interface IRunnerBorderBottom {
-    children: React.ReactNode;
+    children: React.ReactNode,
+    classNamesOfContainerWrapper?: string,
+    classNamesOfChildrenWrapper?: string, 
 }
 
 const RunnerBorderBottom: React.FC<IRunnerBorderBottom> = (props) => {
+    const { children, classNamesOfContainerWrapper, classNamesOfChildrenWrapper } = props;
+
+    const classNameOfContainerWrapper = cn('wrapper-runner-border-bottom', classNamesOfContainerWrapper);
+
     return (
-        <div className="wrapper-runner-border-bottom cursor-pointer">
-            <div>
-                {props.children}
+        <div className={classNameOfContainerWrapper}>
+            <div className={classNamesOfChildrenWrapper}>
+                {children}
             </div>
             <div className="runner-border-bottom" style={{ 'background': 'var(--color-text)' }}></div>
         </div>

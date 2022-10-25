@@ -38,13 +38,13 @@
         "emptyResult": "Пусто....",
         "transcriptionCard": {
             "navigation": "Навигация",
-            "homeLink": " - Домашняя страница",
-            "resultOfSearchingLink": " - Результаты поиска",
-            "viewableItemLink": " - Просматриваемый продукт",
-            "starredItemsLink": " - Понравившиеся продукты",
+            "homeLink": "Домашняя страница",
+            "resultOfSearchingLink": "Результаты поиска",
+            "viewableItemLink": "Просматриваемый продукт",
+            "starredItemsLink": "Понравившиеся продукты",
             "configuration": "Конфигурация",
-            "searchOption": " - Опции поиска",
-            "settingOption": " - Настройка"
+            "searchOption": "Опции поиска",
+            "settingOption": "Настройка"
         }
     }
 }

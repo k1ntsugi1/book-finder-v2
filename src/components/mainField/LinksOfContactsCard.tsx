@@ -11,7 +11,7 @@ const LinksOfContactsCard: React.FC = () => {
     }
 
     return (
-        <GlassElement className="w-50 h-75 d-flex flex-column rounded">
+        <GlassElement className="links-contacts-container w-50 h-75 d-flex flex-column rounded">
            
             <div className='container-element-runner border-bottom flex-grow-1 rounded-top'>
                 <div className='element-runner front-element-runner'>

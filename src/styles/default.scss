@@ -45,10 +45,6 @@ body {
 
 }
 
-// .scrollStatus {
-//     height: calc(var(--height-column) + '%');
-// }
-
 .centered-content {
     display: flex;
     justify-content: center;
@@ -99,4 +95,16 @@ body {
     height: 50px;
 }
 
+.transcription-card-container {
+    max-width: 500px;
+    max-height: 500px;
+    min-width: 300px;
+    min-height: 450px;
+}
 
+.links-contacts-container {
+    max-width: 600px;
+    max-height: 500px;
+    min-width: 300px;
+    min-height: 450px;
+}
