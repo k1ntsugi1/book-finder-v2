@@ -10,9 +10,23 @@
     src: url('../assets/fonts/DM_Serif_Display/DMSerifDisplay-Italic.ttf')
 }
 
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    fonst-weight: 400;
+    src: url('../assets/fonts/Poppins/Poppins-Regular.ttf')
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style:normal;
+    fonst-weight: 700;
+    src: url('../assets/fonts/Poppins/Poppins-Bold.ttf')
+}
+
 body {
     margin: 0;
-    font-family: 'Rubik', sans-serif !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 .DM-fonts {

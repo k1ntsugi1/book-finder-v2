@@ -23,7 +23,7 @@ const SettingTranscription: React.FC = () => {
 
     return (
         <div className="d-flex flex-column gap-3">
-            <p className="mx-auto h5 border-bottom">{t("mainField.transcriptionCard.configuration")}</p>
+            <p className="mx-auto fw-bold h5 border-bottom">{t("mainField.transcriptionCard.configuration")}</p>
 
             <RunnerBorderBottom
                 classNamesOfContainerWrapper='cursor-pointer'

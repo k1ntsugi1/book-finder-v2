@@ -32,7 +32,7 @@ const NavigationTranscription: React.FC = () => {
     return (
         <div className="d-flex flex-column gap-3">
 
-            <p className="mx-auto h5 border-bottom">{t("mainField.transcriptionCard.navigation")}</p>
+            <p className="mx-auto fw-bold h5 border-bottom">{t("mainField.transcriptionCard.navigation")}</p>
 
             <RunnerBorderBottom
                 classNamesOfContainerWrapper='cursor-pointer'
