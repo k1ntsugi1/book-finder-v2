@@ -25,7 +25,7 @@
             position: absolute;
             border-radius: 50%;
             opacity: 0.95;
-            background: #e54b76;
+            background: var(--color-body);
             border: 2px solid white;
             &.circle-1 {
                 width: 350px;

@@ -96,10 +96,8 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
                 noValidate
                 className={classnamesOfFormSection}
                 onSubmit={formik.handleSubmit}
-                // style={{ 'background': 'var(--color-sidebar)' }}
                 ref={formRef}
             >
-                {/* style={{ 'color': 'var(--color-text)' }} */}
                 <div  className="color-text d-flex flex-column align-items-start gap-2">
 
                     {formItems.map((Item, index) => (

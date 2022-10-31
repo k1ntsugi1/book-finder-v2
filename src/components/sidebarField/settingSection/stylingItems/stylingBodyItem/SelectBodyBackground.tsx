@@ -10,7 +10,6 @@ const SelectBodyBackground: React.FC<ISelectBodyBackground> = (props) => {
                 className="w-50px flex-shrink-0 p-1 border centered-content border cursor-pointer"
                 onClick={() => dispatchImmer({ type: 'updateStateOfBodyBackground', value: 'color' })}
             >
-                {/* style={{ 'background': 'var(--color-body)' }} */}
                 <div className="background-color-body w-100 h-100" ></div>
             </div>
             {stateImmer.images.bodyImages.map(imageURL => {

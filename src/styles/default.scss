@@ -55,14 +55,13 @@ body {
     background: var(--color-sidebar) !important;
 }
 
+.background-color-progressBar {
+    background: var(--color-progressBar) !important;
+}
+
 .color-text {
     color: var(--color-text) !important;
 }
-
-.background-color-progressBar {
-    background: var(--color-scrollLoader) !important;
-}
-
 
 .DM-fonts {
     font-family: 'DM', sans-serif !important;

@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import RotateCard from "../../../../RotateCard"
 
 import { IUploadBodyBackgroundImage } from "../../interfaces"
-import fetchPostImage from "../../../../../helpersFunc/fetchPostImage";
+import fetchPostImage from "../../../../../utils/fetchPostImage";
 
 import UploadSVGElement from "../../../../SVGElements/UploadSVGElement";
 import { useTranslation } from "react-i18next";

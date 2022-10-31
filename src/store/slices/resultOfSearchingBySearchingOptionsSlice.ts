@@ -5,7 +5,7 @@ import { RootState } from "../index";
 import fetchDataBySearchingOptions from '../asyncThunks/fetchGetDataBySearchingOptions';
 import { actionsDataOfSearchingOptions } from './dataOfSearchingOptionsSlice';
 
-import { ParsedItem } from '../../helpersFunc/parseResponseItems'
+import { ParsedItem } from '../../utils/parseResponseItems'
 
 interface IInitialState {
     totalItems: number

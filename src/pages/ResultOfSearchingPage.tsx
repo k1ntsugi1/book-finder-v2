@@ -12,7 +12,7 @@ const ResultOfSearchingPage: React.FC<{ typeOfItems: string }> = (props) => {
     const { totalItems } = useAppSelector(store => store.resultOfSearchingBySearchingOptions);
     return (
         <>
-            {totalItems > 0 && <CardList typeOfItems={typeOfItems} />}
+            {statusOfLoading === 'fulfilled' && <CardList typeOfItems={typeOfItems} />}
             
             {statusOfLoading === 'pending' && <SpinnerOfLoading />}
             {(totalItems > maxResults) && <Loader />}

@@ -21,10 +21,10 @@ const CardList: React.FC<{ typeOfItems: string }> = (props) => {
 
     const showingItems = typeOfItems === 'default' ? defaultItems : staredItems;
     const isNotEmpty = showingItems && Object.values(showingItems).length ? true : false;
-
+    
     return (
         <>
-            <div className="w-100" style={{ 'height': '1px' }} ref={upperBlockRef}></div>
+            {percentOfFilling > 40 && <div className="w-100" style={{ 'height': '1px' }} ref={upperBlockRef}></div>}
 
             {isNotEmpty && Object.values(showingItems).map(item => <CardOfItem item={item!} />)}
             {!isNotEmpty && <EmptyResultOfSearching />}
@@ -34,7 +34,6 @@ const CardList: React.FC<{ typeOfItems: string }> = (props) => {
                 <ElementOfScrollIntoView
                     elementOfBreakPoint={upperBlockRef}
                     className="color-text background-color-sidebar"
-                    // style={{ 'color': 'var(--color-scroll-loader)', 'background': 'var(--color-sidebar)' }}
                 >
                     <CaretUpFillSVGElement width="25" height="25" />
                 </ElementOfScrollIntoView>

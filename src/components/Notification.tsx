@@ -10,7 +10,7 @@ const Notification: React.FC<{[index: string]: string}> = (props) => {
 
     const appDispatch = useAppDispatch();
     
-    const classnamesOfParentContainer = cn('notification', {
+    const classnamesOfParentContainer = cn('notification background-color-sidebar color-text', {
         'notification-success': type === 'success' ? true : false,
         'notification-error': type === 'error' ? true : false,
         'show': visibilityStatus === 'visible' ? true : false,
@@ -23,12 +23,7 @@ const Notification: React.FC<{[index: string]: string}> = (props) => {
     });
     
     return (
-        <div 
-            className={classnamesOfParentContainer}
-            style={{
-                'background': 'var(--color-sidebar)',
-                'color': 'var(--color-text)'
-            }}>
+        <div className={classnamesOfParentContainer}>
                 <div className="notification-content">{message}</div>
         </div>
     )

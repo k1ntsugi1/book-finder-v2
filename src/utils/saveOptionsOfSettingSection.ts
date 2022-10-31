@@ -9,9 +9,8 @@ const saveOptionsOfSettingSection = (state: IInitialStateImmer): void => {
         colors: {
             bodyColor,
             sideBarColor,
-            cardColor,
             textColor,
-            scrollLoaderColor,
+            progressBarColor,
         },
         stateOfBodyBackground,
 
@@ -19,9 +18,8 @@ const saveOptionsOfSettingSection = (state: IInitialStateImmer): void => {
 
     localStorage.setItem('bodyColor', bodyColor);
     localStorage.setItem('sideBarColor', sideBarColor);
-    localStorage.setItem('cardColor', cardColor);
     localStorage.setItem('textColor', textColor);
-    localStorage.setItem('scrollLoaderColor', scrollLoaderColor);
+    localStorage.setItem('progressBarColor', progressBarColor);
     localStorage.setItem('stateOfBackground', stateOfBodyBackground);
     localStorage.setItem('activeImage', activeImage);
     localStorage.setItem('bodyImages', JSON.stringify(bodyImages));

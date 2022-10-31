@@ -11,7 +11,7 @@ import { actionsUiNotification } from '../../../store/slices/uiNotificationSlice
 
 import RunnerBorderBottom from '../../RunnerBorderBottom';
 
-import saveOptionsOfStyleHandler from '../../../helpersFunc/saveOptionsOfSettingSection'
+import saveOptionsOfStyleHandler from '../../../utils/saveOptionsOfSettingSection'
 
 import SelectLangAccordionItem from './accordionItems/SelectLangAccordionItem';
 import SelectParamsOfStylingAccordionItem from './accordionItems/SelectParamsOfStylingAccordionItem';
@@ -21,10 +21,9 @@ import { IInitialStateImmer } from './interfaces';
 
 const setVariousOfColorsHandler = (stateImmer: IInitialStateImmer) => {
     document.documentElement.style.setProperty('--color-body', stateImmer.colors.bodyColor);
-    document.documentElement.style.setProperty('--color-card', stateImmer.colors.cardColor);
     document.documentElement.style.setProperty('--color-sidebar', stateImmer.colors.sideBarColor);
     document.documentElement.style.setProperty('--color-text', stateImmer.colors.textColor);
-    document.documentElement.style.setProperty('--color-scroll-loader', stateImmer.colors.scrollLoaderColor);
+    document.documentElement.style.setProperty('--color-progressBar', stateImmer.colors.progressBarColor);
 }
 
 const setBackgroundBodyImageHandler = (stateImmer: IInitialStateImmer) => {
@@ -48,7 +47,7 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
     const { showStateOfBrush } = props;
 
     const appDispatch = useAppDispatch();
-    const brushRef = useRef<HTMLDivElement>(null);
+    const settingSectionRef = useRef<HTMLDivElement>(null);
     const [stateImmer, dispatchImmer] = useImmerReducer(reducerImmer, initialStateImmer);
 
     const classnamesOfBrushSection = cn(
@@ -71,7 +70,7 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
 
     useEffect(() => {
         setVariousOfColorsHandler(stateImmer)
-    }, [stateImmer.colors.sideBarColor, stateImmer.colors.cardColor, stateImmer.colors.textColor, stateImmer.colors.scrollLoaderColor, stateImmer.colors.bodyColor])
+    }, [stateImmer.colors.sideBarColor, stateImmer.colors.textColor, stateImmer.colors.progressBarColor, stateImmer.colors.bodyColor])
 
     useEffect(() => {
         stateImmer.stateOfBodyBackground === 'color'
@@ -82,18 +81,15 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
 
     useEffect(() => {
         setTimeout(() => {
-            if (showStateOfBrush === 'unvisible') brushRef.current!.style.visibility = 'hidden';
+            if (showStateOfBrush === 'unvisible') settingSectionRef.current!.style.visibility = 'hidden';
         }, 400);
-        if (showStateOfBrush === 'visible') brushRef.current!.style.visibility = '';
+        if (showStateOfBrush === 'visible') settingSectionRef.current!.style.visibility = '';
     }, [showStateOfBrush]);
 
     return (
         <section
             className={classnamesOfBrushSection}
-            // style={{
-            //     'background': 'var(--color-sidebar)',
-            // }}
-            ref={brushRef}
+            ref={settingSectionRef}
         >
             <Accordion>
                 <SelectParamsOfStylingAccordionItem stateImmer={stateImmer} dispatchImmer={dispatchImmer} classNamesOfRotatingCard={classNamesOfRotatingCard} />

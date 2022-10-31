@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 
 import GlassElement from '../GlassElement';
 
-import { ParsedItem } from '../../helpersFunc/parseResponseItems';
+import { ParsedItem } from '../../utils/parseResponseItems';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
@@ -39,7 +39,6 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
             showingElement={refOfWrapper}
             className='color-text rounded'
             style={{
-                // 'color': 'var(--color-text)',
                 'width': '200px',
                 'height': '200px',
             }}

@@ -11,20 +11,17 @@ const reducerImmer = (draft: IInitialStateImmer, action: IActionOfReducerImmer) 
         updateBodyColor() {
             draft.colors.bodyColor = value;
         },
-        updateCardColor() {
-            draft.colors.cardColor = value;
-        },
         updateSidebarColor() {
             draft.colors.sideBarColor = value;
         },
         updateTextColor() {
             draft.colors.textColor = value;
         },
+        updateProgressBarColor() {
+            draft.colors.progressBarColor = value;
+        },
         updateStateOfBodyBackground() {
             draft.stateOfBodyBackground = value;
-        },
-        updateScrollLoaderColor() {
-            draft.colors.scrollLoaderColor = value;
         },
         updateActiveImage() {
             draft.images.activeImage = value;

@@ -35,16 +35,14 @@ const EmptyResultOfSearching: React.FC = () => {
             style={{
                 'width': '200px',
                 'height': '100px',
-                // 'color': 'var(--color-text)'
             }}
         >
             <div className="h-100 centered-content border rounded">
                 <EmojiFrownSVGElement width="25" height="25"/>
                 <span className="ps-3" ref={textRef}>{t("mainField.emptyResult")}</span>
                 <span
-                    className="blinking"
+                    className="color-text blinking"
                     style={{
-                        'background': 'var(--color-text)',
                         'width': '3px',
                         'height': '1rem'
                     }}></span>

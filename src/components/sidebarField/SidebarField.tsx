@@ -23,11 +23,7 @@ const SidebarField: React.FC<{setNewTypeOfItems: (type: string) => void}> = (pro
     return (
         <div
             className="color-text background-color-sidebar col-1 shadow-lg py-3 position-relative d-flex flex-column justify-content-start gap-4"
-            style={{
-                'zIndex': '1000',
-                // 'background': 'var(--color-sidebar)',
-                // 'color': 'var(--color-text)',
-            }}
+            style={{'zIndex': '1000'}}
         >
 
             <SearchSection showStateOfForm={activeItemOfOptions === 'search' ? 'visible' : 'unvisible'} />

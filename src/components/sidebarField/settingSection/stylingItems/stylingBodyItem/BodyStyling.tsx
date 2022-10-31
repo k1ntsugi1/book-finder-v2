@@ -17,7 +17,6 @@ const BodyStyling: React.FC<IStylingItemProps> = (props) => {
             <Accordion.Item 
                 className="background-color-sidebar text-color border-0"
                 eventKey="0"
-                // style={{ 'background': 'var(--color-sidebar)', 'color': 'var(--color-text)' }}
             >
                 <Accordion.Header className="p-0 ms-3">{t("sidebarField.settingSection.styling.stylingItems.body.name")}</Accordion.Header>
                 <Accordion.Body className='p-0 d-flex flex-column gap-1'>

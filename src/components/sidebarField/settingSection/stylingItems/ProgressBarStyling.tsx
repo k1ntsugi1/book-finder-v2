@@ -16,7 +16,7 @@ const ProgressBarStyling: React.FC<IStylingItemProps> = (props) => {
                     className="w-75 mx-auto"
                     type="color"
                     name="scrollLoaderColor"
-                    value={stateImmer.colors.scrollLoaderColor}
+                    value={stateImmer.colors.progressBarColor}
                     onChange={(event) => dispatchImmer({ type: 'updateScrollLoaderColor', value: event.target.value })}
                     aria-label="select-color"
                 />

@@ -13,7 +13,6 @@ const StylingItem: React.FC<ISettingItemsProps> = (props) => {
     return (
         <div
             className={classnamesOfSidebarElement}
-            // style={{ 'color': 'var(--color-text)' }}
             onClick={() => {
                 activeItemOfOptions === 'setting'
                     ? appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions())

@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
-import scrollHandler from '../../helpersFunc/scrollHandler';
+import scrollHandler from '../../utils/scrollHandler';
 
 import HomePage from '../../pages/HomePage';
 import ResultOfSearchingPage from '../../pages/ResultOfSearchingPage';

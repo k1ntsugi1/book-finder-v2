@@ -14,7 +14,7 @@ const StylingCardItem: React.FC<IStylingItemProps> = (props) => {
                     className="w-75 mx-auto"
                     type="color"
                     name="cardColor"
-                    value={stateImmer.colors.cardColor}
+                    
                     onChange={(event) => dispatchImmer({ type: 'updateCardColor', value: event.target.value })}
                     aria-label="select-color"
                 />
