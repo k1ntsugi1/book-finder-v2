@@ -16,7 +16,7 @@ const RunnerBorderBottom: React.FC<IRunnerBorderBottom> = (props) => {
             <div className={classNamesOfChildrenWrapper}>
                 {children}
             </div>
-            <div className="runner-border-bottom color-text" ></div>
+            <div className="runner-border-bottom background-color-text" ></div>
         </div>
     )
 };
