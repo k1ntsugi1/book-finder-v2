@@ -63,6 +63,10 @@ body {
     color: var(--color-text) !important;
 }
 
+.background-color-text {
+    background: var(--color-text) !important;
+}
+
 .DM-fonts {
     font-family: 'DM', sans-serif !important;
 }
@@ -155,4 +159,14 @@ body {
     max-height: 500px;
     min-width: 300px;
     min-height: 450px;
+}
+
+.page-link {
+    color: var(--color-text) !important;
+    background-color: var(--color-sidebar) !important;
+    border-color: var(--color-sidebar) !important;
+}
+
+.active>.page-link {
+    background-color: var(--color-progressBar) !important;
 }

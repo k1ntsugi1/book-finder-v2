@@ -41,7 +41,7 @@ const EmptyResultOfSearching: React.FC = () => {
                 <EmojiFrownSVGElement width="25" height="25"/>
                 <span className="ps-3" ref={textRef}>{t("mainField.emptyResult")}</span>
                 <span
-                    className="color-text blinking"
+                    className="background-color-text blinking"
                     style={{
                         'width': '3px',
                         'height': '1rem'

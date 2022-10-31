@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import fetchGetDataBySearchingOptions from '../asyncThunks/fetchGetDataBySearchingOptions';
 
@@ -45,6 +45,9 @@ const dataOfSearchingOptionsSlice = createSlice({
             state.statusOfLoading = '';
             state.statusOfError = '';
             state.searchParams = initialState.searchParams
+        },
+        updateStartIndex(state, actions: PayloadAction<{num: number}>) {
+            state.range.startIndex = state.range.maxResults * actions.payload.num;
         },
         updateList() {}
     },
