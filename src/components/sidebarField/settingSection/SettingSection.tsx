@@ -52,6 +52,7 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
     const [stateImmer, dispatchImmer] = useImmerReducer(reducerImmer, initialStateImmer);
 
     const classnamesOfBrushSection = cn(
+        'background-color-sidebar',
         'pt-3',
         'h-100',
         'w-200px',
@@ -89,9 +90,9 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
     return (
         <section
             className={classnamesOfBrushSection}
-            style={{
-                'background': 'var(--color-sidebar)',
-            }}
+            // style={{
+            //     'background': 'var(--color-sidebar)',
+            // }}
             ref={brushRef}
         >
             <Accordion>

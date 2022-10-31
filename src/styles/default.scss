@@ -19,7 +19,7 @@
 
 @font-face {
     font-family: 'Poppins';
-    font-style:normal;
+    font-style: normal;
     fonst-weight: 700;
     src: url('../assets/fonts/Poppins/Poppins-Bold.ttf')
 }
@@ -28,6 +28,41 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif !important;
 }
+
+.scrollbar {
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 10px;
+    };
+    &::-webkit-scrollbar-track {
+        background: var(--color-sidebar);
+        border: 1px solid lightgray;
+        border-radius: 20px;
+    };
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-body);
+        border-radius: 20px;
+        border: 1px solid lightgray;
+    }
+}
+
+
+.background-color-body {
+    background: var(--color-body) !important;
+}
+
+.background-color-sidebar {
+    background: var(--color-sidebar) !important;
+}
+
+.color-text {
+    color: var(--color-text) !important;
+}
+
+.background-color-progressBar {
+    background: var(--color-scrollLoader) !important;
+}
+
 
 .DM-fonts {
     font-family: 'DM', sans-serif !important;

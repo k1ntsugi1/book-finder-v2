@@ -5,12 +5,13 @@ const SelectBodyBackground: React.FC<ISelectBodyBackground> = (props) => {
     const { stateImmer, dispatchImmer } = props;
 
     return (
-        <div className="m-3 p-3 border-top border-bottom d-flex flex-nowrap overflow-auto gap-2">
+        <div className="scrollbar m-3 p-3 border-top border-bottom d-flex flex-nowrap overflow-auto gap-2">
             <div
                 className="w-50px flex-shrink-0 p-1 border centered-content border cursor-pointer"
                 onClick={() => dispatchImmer({ type: 'updateStateOfBodyBackground', value: 'color' })}
             >
-                <div className="w-100 h-100" style={{ 'background': 'var(--color-body)' }}></div>
+                {/* style={{ 'background': 'var(--color-body)' }} */}
+                <div className="background-color-body w-100 h-100" ></div>
             </div>
             {stateImmer.images.bodyImages.map(imageURL => {
                 return (

@@ -37,9 +37,9 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
             key={item.id}
             hovering={true}
             showingElement={refOfWrapper}
-            className='rounded'
+            className='color-text rounded'
             style={{
-                'color': 'var(--color-text)',
+                // 'color': 'var(--color-text)',
                 'width': '200px',
                 'height': '200px',
             }}

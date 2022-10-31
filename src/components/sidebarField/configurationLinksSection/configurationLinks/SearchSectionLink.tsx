@@ -13,7 +13,7 @@ const SearchItem: React.FC<ISettingItemsProps> = (props) => {
     return (
         <div
             className={classnamesOfSidebarElement}
-            style={{ 'color': 'var(--color-text)' }}
+            // style={{ 'color': 'var(--color-text)' }}
             onClick={() => {
                 activeItemOfOptions === 'search'
                     ? appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions())

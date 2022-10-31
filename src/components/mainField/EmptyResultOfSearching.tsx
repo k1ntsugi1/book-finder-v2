@@ -31,11 +31,11 @@ const EmptyResultOfSearching: React.FC = () => {
     })
     return (
         <GlassElement
-            className='align-self-center border rounded'
+            className='color-text align-self-center border rounded'
             style={{
                 'width': '200px',
                 'height': '100px',
-                'color': 'var(--color-text)'
+                // 'color': 'var(--color-text)'
             }}
         >
             <div className="h-100 centered-content border rounded">

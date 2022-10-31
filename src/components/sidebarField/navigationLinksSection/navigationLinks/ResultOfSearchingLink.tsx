@@ -17,7 +17,7 @@ const ResultOfSearchingLink: React.FC<INavigationLinksProps> = (props) => {
     return (
         <div
             className={classnamesOfSidebarElement}
-            style={{ 'color': 'var(--color-text)' }}
+            // style={{ 'color': 'var(--color-text)' }}
             onClick={() => {
                 appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'result' }));
                 setNewTypeOfItems!('default');

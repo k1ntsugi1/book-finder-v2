@@ -27,9 +27,9 @@ const SelectParamsOfStylingAccordionItem: React.FC<IStylingItemProps> = (props) 
 
     return (
         <Accordion.Item
-            className="border-0"
+            className="background-color-sidebar color-text border-0"
             eventKey="0"
-            style={{ 'background': 'var(--color-sidebar)', 'color': 'var(--color-text)' }}
+            // style={{ 'background': 'var(--color-sidebar)', 'color': 'var(--color-text)' }}
         >
             <Accordion.Header className="p-0 ms-3">{t("sidebarField.settingSection.styling.name")}</Accordion.Header>
             <Accordion.Body className="p-0 ps-3 pe-4 d-flex flex-column">

@@ -33,7 +33,9 @@ const CardList: React.FC<{ typeOfItems: string }> = (props) => {
                 percentOfFilling > 40 &&
                 <ElementOfScrollIntoView
                     elementOfBreakPoint={upperBlockRef}
-                    style={{ 'color': 'var(--color-scroll-loader)', 'background': 'var(--color-sidebar)' }}>
+                    className="color-text background-color-sidebar"
+                    // style={{ 'color': 'var(--color-scroll-loader)', 'background': 'var(--color-sidebar)' }}
+                >
                     <CaretUpFillSVGElement width="25" height="25" />
                 </ElementOfScrollIntoView>
             }
