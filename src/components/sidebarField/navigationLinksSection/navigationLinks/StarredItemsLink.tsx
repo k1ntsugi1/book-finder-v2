@@ -11,15 +11,16 @@ import { INavigationLinksProps } from "../interfaces";
 
 const StarredItemsLink: React.FC<INavigationLinksProps> = (props) => {
 
-    const { classnamesOfSidebarElement, setNewTypeOfItems } = props;
+    const { className, setNewTypeOfItems } = props;
 
     const { activePage } = useAppSelector(store => store.uiActiveSectionOfSidebar);
+    
     const appDispatch = useAppDispatch();
     const navigate = useNavigate();
 
     return (
         <div
-            className={classnamesOfSidebarElement}
+            className={className}
             onClick={() => {
                 setNewTypeOfItems!('starred');
                 appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'star' }));

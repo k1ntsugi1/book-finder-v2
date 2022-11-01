@@ -9,6 +9,7 @@ import HomePage from '../../pages/HomePage';
 import ResultOfSearchingPage from '../../pages/ResultOfSearchingPage';
 import StarredItemsPage from '../../pages/StarredItemsPage';
 import ViewableItemPage from '../../pages/ViewableItemPage';
+import UndefinedPage from '../../pages/UndefinedPage';
 
 import GlassElement from '../GlassElement';
 
@@ -46,7 +47,7 @@ const MainField: React.FC<{ typeOfItems: string }> = (props) => {
                     <Route path="/result" element={<ResultOfSearchingPage typeOfItems={typeOfItems} />} />
                     <Route path="/item" element={<ViewableItemPage />} />
                     <Route path="/starred" element={<StarredItemsPage typeOfItems={typeOfItems} />}></Route>
-                    {/* <Route path="*" element={<UndefinedPage />} /> */}
+                    <Route path="*" element={<UndefinedPage />} />
                 </Routes>
             </div>
         </GlassElement >

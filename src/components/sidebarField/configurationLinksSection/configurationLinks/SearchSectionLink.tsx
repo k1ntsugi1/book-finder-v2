@@ -7,12 +7,16 @@ import SearchFillSVGElement from "../../../SVGElements/search/SearchFIllSVGEleme
 import { ISettingItemsProps } from "../interfaces";
 
 const SearchItem: React.FC<ISettingItemsProps> = (props) => {
-    const { classnamesOfSidebarElement } = props;
+
+    const { className } = props;
+
     const appDispatch = useAppDispatch();
+
     const { activeItemOfOptions } = useAppSelector(store => store.uiActiveSectionOfSidebar);
+    
     return (
         <div
-            className={classnamesOfSidebarElement}
+            className={className}
             onClick={() => {
                 activeItemOfOptions === 'search'
                     ? appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions())

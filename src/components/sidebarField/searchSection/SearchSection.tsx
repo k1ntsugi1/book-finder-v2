@@ -27,6 +27,7 @@ import RunnerBorderBottom from '../../RunnerBorderBottom';
 const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
 
     const { showStateOfForm } = props;
+    
     const appDispatch = useAppDispatch();
     const navigate = useNavigate();
     const formRef = useRef<HTMLFormElement>(null);

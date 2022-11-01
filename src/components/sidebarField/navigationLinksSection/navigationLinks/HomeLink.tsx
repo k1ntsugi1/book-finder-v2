@@ -8,15 +8,17 @@ import HomeFillSVGElement from "../../../SVGElements/home/HomeFillSVGElement";
 import { INavigationLinksProps } from "../interfaces";
 
 const HomeLink: React.FC<INavigationLinksProps> = (props) => {
-    const { classnamesOfSidebarElement } = props;
+
+    const { className } = props;
 
     const { activePage } = useAppSelector(store => store.uiActiveSectionOfSidebar);
+    
     const appDispatch = useAppDispatch();
     const navigate = useNavigate();
     
     return (
         <div
-            className={classnamesOfSidebarElement}
+            className={className}
             onClick={() => {
                 appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'home' }));
                 navigate("/");

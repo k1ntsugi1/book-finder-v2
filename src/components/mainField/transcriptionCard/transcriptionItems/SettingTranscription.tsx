@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import cn from 'classnames';
 
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { actionsUiActiveSectionOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
@@ -9,13 +10,21 @@ import SearchSVGElement from "../../../SVGElements/search/SearchSVGElement";
 import GearSVGElement from "../../../SVGElements/gear/GearSVGElement";
 import ArrowLeftShortFillSVGElement from "../../../SVGElements/ArrowLeftShortFillSVGElement";
 
-const SettingTranscription: React.FC = () => {
+import { IProps } from "./interfaces";
+
+const SettingTranscription: React.FC<IProps> = (props) => {
+
+    const {
+        classNamesOfContainerWrapper,
+        classNamesOfChildrenWrapper,
+        classNamesOfSVGContainer
+    } = props;
 
     const { t } = useTranslation();
     const appDispatch = useAppDispatch();
     const { activeItemOfOptions } = useAppSelector(store => store.uiActiveSectionOfSidebar);
 
-    const activeItemOfOptionHandler = (itemName: string) => {
+    const activeItemOfOptionHandler = (itemName: string) => () => {
         activeItemOfOptions === itemName
             ? appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions())
             : appDispatch(actionsUiActiveSectionOfSidebar.setActiveItemOfOptions({ item: itemName }));
@@ -26,25 +35,25 @@ const SettingTranscription: React.FC = () => {
             <p className="mx-auto fw-bold h5 border-bottom">{t("mainField.transcriptionCard.configuration")}</p>
 
             <RunnerBorderBottom
-                classNamesOfContainerWrapper='cursor-pointer'
-                classNamesOfChildrenWrapper='d-flex flex-nowrap'
+                classNamesOfContainerWrapper={classNamesOfContainerWrapper}
+                classNamesOfChildrenWrapper={classNamesOfChildrenWrapper}
             >
-                <span className="align-self-center d-flex flex-nowrap align-items-center">
+                <span className={classNamesOfSVGContainer}>
                     <SearchSVGElement width="25" height="25" />
                     <ArrowLeftShortFillSVGElement width="20" height="20" />
                 </span>
-                <span onClick={() => activeItemOfOptionHandler('search')}>{t("mainField.transcriptionCard.searchOption")}</span>
+                <span onClick={activeItemOfOptionHandler('search')}>{t("mainField.transcriptionCard.searchOption")}</span>
             </RunnerBorderBottom>
 
             <RunnerBorderBottom
-                classNamesOfContainerWrapper='cursor-pointer'
-                classNamesOfChildrenWrapper='d-flex flex-nowrap'
+                classNamesOfContainerWrapper={classNamesOfContainerWrapper}
+                classNamesOfChildrenWrapper={classNamesOfChildrenWrapper}
             >
-                <span className="align-self-center d-flex flex-nowrap align-items-center">
+                <span className={classNamesOfSVGContainer}>
                     <GearSVGElement width="25" height="25" />
                     <ArrowLeftShortFillSVGElement width="20" height="20" />
                 </span>
-                <span onClick={() => activeItemOfOptionHandler('setting')}>{t("mainField.transcriptionCard.settingOption")}</span>
+                <span onClick={activeItemOfOptionHandler('setting')}>{t("mainField.transcriptionCard.settingOption")}</span>
             </RunnerBorderBottom>
 
         </div>

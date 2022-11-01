@@ -3,15 +3,23 @@ import ResultOfSearchingLink from './navigationLinks/ResultOfSearchingLink';
 import ViewableItemLink from './navigationLinks/ViewableItemLink';
 import StarredItemLink from './navigationLinks/StarredItemsLink';
 
+import {INavigationLinksProps} from './interfaces'
 
-const NavigationLinksSection: React.FC<{setNewTypeOfItems: (type: string) => void, classnamesOfSidebarElement: string}> = (props) => {
-    const { setNewTypeOfItems, classnamesOfSidebarElement } = props;
+const NavigationLinksSection: React.FC<INavigationLinksProps> = (props) => {
+
+    const { setNewTypeOfItems, className } = props;
+
     return (
         <section className="mx-auto">
-            <HomeLink classnamesOfSidebarElement={classnamesOfSidebarElement}/>
-            <ResultOfSearchingLink classnamesOfSidebarElement={classnamesOfSidebarElement} setNewTypeOfItems={setNewTypeOfItems}/>
-            <ViewableItemLink classnamesOfSidebarElement={classnamesOfSidebarElement}/>
-            <StarredItemLink classnamesOfSidebarElement={classnamesOfSidebarElement} setNewTypeOfItems={setNewTypeOfItems}/>
+
+            <HomeLink className={className}/>
+
+            <ResultOfSearchingLink className={className} setNewTypeOfItems={setNewTypeOfItems}/>
+            
+            <ViewableItemLink className={className}/>
+            
+            <StarredItemLink className={className} setNewTypeOfItems={setNewTypeOfItems}/>
+        
         </section>
     )
 };

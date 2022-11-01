@@ -8,15 +8,17 @@ import BookMarksFillSVGElement from "../../../SVGElements/bookMarks/BookMarksFil
 import { INavigationLinksProps } from "../interfaces";
 
 const ResultOfSearchingLink: React.FC<INavigationLinksProps> = (props) => {
-    const { classnamesOfSidebarElement, setNewTypeOfItems } = props;
+    
+    const { className, setNewTypeOfItems } = props;
 
     const { activePage } = useAppSelector(store => store.uiActiveSectionOfSidebar);
+    
     const appDispatch = useAppDispatch();
     const navigate = useNavigate();
 
     return (
         <div
-            className={classnamesOfSidebarElement}
+            className={className}
             onClick={() => {
                 appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'result' }));
                 setNewTypeOfItems!('default');

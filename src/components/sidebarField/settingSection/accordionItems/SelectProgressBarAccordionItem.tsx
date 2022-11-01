@@ -36,14 +36,9 @@ const SelectProgressBarAccordionItem: React.FC = () => {
                             <span className='me-3'>{t("sidebarField.settingSection.progressBar.circle")}</span>
                             {typeOfProgressBar === 'circle' && <CheckSVGElement width="25" height="25" />}
                         </div>
-
                     </Button>
                 </RunnerBorderBottom>
-
-
             </Accordion.Body>
-
-
         </Accordion.Item>
     )
 };

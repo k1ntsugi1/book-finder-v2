@@ -44,6 +44,7 @@ const setBackgroundBodyColorHandlet = (stateImmer: IInitialStateImmer) => {
 
 
 const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
+    
     const { showStateOfBrush } = props;
 
     const appDispatch = useAppDispatch();

@@ -1,3 +1,3 @@
 export interface ISettingItemsProps {
-    classnamesOfSidebarElement: string
+    className: string
 }

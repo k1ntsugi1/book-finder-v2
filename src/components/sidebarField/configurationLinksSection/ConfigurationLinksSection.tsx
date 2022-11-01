@@ -1,13 +1,13 @@
 import SearchSectionLink from "./configurationLinks/SearchSectionLink";
 import StylingSectionLink from "./configurationLinks/SettingSectionLink";
 
-const ConfigurationLinksSection: React.FC<{classnamesOfSidebarElement: string}> = (props) => {
-    const { classnamesOfSidebarElement } = props;
+const ConfigurationLinksSection: React.FC<{className: string}> = (props) => {
+    const { className } = props;
     
     return (
         <section className="mx-auto">
-            <SearchSectionLink classnamesOfSidebarElement={classnamesOfSidebarElement}/>
-            <StylingSectionLink classnamesOfSidebarElement={classnamesOfSidebarElement}/>
+            <SearchSectionLink className={className}/>
+            <StylingSectionLink className={className}/>
         </section>
     )
 };

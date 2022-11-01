@@ -1,4 +1,4 @@
 export interface INavigationLinksProps {
-    classnamesOfSidebarElement: string,
+    className: string,
     setNewTypeOfItems?: (type: string) => void,
 };

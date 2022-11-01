@@ -16,7 +16,6 @@ const SelectLangAccordionItem: React.FC = () => {
         <Accordion.Item
             className="background-color-sidebar color-text border-0"
             eventKey="1"
-            // style={{ 'background': 'var(--color-sidebar)', 'color': 'var(--color-text)' }}
         >
             <Accordion.Header className="p-0 ms-3">{t("sidebarField.settingSection.language.name")}</Accordion.Header>
             <Accordion.Body className="d-flex flex-column">
@@ -32,7 +31,6 @@ const SelectLangAccordionItem: React.FC = () => {
                         </div>
 
                     </Button>
-
                 </RunnerBorderBottom>
 
 
@@ -48,11 +46,7 @@ const SelectLangAccordionItem: React.FC = () => {
 
                     </Button>
                 </RunnerBorderBottom>
-
-
             </Accordion.Body>
-
-
         </Accordion.Item>
     )
 };
