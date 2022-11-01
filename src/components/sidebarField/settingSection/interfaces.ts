@@ -7,24 +7,12 @@ export interface IActionOfReducerImmer {
     value?: string
 }
 
-export interface IStylingItemProps {
+export type IDispatchImmer = (value: IActionOfReducerImmer) => void
+
+export interface IProps {
     stateImmer: IInitialStateImmer,
-    dispatchImmer: (value: IActionOfReducerImmer) => void,
-    classNamesOfRotatingCard: string,
+    dispatchImmer: IDispatchImmer,
 }
 
-export interface IStylingBodyItemProps {
-    stateImmer: IInitialStateImmer,
-    dispatchImmer: (value: IActionOfReducerImmer) => void,
-    classNamesOfRotatingCard: string,
-}
 
-export interface IUploadBodyBackgroundImage {
-    dispatchImmer: (value: IActionOfReducerImmer) => void,
-    classNamesOfRotatingCard: string,
-}
 
-export interface ISelectBodyBackground {
-    stateImmer: IInitialStateImmer,
-    dispatchImmer: (value: IActionOfReducerImmer) => void,
-}

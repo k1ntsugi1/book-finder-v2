@@ -4,17 +4,21 @@
         width: 0;
         border-radius: 20%;
     }
-    &:hover {
-            .runner-border-bottom {
-                animation: runner 0.5s ease 1 forwards;
-            }
-        }
-}
 
+    &:hover {
+        .runner-border-bottom {
+            animation: runner 0.5s ease 1 forwards;
+        }
+    }
+}
 
 
 @keyframes runner {
-    from {width: 0;}
-    to {width: 100%;}
-}
+    from {
+        width: 0;
+    }
 
+    to {
+        width: 100%;
+    }
+}

@@ -1,14 +1,14 @@
 import { Form } from "react-bootstrap";
 import RotateCard from "../../../RotateCard";
-import { IStylingItemProps } from "../interfaces";
 
-const StylingCardItem: React.FC<IStylingItemProps> = (props) => {
+import { IProps } from '../interfaces';
 
-    const { stateImmer, dispatchImmer, classNamesOfRotatingCard } = props;
+const StylingCardItem: React.FC<IProps> = (props) => {
+
+    const { dispatchImmer } = props;
     
     return (
         <RotateCard
-            classnames={classNamesOfRotatingCard}
             backFaceOfCard={
                 <Form.Control
                     className="w-75 mx-auto"

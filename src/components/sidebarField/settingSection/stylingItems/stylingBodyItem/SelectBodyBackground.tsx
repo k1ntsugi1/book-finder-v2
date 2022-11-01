@@ -1,6 +1,6 @@
-import { ISelectBodyBackground } from "../../interfaces";
+import { IProps } from '../../interfaces'
 
-const SelectBodyBackground: React.FC<ISelectBodyBackground> = (props) => {
+const SelectBodyBackground: React.FC<IProps> = (props) => {
 
     const { stateImmer, dispatchImmer } = props;
 

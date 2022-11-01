@@ -22,23 +22,29 @@ const SelectProgressBarAccordionItem: React.FC = () => {
             <Accordion.Body className="d-flex flex-column">
 
                 <RunnerBorderBottom>
+
                     <Button variant="" className="w-100" onClick={() => appDispatch(actionsUiProgressBar.updateTypeOfProgressBar({ typeOfProgressBar: 'straight' }))}>
                         <div className="d-flex justify-content-between">
                             <span className='me-3'>{t("sidebarField.settingSection.progressBar.straight")}</span>
                             {typeOfProgressBar === 'straight' && <CheckSVGElement width="25" height="25" />}
                         </div>
                     </Button>
+
                 </RunnerBorderBottom>
 
                 <RunnerBorderBottom>
+
                     <Button variant="" className="w-100" onClick={() => appDispatch(actionsUiProgressBar.updateTypeOfProgressBar({ typeOfProgressBar: 'circle' }))}>
                         <div className="d-flex justify-content-between">
                             <span className='me-3'>{t("sidebarField.settingSection.progressBar.circle")}</span>
                             {typeOfProgressBar === 'circle' && <CheckSVGElement width="25" height="25" />}
                         </div>
                     </Button>
+
                 </RunnerBorderBottom>
+
             </Accordion.Body>
+            
         </Accordion.Item>
     )
 };

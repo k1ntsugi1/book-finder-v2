@@ -2,16 +2,15 @@ import { Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
 import RotateCard from "../../../../RotateCard";
-import { IStylingBodyItemProps } from "../../interfaces";
+import { IProps } from "../../interfaces";
 
-const SelectBodyColor: React.FC<IStylingBodyItemProps> = (props) => {
+const SelectBodyColor: React.FC<IProps> = (props) => {
 
-    const {stateImmer, dispatchImmer, classNamesOfRotatingCard } = props;
+    const {stateImmer, dispatchImmer } = props;
     const { t } = useTranslation();
 
     return (
         <RotateCard
-            classnames={classNamesOfRotatingCard}
             backFaceOfCard={
                 <Form.Control
                     className="w-75 mx-auto"

@@ -18,34 +18,28 @@ const LinksOfContactsCard: React.FC = () => {
 
     return (
         <GlassElement className="links-contacts-container w-50 h-75 d-flex flex-column rounded">
-            
+
             <RunnerElement
                 className={className}
                 onClickHandler={() => openLinkHandler('https://github.com/k1ntsugi1')}
             >
-                <>
-                    <GitHubSVGElement width="50" height="50" />
-                    <ArrowUpRightSVGElement width="50" height="50" />
-                </>
+                <GitHubSVGElement width="50" height="50" />
+                <ArrowUpRightSVGElement width="50" height="50" />
             </RunnerElement>
 
             <RunnerElement
                 className={className}
                 onClickHandler={() => openLinkHandler('https://t.me/bmasalimov')}
             >
-                <>
-                    <TelegramSVGElement width="50" height="50" />
-                    <ArrowUpRightSVGElement width="50" height="50" />
-                </>
+                <TelegramSVGElement width="50" height="50" />
+                <ArrowUpRightSVGElement width="50" height="50" />
             </RunnerElement>
 
             <RunnerElement
-               className={className}
+                className={className}
             >
-                <>
-                    <MailSVGElement width="50" height="50" />
-                    <span>bmasalimov5@yandex.ru</span>
-                </>
+                <MailSVGElement width="50" height="50" />
+                <span>bmasalimov5@yandex.ru</span>
             </RunnerElement>
 
         </GlassElement>

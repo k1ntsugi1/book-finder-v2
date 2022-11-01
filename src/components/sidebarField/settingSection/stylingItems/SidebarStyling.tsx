@@ -1,15 +1,15 @@
 import { Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import RotateCard from "../../../RotateCard";
-import { IStylingItemProps } from "../interfaces";
 
-const SidebarStyling: React.FC<IStylingItemProps> = (props) => {
+import { IProps } from '../interfaces';
 
-    const { stateImmer, dispatchImmer, classNamesOfRotatingCard } = props;
+const SidebarStyling: React.FC<IProps> = (props) => {
+
+    const { stateImmer, dispatchImmer } = props;
     const { t } = useTranslation();
     return (
         <RotateCard
-            classnames={classNamesOfRotatingCard}
             backFaceOfCard={
                 <Form.Control
                     className="w-75 mx-auto"

@@ -21,20 +21,24 @@ const SelectLangAccordionItem: React.FC = () => {
             <Accordion.Body className="d-flex flex-column">
 
                 <RunnerBorderBottom>
+
                     <Button variant="" className="w-100" onClick={() => {
                         setNewLang('ru');
                         i18n.changeLanguage('ru')
                     }}>
+
                         <div className="d-flex justify-content-between">
                             <span>{t("sidebarField.settingSection.language.ru")}</span>
                             {langState === 'ru' && <CheckSVGElement width="25" height="25" />}
                         </div>
 
                     </Button>
+
                 </RunnerBorderBottom>
 
 
                 <RunnerBorderBottom>
+
                     <Button variant="" className="w-100" onClick={() => {
                         setNewLang('en');
                         i18n.changeLanguage('en')
@@ -45,8 +49,11 @@ const SelectLangAccordionItem: React.FC = () => {
                         </div>
 
                     </Button>
+
                 </RunnerBorderBottom>
+
             </Accordion.Body>
+            
         </Accordion.Item>
     )
 };

@@ -67,7 +67,6 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
             'opacity-100 ': showStateOfBrush === 'visible' ? true : false,
             'opacity-0 ': showStateOfBrush === 'visible' ? false : true,
         });
-    const classNamesOfRotatingCard = cn('')
 
     useEffect(() => {
         setVariousOfColorsHandler(stateImmer)
@@ -93,7 +92,7 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
             ref={settingSectionRef}
         >
             <Accordion>
-                <SelectParamsOfStylingAccordionItem stateImmer={stateImmer} dispatchImmer={dispatchImmer} classNamesOfRotatingCard={classNamesOfRotatingCard} />
+                <SelectParamsOfStylingAccordionItem stateImmer={stateImmer} dispatchImmer={dispatchImmer} />
                 <SelectLangAccordionItem />
                 <SelectProgressBarAccordionItem />
             </Accordion>

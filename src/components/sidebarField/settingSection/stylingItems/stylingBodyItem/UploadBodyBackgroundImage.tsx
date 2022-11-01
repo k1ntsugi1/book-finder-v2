@@ -1,22 +1,22 @@
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Form, Button } from "react-bootstrap";
 import RotateCard from "../../../../RotateCard"
 
-import { IUploadBodyBackgroundImage } from "../../interfaces"
 import fetchPostImage from "../../../../../utils/fetchPostImage";
+import { IDispatchImmer } from "../../interfaces"
 
 import UploadSVGElement from "../../../../SVGElements/UploadSVGElement";
-import { useTranslation } from "react-i18next";
 
-const UploadBodyBackgroundImage: React.FC<IUploadBodyBackgroundImage> = (props) => {
 
-    const { dispatchImmer, classNamesOfRotatingCard } = props;
+const UploadBodyBackgroundImage: React.FC<{dispatchImmer: IDispatchImmer}> = (props) => {
+
+    const { dispatchImmer } = props;
     const { t } = useTranslation();
     const uploadFileRef = useRef<HTMLInputElement>(null);
 
     return (
         <RotateCard
-            classnames={classNamesOfRotatingCard}
             backFaceOfCard={
                 <>
                     <Form.Control

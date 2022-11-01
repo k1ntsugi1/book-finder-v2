@@ -1,15 +1,15 @@
 import { Accordion } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 import UploadBodyBackgroundImage from "./UploadBodyBackgroundImage";
 import SelectBodyColor from "./SelectBodyColor";
 import SelectBodyBackground from "./SelectBodyBackground";
 
-import { IStylingItemProps } from "../../interfaces";
-import { useTranslation } from "react-i18next";
+import { IProps } from '../../interfaces'; 
 
-const BodyStyling: React.FC<IStylingItemProps> = (props) => {
+const BodyStyling: React.FC<IProps> = (props) => {
 
-    const { stateImmer, dispatchImmer, classNamesOfRotatingCard } = props;
+    const { stateImmer, dispatchImmer } = props;
     const { t } = useTranslation();
 
     return (
@@ -28,13 +28,11 @@ const BodyStyling: React.FC<IStylingItemProps> = (props) => {
 
                     <UploadBodyBackgroundImage 
                         dispatchImmer={dispatchImmer} 
-                        classNamesOfRotatingCard={classNamesOfRotatingCard}
                     />
 
                     <SelectBodyColor 
                         stateImmer={stateImmer} 
                         dispatchImmer={dispatchImmer} 
-                        classNamesOfRotatingCard={classNamesOfRotatingCard}
                     />
 
                 </Accordion.Body>

@@ -1,6 +1,7 @@
 .container-element-runner {
     position: relative;
     overflow: hidden;
+
     .element-runner {
         position: absolute;
         top: 50%;
@@ -9,24 +10,30 @@
         width: 100%;
         transform: translateY(-50%);
     };
+
     .front-element-runner {
         left: 0;
     };
+
     .back-element-runner {
         left: 100%;
         cursor: pointer;
     };
+
     &:hover {
         .front-element-runner {
             animation: run-left-from-0perc ease 2s forwards;
         };
+
         .back-element-runner {
             animation: run-left-from-100perc ease 2s forwards;
         };
-    }
+    };
+
     .front-element-runner {
         animation: run-left-from-100perc ease 2s forwards;
     };
+
     .back-element-runner {
         animation: run-left-from-0perc ease 2s forwards;
     };
@@ -40,7 +47,7 @@
     }
 
     to {
-        left: -100%;;
+        left: -100%;
     }
 }
 
@@ -50,6 +57,6 @@
     }
 
     to {
-        left: 0;;
+        left: 0;
     }
 }
