@@ -2,7 +2,7 @@
 
 Новая реализация моего [**старого проекта**](https://github.com/k1ntsugi1/book-finder), как итог: полностью написал проект (с нуля) на Typescript, SCSS
 
-[**Versel**](https://book-finder-rose.vercel.app/) - деплой
+[**Versel**](https://book-finder-v2-gi3ezp5r1-k1ntsugi1.vercel.app/) - деплой
 
 ## Описание:
 
