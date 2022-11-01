@@ -173,3 +173,10 @@ body {
 .active>.page-link {
     background-color: var(--color-progressBar) !important;
 }
+
+.paragraph-viewable-page {
+    white-space: nowrap;
+    span {
+        text-decoration: underline;
+    }
+}

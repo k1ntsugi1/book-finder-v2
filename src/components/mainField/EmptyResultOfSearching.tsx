@@ -18,6 +18,7 @@ const EmptyResultOfSearching: React.FC = () => {
         const printText = (position: number) => {
             textRef.current!.innerHTML = text.substring(0, position);
         }
+        
         const setTimeoutes = (position: number) => {
             if (lengthOfText === 0 || position > lengthOfText) return;
             const idOfTimeout: ReturnType<typeof setTimeout> = setTimeout(() => printText(position), (position + 1) * 150);

@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import GlassElement from "../components/GlassElement";
 import EmptyResultOfSearching from "../components/mainField/EmptyResultOfSearching";
 
@@ -9,7 +10,8 @@ import CardImageSVGElement from "../components/SVGElements/CardImageSVGElement";
 const ViewableItemPage: React.FC = () => {
     const activeItemId = useAppSelector(store => store.resultOfSearchingBySearchingOptions.activeItemId)
     const item = useAppSelector(store => selectorsResultOfSearching.selectById(store, activeItemId!));
-
+    const classNamesOfParagraph = cn('paragraph-viewable-page');
+    const classNamesOfItemsBlock = cn('d-flex flex-nowrap')
     const {
         imgUrl,
         title,
@@ -34,10 +36,7 @@ const ViewableItemPage: React.FC = () => {
             ? <EmptyResultOfSearching />
             : (
                 <GlassElement
-                    style={{
-                        'color': 'var(--color-text)'
-                    }}
-                    className="mx-3 px-4 d-flex flex-column justify-content-start gap-5 rounded overflow-hidden"
+                    className="color-text mx-3 px-4 d-flex flex-column justify-content-start gap-5 rounded overflow-hidden"
                 >
 
                     <div className='d-flex flex-column flex-nowrap'>
@@ -45,7 +44,7 @@ const ViewableItemPage: React.FC = () => {
                     </div>
 
                     <div className="d-flex flex-nowrap flex-column justify-content-between gap-3">
-                        <div className="d-flex gap-5 justify-content-start">
+                        <div className="d-flex justify-content-start gap-5">
                             <div>
                                 {
                                     imgUrl
@@ -54,51 +53,51 @@ const ViewableItemPage: React.FC = () => {
                                 }
                             </div>
 
-                            <div className="d-flex flex-wrap gap-5 align-self-center">
-                                <div className="d-flex flex-column">
+                            <div className="d-flex flex-wrap align-self-center gap-5">
+                                <div className={classNamesOfItemsBlock}>
                                     {
                                         authors
-                                        && <p className="text-nowrap">
-                                            <span className="text-decoration-underline ">authors:</span> {authors}
+                                        && <p className={classNamesOfParagraph}>
+                                            <span >authors:</span> {authors}
                                         </p>
                                     }
                                     {
                                         categories
-                                        && <p className="text-nowrap">
-                                            <span className="text-decoration-underline ">categories:</span> {categories}
+                                        && <p className={classNamesOfParagraph}>
+                                            <span>categories:</span> {categories}
                                         </p>
                                     }
                                     {
                                         printType
-                                        && <p className="text-nowrap">
-                                            <span className="text-decoration-underline ">printType:</span> {printType}
+                                        && <p className={classNamesOfParagraph}>
+                                            <span>printType:</span> {printType}
                                         </p>
                                     }
                                     {
                                         language
-                                        && <p className="text-nowrap">
-                                            <span className="text-decoration-underline ">language:</span> {language}
+                                        && <p className={classNamesOfParagraph}>
+                                            <span>language:</span> {language}
                                         </p>
                                     }
                                 </div>
                                 
-                                <div className="d-flex flex-column">
+                                <div className={classNamesOfItemsBlock}>
                                     {
                                         pageCount
-                                        && <p className="text-nowrap">
-                                            <span className="text-decoration-underline ">pageCount:</span> {pageCount}
+                                        && <p className={classNamesOfParagraph}>
+                                            <span>pageCount:</span> {pageCount}
                                         </p>
                                     }
                                     {
                                         publisher
-                                        && <p className="text-nowrap">
-                                            <span className="text-decoration-underline ">publisher:</span> {publisher}
+                                        && <p className={classNamesOfParagraph}>
+                                            <span>publisher:</span> {publisher}
                                         </p>
                                     }
                                     {
                                         publishedDate
-                                        && <p className="text-nowrap">
-                                            <span className="text-decoration-underline ">publishedDate:</span> {publishedDate}
+                                        && <p className={classNamesOfParagraph}>
+                                            <span>publishedDate:</span> {publishedDate}
                                         </p>
                                     }
                                 </div>
@@ -108,7 +107,13 @@ const ViewableItemPage: React.FC = () => {
                         </div>
 
                     </div>
-                    {description && <div className="border-top border-bottom my-3 py-2 w-100 overflow-auto align-self-center" style={{ 'maxHeight': '300px' }}>{description}</div>}
+                    {
+                        description &&
+                        <div className="my-3 py-2 w-100 overflow-auto align-self-center border-top border-bottom" 
+                             style={{ 'maxHeight': '300px' }}
+                        >
+                            {description}
+                        </div>}
                 </GlassElement>
             )
     )

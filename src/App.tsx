@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <div className="p-0 container-fluid h-100 overflow-hidden">
+      <div className="container-fluid p-0 h-100 overflow-hidden">
 
         <div className='row h-100'>
           <SidebarField setNewTypeOfItems={setNewTypeOfItems} />

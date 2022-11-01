@@ -19,7 +19,9 @@ const ElementOfScrollIntoView: React.FC<IProps> = (props) => {
         <div 
             className={classnames}
             style={style}
-            onClick={() => { elementOfBreakPoint.current!.scrollIntoView( {block: 'center', behavior: 'smooth' }) }}
+            onClick={() => {
+                elementOfBreakPoint.current!.scrollIntoView( {block: 'center', behavior: 'smooth' })
+            }}
         >
             {children}
         </div>

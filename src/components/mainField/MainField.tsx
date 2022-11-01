@@ -17,8 +17,10 @@ const MainField: React.FC<{ typeOfItems: string }> = (props) => {
     const { typeOfItems } = props;
 
     const appDispatch = useAppDispatch();
-    const { range: { startIndex } } = useAppSelector(store => store.dataOfSearchingOptions);
     const refScrollElement = useRef<HTMLDivElement>(null);
+
+    const { range: { startIndex } } = useAppSelector(store => store.dataOfSearchingOptions);
+    
 
     useEffect(() => {
         
@@ -36,7 +38,7 @@ const MainField: React.FC<{ typeOfItems: string }> = (props) => {
     return (
         <GlassElement className='col'>
             <div
-                className='py-3 w-100 h-100 scroll-elem d-flex justify-content-around flex-wrap gap-2 overflow-auto'
+                className='scroll-elem py-3 w-100 h-100 d-flex justify-content-around flex-wrap gap-2 overflow-auto'
                 ref={refScrollElement}
             >
                 <Routes>

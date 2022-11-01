@@ -1,5 +1,4 @@
-import cn from 'classnames'
-import { Button, Pagination } from 'react-bootstrap';
+import { Pagination } from 'react-bootstrap';
 
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import fetchGetDataBySearchingOptions from '../../store/asyncThunks/fetchGetDataBySearchingOptions';
@@ -9,17 +8,14 @@ import { actionsResultOfSearching } from "../../store/slices/resultOfSearchingBy
 
 
 const Loader: React.FC = () => {
+
     const appDispatch = useAppDispatch();
+
     const { searchParams, range: { startIndex, maxResults } } = useAppSelector(store => store.dataOfSearchingOptions);
     const { totalItems } = useAppSelector(store => store.resultOfSearchingBySearchingOptions);
+    
     const pagesCount = Math.floor(totalItems / maxResults);
     const currentActivePaginationItem = startIndex / maxResults;
-    const classnamesOfButton = cn('border');
-
-    const stylesOfBtn = {
-        'border': '1px solid var(--color-text)',
-        'border-radius': '0'
-    };
 
     const loadItems = () => {
         appDispatch(fetchGetDataBySearchingOptions(searchParams))
