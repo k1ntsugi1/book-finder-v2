@@ -1,8 +1,8 @@
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { actionsUiActiveSectionOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
 
-import GearSVGElement from "../../../SVGElements/gear/GearSVGElement";
-import GearFillSVGElement from "../../../SVGElements/gear/GearFillSVGElement";
+import { ReactComponent as Gear } from '../../../../assets/svg/gear.svg';
+import { ReactComponent as GearFill } from '../../../../assets/svg/gear-fill.svg';
 
 import { ISettingItemsProps } from "../interfaces";
 
@@ -24,8 +24,8 @@ const StylingItem: React.FC<ISettingItemsProps> = (props) => {
             }}
         >
             {activeItemOfOptions === 'setting'
-                ? <GearFillSVGElement width="25" height="25"/>
-                : <GearSVGElement width="25" height="25"/>
+                ? <GearFill width="25" height="25"/>
+                : <Gear width="25" height="25"/>
             }
 
         </div>

@@ -4,8 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import RunnerBorderBottom from "../../../RunnerBorderBottom";
 
-import CheckSVGElement from "../../../SVGElements/CheckSVGElement";
-
+import { ReactComponent as  Check } from '../../../../assets/svg/check.svg';
 
 const SelectLangAccordionItem: React.FC = () => {
 
@@ -29,7 +28,7 @@ const SelectLangAccordionItem: React.FC = () => {
 
                         <div className="d-flex justify-content-between">
                             <span>{t("sidebarField.settingSection.language.ru")}</span>
-                            {langState === 'ru' && <CheckSVGElement width="25" height="25" />}
+                            {langState === 'ru' && <Check width="25" height="25" />}
                         </div>
 
                     </Button>
@@ -45,7 +44,7 @@ const SelectLangAccordionItem: React.FC = () => {
                     }}>
                         <div className="d-flex justify-content-between">
                             <span>{t("sidebarField.settingSection.language.en")}</span>
-                            {langState === 'en' && <CheckSVGElement width="25" height="25" />}
+                            {langState === 'en' && <Check width="25" height="25" />}
                         </div>
 
                     </Button>

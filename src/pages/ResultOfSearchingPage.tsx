@@ -13,7 +13,6 @@ const ResultOfSearchingPage: React.FC<{ typeOfItems: string }> = (props) => {
     return (
         <>
             {statusOfLoading === 'fulfilled' && <CardList typeOfItems={typeOfItems} />}
-            
             {statusOfLoading === 'pending' && <SpinnerOfLoading />}
             {(totalItems > maxResults) && <Loader />}
         </>

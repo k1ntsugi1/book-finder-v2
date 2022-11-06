@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { actionsUiActiveSectionOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
 
-import BookSVGElement from "../../../SVGElements/book/BookSVGElement";
-import BookFillSVGElement from "../../../SVGElements/book/BookFillSVGElement";
+import { ReactComponent as Book } from '../../../../assets/svg/book.svg';
+import { ReactComponent as BookFill } from '../../../../assets/svg/book-fill.svg';
 
 import { INavigationLinksProps } from "../interfaces";
 
@@ -25,8 +25,8 @@ const ViewableItemLink: React.FC<INavigationLinksProps> = (props) => {
             }}
         >
             {activePage === 'item'
-                ? <BookFillSVGElement width="25" height="25"/>
-                : <BookSVGElement width="25" height="25"/>
+                ? <BookFill width="25" height="25"/>
+                : <Book width="25" height="25"/>
             }
         </div>
     )

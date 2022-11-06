@@ -5,7 +5,7 @@ import { actionsUiProgressBar } from "../../../../store/slices/uiProgressBarSlic
 
 import RunnerBorderBottom from "../../../RunnerBorderBottom";
 
-import CheckSVGElement from "../../../SVGElements/CheckSVGElement";
+import { ReactComponent as Check } from '../../../../assets/svg/check.svg';
 
 const SelectProgressBarAccordionItem: React.FC = () => {
 
@@ -26,7 +26,7 @@ const SelectProgressBarAccordionItem: React.FC = () => {
                     <Button variant="" className="w-100" onClick={() => appDispatch(actionsUiProgressBar.updateTypeOfProgressBar({ typeOfProgressBar: 'straight' }))}>
                         <div className="d-flex justify-content-between">
                             <span className='me-3'>{t("sidebarField.settingSection.progressBar.straight")}</span>
-                            {typeOfProgressBar === 'straight' && <CheckSVGElement width="25" height="25" />}
+                            {typeOfProgressBar === 'straight' && <Check width="25" height="25" />}
                         </div>
                     </Button>
 
@@ -37,7 +37,7 @@ const SelectProgressBarAccordionItem: React.FC = () => {
                     <Button variant="" className="w-100" onClick={() => appDispatch(actionsUiProgressBar.updateTypeOfProgressBar({ typeOfProgressBar: 'circle' }))}>
                         <div className="d-flex justify-content-between">
                             <span className='me-3'>{t("sidebarField.settingSection.progressBar.circle")}</span>
-                            {typeOfProgressBar === 'circle' && <CheckSVGElement width="25" height="25" />}
+                            {typeOfProgressBar === 'circle' && <Check width="25" height="25" />}
                         </div>
                     </Button>
 

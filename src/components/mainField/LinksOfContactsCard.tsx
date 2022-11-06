@@ -3,10 +3,11 @@ import cn from 'classnames';
 import GlassElement from "../GlassElement";
 import RunnerElement from "../RunnerElement";
 
-import GitHubSVGElement from "../SVGElements/GitHubSVGElement";
-import TelegramSVGElement from "../SVGElements/TelegramSVGElement";
-import MailSVGElement from "../SVGElements/MailSVGElement";
-import ArrowUpRightSVGElement from "../SVGElements/ArrowUpRightSVGElement";
+import { ReactComponent as GitHub } from '../../assets/svg/github.svg';
+import { ReactComponent as Telegram } from '../../assets/svg/telegram.svg';
+import { ReactComponent as Envelop } from '../../assets/svg/envelope-fill.svg';
+import { ReactComponent as ArrowUpRight } from '../../assets/svg/arrow-up-right.svg';
+
 
 const LinksOfContactsCard: React.FC = () => {
 
@@ -23,22 +24,22 @@ const LinksOfContactsCard: React.FC = () => {
                 className={className}
                 onClickHandler={() => openLinkHandler('https://github.com/k1ntsugi1')}
             >
-                <GitHubSVGElement width="50" height="50" />
-                <ArrowUpRightSVGElement width="50" height="50" />
+                <GitHub width="50" height="50" />
+                <ArrowUpRight width="50" height="50" />
             </RunnerElement>
 
             <RunnerElement
                 className={className}
                 onClickHandler={() => openLinkHandler('https://t.me/bmasalimov')}
             >
-                <TelegramSVGElement width="50" height="50" />
-                <ArrowUpRightSVGElement width="50" height="50" />
+                <Telegram width="50" height="50" />
+                <ArrowUpRight width="50" height="50" />
             </RunnerElement>
 
             <RunnerElement
                 className={className}
             >
-                <MailSVGElement width="50" height="50" />
+                <Envelop width="50" height="50" />
                 <span>bmasalimov5@yandex.ru</span>
             </RunnerElement>
 

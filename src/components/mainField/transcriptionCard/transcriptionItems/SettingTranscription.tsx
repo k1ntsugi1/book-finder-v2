@@ -1,14 +1,13 @@
 import { useTranslation } from "react-i18next";
-import cn from 'classnames';
 
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { actionsUiActiveSectionOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
 
 import RunnerBorderBottom from "../../../RunnerBorderBottom";
 
-import SearchSVGElement from "../../../SVGElements/search/SearchSVGElement";
-import GearSVGElement from "../../../SVGElements/gear/GearSVGElement";
-import ArrowLeftShortFillSVGElement from "../../../SVGElements/ArrowLeftShortFillSVGElement";
+import { ReactComponent as SearchHeart } from '../../../../assets/svg/search-heart.svg';
+import { ReactComponent as Gear } from '../../../../assets/svg/gear.svg';
+import { ReactComponent as ArrowLeftShortFill } from '../../../../assets/svg/arrow-left-short.svg';
 
 import { IProps } from "./interfaces";
 
@@ -39,8 +38,8 @@ const SettingTranscription: React.FC<IProps> = (props) => {
                 classNamesOfChildrenWrapper={classNamesOfChildrenWrapper}
             >
                 <span className={classNamesOfSVGContainer}>
-                    <SearchSVGElement width="25" height="25" />
-                    <ArrowLeftShortFillSVGElement width="20" height="20" />
+                    <SearchHeart width="25" height="25" />
+                    <ArrowLeftShortFill width="20" height="20" />
                 </span>
                 <span onClick={activeItemOfOptionHandler('search')}>{t("mainField.transcriptionCard.searchOption")}</span>
             </RunnerBorderBottom>
@@ -50,8 +49,8 @@ const SettingTranscription: React.FC<IProps> = (props) => {
                 classNamesOfChildrenWrapper={classNamesOfChildrenWrapper}
             >
                 <span className={classNamesOfSVGContainer}>
-                    <GearSVGElement width="25" height="25" />
-                    <ArrowLeftShortFillSVGElement width="20" height="20" />
+                    <Gear width="25" height="25" />
+                    <ArrowLeftShortFill width="20" height="20" />
                 </span>
                 <span onClick={activeItemOfOptionHandler('setting')}>{t("mainField.transcriptionCard.settingOption")}</span>
             </RunnerBorderBottom>

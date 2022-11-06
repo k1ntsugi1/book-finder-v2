@@ -5,7 +5,7 @@ import EmptyResultOfSearching from "../components/mainField/EmptyResultOfSearchi
 import { useAppSelector } from "../store/hooks";
 import { selectorsResultOfSearching } from "../store/slices/resultOfSearchingBySearchingOptionsSlice";
 
-import CardImageSVGElement from "../components/SVGElements/CardImageSVGElement";
+import { ReactComponent as CardImage } from '../assets/svg/card-image.svg'
 
 const ViewableItemPage: React.FC = () => {
     const activeItemId = useAppSelector(store => store.resultOfSearchingBySearchingOptions.activeItemId)
@@ -49,7 +49,7 @@ const ViewableItemPage: React.FC = () => {
                                 {
                                     imgUrl
                                         ? <img src={imgUrl} alt="ImgBook" height="200px" />
-                                        : <CardImageSVGElement width="200" height="200" />
+                                        : <CardImage width="200" height="200" />
                                 }
                             </div>
 

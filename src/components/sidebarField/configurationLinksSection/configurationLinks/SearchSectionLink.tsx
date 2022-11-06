@@ -1,8 +1,8 @@
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { actionsUiActiveSectionOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
 
-import SearchSVGElement from "../../../SVGElements/search/SearchSVGElement";
-import SearchFillSVGElement from "../../../SVGElements/search/SearchFIllSVGElement";
+import { ReactComponent as Search } from '../../../../assets/svg/search-heart.svg';
+import { ReactComponent as SearchFill } from '../../../../assets/svg/search-heart-fill.svg';
 
 import { ISettingItemsProps } from "../interfaces";
 
@@ -24,8 +24,8 @@ const SearchItem: React.FC<ISettingItemsProps> = (props) => {
             }}
         >
             {activeItemOfOptions === 'search'
-                ? <SearchFillSVGElement width="25" height="25"/>
-                : <SearchSVGElement width="25" height="25"/>
+                ? <SearchFill width="25" height="25"/>
+                : <Search width="25" height="25"/>
             }
         </div>
     )

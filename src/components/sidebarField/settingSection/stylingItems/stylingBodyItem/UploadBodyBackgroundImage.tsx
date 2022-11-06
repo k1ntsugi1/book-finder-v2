@@ -6,8 +6,7 @@ import RotateCard from "../../../../RotateCard"
 import fetchPostImage from "../../../../../utils/fetchPostImage";
 import { IDispatchImmer } from "../../interfaces"
 
-import UploadSVGElement from "../../../../SVGElements/UploadSVGElement";
-
+import { ReactComponent as  CloudUploadFill } from "../../../../../assets/svg/cloud-upload-fill.svg";
 
 const UploadBodyBackgroundImage: React.FC<{dispatchImmer: IDispatchImmer}> = (props) => {
 
@@ -33,14 +32,13 @@ const UploadBodyBackgroundImage: React.FC<{dispatchImmer: IDispatchImmer}> = (pr
                         }}
                     />
                     <Button variant="" className="w-100" onClick={() => uploadFileRef.current!.click()}>
-                        <UploadSVGElement width="16" height="16"/>
+                        <CloudUploadFill width="16" height="16"/>
                     </Button>
                 </>
 
             }
             frontFaceOfCard={
                 <>
-
                     <Form.Label className="ms-3">{t("sidebarField.settingSection.styling.stylingItems.body.uploadImageBtn")}</Form.Label>
                 </>
             }

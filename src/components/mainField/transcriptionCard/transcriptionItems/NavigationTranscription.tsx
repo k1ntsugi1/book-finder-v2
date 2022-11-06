@@ -1,17 +1,16 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import cn from 'classnames';
 
 import { useAppDispatch } from "../../../../store/hooks";
 import { actionsUiActiveSectionOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
 
 import RunnerBorderBottom from "../../../RunnerBorderBottom";
 
-import HomeSVGElement from "../../../SVGElements/home/HomeSVGElement";
-import BookMarksSVGElement from "../../../SVGElements/bookMarks/BookMarksSVGElement";
-import BookSVGElement from "../../../SVGElements/book/BookSVGElement";
-import StarSVGElement from "../../../SVGElements/star/StarSVGElement";
-import ArrowLeftShortFillSVGElement from "../../../SVGElements/ArrowLeftShortFillSVGElement";
+import { ReactComponent as House } from '../../../../assets/svg/house.svg';
+import { ReactComponent as BookMarks } from '../../../../assets/svg/bookmarks.svg';
+import { ReactComponent as Book } from '../../../../assets/svg/book.svg';
+import { ReactComponent as Star } from '../../../../assets/svg/star.svg';
+import { ReactComponent as ArrowLeftShortFill } from '../../../../assets/svg/arrow-left-short.svg';
 
 import { IProps } from "./interfaces";
 
@@ -48,8 +47,8 @@ const NavigationTranscription: React.FC<IProps> = (props) => {
                 classNamesOfChildrenWrapper={classNamesOfChildrenWrapper}
             >
                 <span className={classNamesOfSVGContainer}>
-                    <HomeSVGElement width="25" height="25" />
-                    <ArrowLeftShortFillSVGElement width="20" height="20"/>
+                    <House width="25" height="25" />
+                    <ArrowLeftShortFill width="20" height="20"/>
                 </span>
                 <span onClick={navigationHandler('/')}>{t("mainField.transcriptionCard.homeLink")}</span>
             </RunnerBorderBottom>
@@ -59,8 +58,8 @@ const NavigationTranscription: React.FC<IProps> = (props) => {
                 classNamesOfChildrenWrapper={classNamesOfChildrenWrapper}
             >
                 <span className={classNamesOfSVGContainer}>
-                    <BookMarksSVGElement width="25" height="25" />
-                    <ArrowLeftShortFillSVGElement width="20" height="20"/>
+                    <BookMarks width="25" height="25" />
+                    <ArrowLeftShortFill width="20" height="20"/>
                 </span>
                 <span onClick={navigationHandler('/result')}>{t("mainField.transcriptionCard.resultOfSearchingLink")}</span>
             </RunnerBorderBottom>
@@ -70,8 +69,8 @@ const NavigationTranscription: React.FC<IProps> = (props) => {
                 classNamesOfChildrenWrapper={classNamesOfChildrenWrapper}
             >
                 <span className={classNamesOfSVGContainer}>
-                    <BookSVGElement width="25" height="25" />
-                    <ArrowLeftShortFillSVGElement width="20" height="20"/>
+                    <Book width="25" height="25" />
+                    <ArrowLeftShortFill width="20" height="20"/>
                 </span>
                 <span onClick={navigationHandler('/item')}>{t("mainField.transcriptionCard.viewableItemLink")}</span>
             </RunnerBorderBottom>
@@ -81,8 +80,8 @@ const NavigationTranscription: React.FC<IProps> = (props) => {
                 classNamesOfChildrenWrapper={classNamesOfChildrenWrapper}
             >
                 <span className={classNamesOfSVGContainer}>
-                    <StarSVGElement width="25" height="25" />
-                    <ArrowLeftShortFillSVGElement width="20" height="20"/>
+                    <Star width="25" height="25" />
+                    <ArrowLeftShortFill width="20" height="20"/>
                 </span>
                 <span onClick={navigationHandler('/starred')}>{t("mainField.transcriptionCard.starredItemsLink")}</span>
             </RunnerBorderBottom>

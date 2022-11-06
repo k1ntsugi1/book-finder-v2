@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { actionsUiActiveSectionOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
 
-import HomeSVGElement from "../../../SVGElements/home/HomeSVGElement";
-import HomeFillSVGElement from "../../../SVGElements/home/HomeFillSVGElement";
+import { ReactComponent as House } from '../../../../assets/svg/house.svg';
+import { ReactComponent as HouseFill } from '../../../../assets/svg/house-fill.svg';
 
 import { INavigationLinksProps } from "../interfaces";
 
@@ -25,8 +25,8 @@ const HomeLink: React.FC<INavigationLinksProps> = (props) => {
             }}
         >
             {activePage === 'home'
-                ? <HomeFillSVGElement width="25" height="25"/>
-                : <HomeSVGElement width="25" height="25"/>
+                ? <HouseFill width="25" height="25"/>
+                : <House width="25" height="25"/>
             }
         </div>
     )

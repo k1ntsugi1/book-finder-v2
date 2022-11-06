@@ -13,8 +13,9 @@ import { actionsUiActiveSectionOfSidebar } from '../../store/slices/uiActiveSect
 import { actionsResultOfSearching } from '../../store/slices/resultOfSearchingBySearchingOptionsSlice';
 import { actionsUiNotification } from '../../store/slices/uiNotificationSlice';
 
-import StarSVGElement from '../SVGElements/star/StarSVGElement';
-import StarFillSVGElement from '../SVGElements/star/StarFillSVGElement';
+import { ReactComponent as Star } from '../../assets/svg/star.svg'
+import { ReactComponent as StarFill } from '../../assets/svg/star-fill.svg';
+
 
 const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
 
@@ -75,8 +76,8 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
                         <div className='cursor-pointer' onClick={activeStatusHandler}>
                             {
                                 activeStatus === 'unActive'
-                                    ? <StarSVGElement width='20' height='20'/>
-                                    : <StarFillSVGElement width='20' height='20'/>
+                                    ? <Star width='20' height='20'/>
+                                    : <StarFill width='20' height='20'/>
                             }
                         </div>
                     </div>

@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { actionsUiActiveSectionOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
 
-import BookMarksSVGElement from "../../../SVGElements/bookMarks/BookMarksSVGElement";
-import BookMarksFillSVGElement from "../../../SVGElements/bookMarks/BookMarksFillSVGElement";
+import { ReactComponent as BookMarks } from '../../../../assets/svg/bookmarks.svg';
+import { ReactComponent as BookMarksFill } from '../../../../assets/svg/bookmarks-fill.svg';
 
 import { INavigationLinksProps } from "../interfaces";
 
@@ -26,8 +26,8 @@ const ResultOfSearchingLink: React.FC<INavigationLinksProps> = (props) => {
             }}
         >
             {activePage === 'result'
-                ? <BookMarksFillSVGElement width="25" height="25"/>
-                : <BookMarksSVGElement width="25" height="25"/>
+                ? <BookMarksFill width="25" height="25"/>
+                : <BookMarks width="25" height="25"/>
             }
         </div>
     )

@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import GlassElement from "../GlassElement";
 
-import EmojiFrownSVGElement from "../SVGElements/EmojiFrownSVGElement";
+import { ReactComponent as EmojiFrown } from '../../assets/svg/emoji-frown.svg';
 
 const EmptyResultOfSearching: React.FC = () => {
 
@@ -39,7 +39,7 @@ const EmptyResultOfSearching: React.FC = () => {
             }}
         >
             <div className="h-100 centered-content border rounded">
-                <EmojiFrownSVGElement width="25" height="25"/>
+                <EmojiFrown width="25" height="25"/>
                 <span className="ps-3" ref={textRef}>{t("mainField.emptyResult")}</span>
                 <span
                     className="background-color-text blinking"

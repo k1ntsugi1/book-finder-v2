@@ -4,8 +4,8 @@ import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { actionsUiActiveSectionOfSidebar } from "../../../../store/slices/uiActiveSectionOfSidebarSlice";
 import fetchGetDataByStarredItemsIDs from "../../../../store/asyncThunks/fetchGetDataByStarredItemsIDs";
 
-import StarSVGElement from "../../../SVGElements/star/StarSVGElement";
-import StarFillSVGElement from "../../../SVGElements/star/StarFillSVGElement";
+import { ReactComponent as Star } from '../../../../assets/svg/star.svg';
+import { ReactComponent as StarFill } from '../../../../assets/svg/star-fill.svg';
 
 import { INavigationLinksProps } from "../interfaces";
 
@@ -29,8 +29,8 @@ const StarredItemsLink: React.FC<INavigationLinksProps> = (props) => {
             }}
         >
             {activePage === 'star'
-                ? <StarFillSVGElement width="25" height="25"/>
-                : <StarSVGElement width="25" height="25"/>
+                ? <StarFill width="25" height="25"/>
+                : <Star width="25" height="25"/>
             }
         </div>
     )

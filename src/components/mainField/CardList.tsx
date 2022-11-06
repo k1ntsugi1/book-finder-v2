@@ -6,9 +6,9 @@ import EmptyResultOfSearching from './EmptyResultOfSearching'
 import { useAppSelector } from "../../store/hooks";
 import { selectorsResultOfSearching } from "../../store/slices/resultOfSearchingBySearchingOptionsSlice";
 
-import CaretUpFillSVGElement from "../SVGElements/CaretUpFillSVGElement";
-
 import ElementOfScrollIntoView from "./ElementOfScrollIntoView";
+
+import { ReactComponent as CaretUp } from '../../assets/svg/caret-up-fill.svg';
 
 const CardList: React.FC<{ typeOfItems: string }> = (props) => {
 
@@ -17,9 +17,9 @@ const CardList: React.FC<{ typeOfItems: string }> = (props) => {
 
     const { percentOfFilling } = useAppSelector(store => store.uiProgressBar)
     const defaultItems = useAppSelector(selectorsResultOfSearching.selectEntities);
-    const staredItems = useAppSelector(store => store.dataOfStarredItems.entities);
+    const starredItems = useAppSelector(store => store.dataOfStarredItems.entities);
 
-    const showingItems = typeOfItems === 'default' ? defaultItems : staredItems;
+    const showingItems = typeOfItems === 'default' ? defaultItems : starredItems;
     const isNotEmpty = showingItems && Object.values(showingItems).length ? true : false;
 
     return (
@@ -47,7 +47,7 @@ const CardList: React.FC<{ typeOfItems: string }> = (props) => {
                     elementOfBreakPoint={upperBlockRef}
                     className="background-color-sidebar color-text "
                 >
-                    <CaretUpFillSVGElement width="25" height="25" />
+                    <CaretUp width="25" height="25" />
                 </ElementOfScrollIntoView>
             }
 
