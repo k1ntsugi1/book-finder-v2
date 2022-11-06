@@ -32,7 +32,7 @@ const fetchGetDataBySearchingOptions = createAsyncThunk<IResultOfSearching, IDat
                 range: { startIndex, maxResults }, 
                 searchParams: previousSearchParams,
 
-            } = thunkAPI.getState().dataOfSearchingOptions
+            } = thunkAPI.getState().dataOfSearchedItems
 
             const isNewRequest = Object.entries(searchParams).find(([key, value]) => value !== previousSearchParams[key]) ? true : false;
             const currentStartIndex = isNewRequest ? 0 : startIndex;

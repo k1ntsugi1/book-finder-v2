@@ -13,7 +13,7 @@ const ResultOfSearchingLink: React.FC<INavigationLinksProps> = (props) => {
     const { className, setNewTypeOfItems } = props;
 
     const { activePage } = useAppSelector(store => store.uiActiveSectionOfSidebar);
-    const { totalItems } = useAppSelector(store => store.resultOfSearchingBySearchingOptions)
+    const { totalItems } = useAppSelector(store => store.dataOfSearchedItems)
 
     const appDispatch = useAppDispatch();
     const navigate = useNavigate();

@@ -3,16 +3,15 @@ import { Pagination } from 'react-bootstrap';
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import fetchGetDataBySearchingOptions from '../../store/asyncThunks/fetchGetDataBySearchingOptions';
 
-import { actionsDataOfSearchingOptions } from "../../store/slices/dataOfSearchingOptionsSlice";
-import { actionsResultOfSearching } from "../../store/slices/resultOfSearchingBySearchingOptionsSlice";
+import { actionsDataOfSearchedItems } from "../../store/slices/dataOfSearchedItemsSlice";
 
 
 const Loader: React.FC = () => {
 
     const appDispatch = useAppDispatch();
 
-    const { searchParams, range: { startIndex, maxResults } } = useAppSelector(store => store.dataOfSearchingOptions);
-    const { totalItems } = useAppSelector(store => store.resultOfSearchingBySearchingOptions);
+    const { searchParams, range: { startIndex, maxResults } } = useAppSelector(store => store.dataOfSearchedItems);
+    const { totalItems } = useAppSelector(store => store.dataOfSearchedItems);
     
     const pagesCount = Math.floor(totalItems / maxResults);
     const currentActivePaginationItem = startIndex / maxResults;
@@ -22,21 +21,21 @@ const Loader: React.FC = () => {
     }
 
     const loadNextItems = () => {
-        appDispatch(actionsResultOfSearching.removeItems())
+        appDispatch(actionsDataOfSearchedItems.removeItems())
         loadItems();
     };
 
     const loadPreviousItems = () => {
-        appDispatch(actionsResultOfSearching.removeItems());
-        appDispatch(actionsDataOfSearchingOptions.decreaseStartIndex());
+        appDispatch(actionsDataOfSearchedItems.removeItems());
+        appDispatch(actionsDataOfSearchedItems.decreaseStartIndexOnMaxResultsValue());
         loadItems();
     };
 
     const loadItemsByPaginationNumber =  (e: React.MouseEvent<HTMLUListElement>) => {
         if (!(e.target instanceof HTMLElement)) return;
         const num = Number(e.target.textContent) - 1;
-        appDispatch(actionsResultOfSearching.removeItems());
-        appDispatch(actionsDataOfSearchingOptions.updateStartIndex({num}));
+        appDispatch(actionsDataOfSearchedItems.removeItems());
+        appDispatch(actionsDataOfSearchedItems.updateStartIndexByPaginationNum({num}));
         loadItems();
     }
 

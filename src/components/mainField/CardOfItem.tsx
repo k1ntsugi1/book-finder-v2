@@ -10,7 +10,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 import { actionsDataOfStarredItems } from '../../store/slices/dataOfStarredItemsSlice';
 import { actionsUiActiveSectionOfSidebar } from '../../store/slices/uiActiveSectionOfSidebarSlice';
-import { actionsResultOfSearching } from '../../store/slices/resultOfSearchingBySearchingOptionsSlice';
+import { actionsDataOfSearchedItems } from '../../store/slices/dataOfSearchedItemsSlice';
 import { actionsUiNotification } from '../../store/slices/uiNotificationSlice';
 
 import { ReactComponent as Star } from '../../assets/svg/star.svg'
@@ -41,7 +41,7 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
     };
 
     const moveToViewableItemHandler = () => {
-        appDispatch(actionsResultOfSearching.setActiveItem({ id: item.id }));
+        appDispatch(actionsDataOfSearchedItems.setActiveItem({ id: item.id }));
         appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'item' }));
 
         navigate('/item')

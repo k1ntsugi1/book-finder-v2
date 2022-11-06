@@ -7,7 +7,7 @@ import { Button, Form } from "react-bootstrap"
 import fetchDataBySearchingOptions from "../../../store/asyncThunks/fetchGetDataBySearchingOptions";
 import { useAppDispatch } from '../../../store/hooks';
 
-import { actionsResultOfSearching } from '../../../store/slices/resultOfSearchingBySearchingOptionsSlice'
+import { actionsDataOfSearchedItems } from '../../../store/slices/dataOfSearchedItemsSlice'
 import { actionsUiActiveSectionOfSidebar } from "../../../store/slices/uiActiveSectionOfSidebarSlice";
 
 import validationSchema from './validationSchema'
@@ -77,7 +77,7 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
                 currentNameOfItem: currentNameOfItem.trim(),
                 currentAuthorOfItem: currentAuthorOfItem.trim(),
             }
-            appDispatch(actionsResultOfSearching.removeItems());
+            appDispatch(actionsDataOfSearchedItems.removeItems());
             appDispatch(fetchDataBySearchingOptions(searchParams));
 
             appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'result' }))

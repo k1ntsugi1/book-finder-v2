@@ -20,7 +20,7 @@ const MainField: React.FC<{ typeOfItems: string }> = (props) => {
     const appDispatch = useAppDispatch();
     const refScrollElement = useRef<HTMLDivElement>(null);
 
-    const { range: { startIndex } } = useAppSelector(store => store.dataOfSearchingOptions);
+    const { range: { startIndex } } = useAppSelector(store => store.dataOfSearchedItems);
     
 
     useEffect(() => {

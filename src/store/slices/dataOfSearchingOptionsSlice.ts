@@ -49,7 +49,6 @@ const dataOfSearchingOptionsSlice = createSlice({
         updateStartIndex(state, actions: PayloadAction<{num: number}>) {
             state.range.startIndex = state.range.maxResults * actions.payload.num;
         },
-        updateList() {}
     },
     extraReducers: (builder) => {
         builder

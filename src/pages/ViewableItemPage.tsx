@@ -3,13 +3,13 @@ import GlassElement from "../components/GlassElement";
 import EmptyResultOfSearching from "../components/mainField/EmptyResultOfSearching";
 
 import { useAppSelector } from "../store/hooks";
-import { selectorsResultOfSearching } from "../store/slices/resultOfSearchingBySearchingOptionsSlice";
+import { selectorsDataOfSearchedItems } from "../store/slices/dataOfSearchedItemsSlice";
 
 import { ReactComponent as CardImage } from '../assets/svg/card-image.svg'
 
 const ViewableItemPage: React.FC = () => {
-    const activeItemId = useAppSelector(store => store.resultOfSearchingBySearchingOptions.activeItemId)
-    const item = useAppSelector(store => selectorsResultOfSearching.selectById(store, activeItemId!));
+    const activeItemId = useAppSelector(store => store.dataOfSearchedItems.activeItemId)
+    const item = useAppSelector(store => selectorsDataOfSearchedItems.selectById(store, activeItemId!));
     const classNamesOfParagraph = cn('paragraph-viewable-page');
     const classNamesOfItemsBlock = cn('d-flex flex-nowrap')
     const {

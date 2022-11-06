@@ -23,7 +23,7 @@ const StarredItemsLink: React.FC<INavigationLinksProps> = (props) => {
             className={className}
             onClick={() => {
                 setNewTypeOfItems!('starred');
-                appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'star' }));
+                appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'starred' }));
                 appDispatch(fetchGetDataByStarredItemsIDs());
                 navigate("/starred");
             }}
