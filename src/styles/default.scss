@@ -211,3 +211,11 @@ body {
 .loader {
     justify-content: space-between;
 }
+
+.shadow-danger {
+    box-shadow: 0px 0px 15px -5px red !important;
+}
+
+.shadow-primary {
+    box-shadow: 0px 0px 15px -5px var(--color-body) !important;
+}

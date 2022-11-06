@@ -35,6 +35,10 @@
         }
     },
     "mainField": {
+        "errorOfSearching": {
+            "networkError": "Ошибка сети....",
+            "unknownError": "Неизвестная Ошибка...."
+        },
         "emptyResult": "Пусто....",
         "transcriptionCard": {
             "navigation": "Навигация",

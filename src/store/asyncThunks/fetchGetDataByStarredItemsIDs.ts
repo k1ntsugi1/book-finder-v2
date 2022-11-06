@@ -15,16 +15,20 @@ interface IResultOfSearching {
 const fetchGetDataByStarredItemsIDs = createAsyncThunk<IResultOfSearching, void, IThunkAPI>(
     'fetchDataByStarredItemsIDs',
     async (_, thunkAPI) => {
-        
-        const { ids } = thunkAPI.getState().dataOfStarredItems;
-         
-        const urls = createURLsByStarredItemsIDs(ids);
+        try {
+            const { ids } = thunkAPI.getState().dataOfStarredItems;
 
-        const responses = await Promise.all(urls.map(url => axios.get<IResponseItem>(url)));
+            const urls = createURLsByStarredItemsIDs(ids);
 
-        const parsedItems = responses.flatMap(response => parseResponseItems([response.data]));
+            const responses = await Promise.all(urls.map(url => axios.get<IResponseItem>(url)));
 
-        return {items: parsedItems}
+            const parsedItems = responses.flatMap(response => parseResponseItems([response.data]));
+
+            return { items: parsedItems }
+        } catch (error) {
+            return thunkAPI.rejectWithValue({ error })
+        }
+
     }
 )
 

@@ -16,7 +16,7 @@ interface IInitialState {
         maxResults: number,
     },
     statusOfLoading: string,
-    statusOfError: string,
+    typeOfError: string,
     searchParams: IDataOfSearchingParams,
 }
 
@@ -30,7 +30,7 @@ const initialState: IInitialState = {
         maxResults: 30,
     },
     statusOfLoading: 'fulfilled',
-    statusOfError: '',
+    typeOfError: '',
     searchParams: {
         currentNameOfItem: '',
         currentAuthorOfItem: '',
@@ -61,7 +61,7 @@ const dataOfSearchedItemsSlice = createSlice({
         resetSearchParams(state) {
             state.range.startIndex = 0;
             state.statusOfLoading = '';
-            state.statusOfError = '';
+            state.typeOfError = '';
             state.searchParams = initialState.searchParams;
             dataOfSearchedItemsSlice.caseReducers.removeItems(state);
         },
@@ -70,7 +70,7 @@ const dataOfSearchedItemsSlice = createSlice({
         builder
             .addCase(fetchGetDataBySearchingOptions.pending, (state) => {
                 state.statusOfLoading = 'pending';
-                state.statusOfError = '';
+                state.typeOfError = '';
             })
             .addCase(fetchGetDataBySearchingOptions.fulfilled, (state, { payload }) => {
                 const {
@@ -92,7 +92,8 @@ const dataOfSearchedItemsSlice = createSlice({
             })
             .addCase(fetchGetDataBySearchingOptions.rejected, (state, { payload }) => {
                 state.statusOfLoading = 'rejected';
-                state.statusOfError = payload?.error.toString();
+                const typeOfError = payload?.error.toString().includes('Network') ? 'network' : 'unknown';
+                state.typeOfError = typeOfError;
             } )
     }
 });

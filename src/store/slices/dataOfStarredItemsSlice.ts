@@ -6,7 +6,7 @@ import fetchGetDataByStarredItemsIDs from '../asyncThunks/fetchGetDataByStarredI
 
 interface IInitialState {
     statusOfLoading: string,
-    statusOfError: string,
+    typeOfError: string,
     ids: string[],
     entities: {
         [key: string]: ParsedItem 
@@ -15,7 +15,7 @@ interface IInitialState {
 
 const initialState: IInitialState = {
     statusOfLoading: '',
-    statusOfError: '',
+    typeOfError: '',
     ids: JSON.parse(localStorage.getItem('staredItems') ?? JSON.stringify([])),
     entities: {
 
@@ -45,7 +45,7 @@ const dataOfStarredItemsSlice = createSlice({
         builder
         .addCase(fetchGetDataByStarredItemsIDs.pending, (state) => {
             state.statusOfLoading = 'pending';
-            state.statusOfError = '';
+            state.typeOfError = '';
         })
         .addCase(fetchGetDataByStarredItemsIDs.fulfilled, (state, { payload }) => {
             state.statusOfLoading = 'fulfilled';
@@ -55,8 +55,10 @@ const dataOfStarredItemsSlice = createSlice({
                 return acc;
             }, {})};
         })
-        .addCase(fetchGetDataByStarredItemsIDs.rejected, (state) => {
+        .addCase(fetchGetDataByStarredItemsIDs.rejected, (state, { payload }) => {
             state.statusOfLoading = 'rejected';
+            const typeOfError = payload?.error.toString().includes('Network') ? 'network' : 'unknown';
+            state.typeOfError = typeOfError;
         })
     }
 });
