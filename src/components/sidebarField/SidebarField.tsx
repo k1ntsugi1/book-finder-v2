@@ -1,10 +1,8 @@
 import cn from 'classnames';
 
+
 import SearchSection from './searchSection/SearchSection';
 import SettingSection from './settingSection/SettingSection';
-
-import StraightProgressBar from "../progressSection/progressBars/StraightProgressBar";
-import CircleProgressBar from '../progressSection/progressBars/CircleProgressBar';
 
 import { useAppSelector } from "../../store/hooks";
 
@@ -21,9 +19,10 @@ const SidebarField: React.FC<IProps> = (props) => {
     const { setNewTypeOfItems, statusOfSidebar } = props;
 
     const { activeItemOfOptions } = useAppSelector(store => store.uiActiveSectionOfSidebar);
-    const { typeOfProgressBar } = useAppSelector(store => store.uiProgressBar)
 
     const className = cn('color-text mx-auto cursor-pointer mt-4 hover');
+
+
 
     return (
         <>

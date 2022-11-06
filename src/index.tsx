@@ -1,5 +1,7 @@
 import './styles/index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "react-toastify/dist/ReactToastify.css";
+
 import './i18next/i18next'
 
 import { createRoot } from 'react-dom/client';

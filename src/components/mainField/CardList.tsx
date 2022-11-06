@@ -6,8 +6,6 @@ import EmptyResultOfSearching from './EmptyResultOfSearching'
 import { useAppSelector } from "../../store/hooks";
 import { selectorsResultOfSearching } from "../../store/slices/resultOfSearchingBySearchingOptionsSlice";
 
-import ElementOfScrollIntoView from "../progressSection/ElementOfScrollIntoView";
-
 import ProgressSection from "../progressSection/ProgressSection";
 
 const CardList: React.FC<{ typeOfItems: string }> = (props) => {
@@ -15,13 +13,13 @@ const CardList: React.FC<{ typeOfItems: string }> = (props) => {
     const { typeOfItems } = props;
     const upperBlockRef = useRef<HTMLDivElement>(null);
 
-    const { percentOfFilling } = useAppSelector(store => store.uiProgressBar)
+    const { percentOfFilling } = useAppSelector(store => store.uiProgressBar);
     const defaultItems = useAppSelector(selectorsResultOfSearching.selectEntities);
     const starredItems = useAppSelector(store => store.dataOfStarredItems.entities);
 
     const showingItems = typeOfItems === 'default' ? defaultItems : starredItems;
     const isNotEmpty = showingItems && Object.values(showingItems).length ? true : false;
-
+ 
     return (
         <>
             {
@@ -40,8 +38,11 @@ const CardList: React.FC<{ typeOfItems: string }> = (props) => {
                 !isNotEmpty &&
                 <EmptyResultOfSearching />
             }
+            {
+               (percentOfFilling > 0) &&
+                <ProgressSection upperBlockRef={upperBlockRef} />
+            }
 
-            <ProgressSection upperBlockRef={upperBlockRef}/>
         </>
     )
 };

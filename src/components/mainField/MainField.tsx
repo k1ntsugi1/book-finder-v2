@@ -46,7 +46,7 @@ const MainField: React.FC<{ typeOfItems: string }> = (props) => {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/result" element={<ResultOfSearchingPage typeOfItems={typeOfItems} />} />
                     <Route path="/item" element={<ViewableItemPage />} />
-                    <Route path="/starred" element={<StarredItemsPage typeOfItems={typeOfItems} />}></Route>
+                    <Route path="/starred" element={<StarredItemsPage typeOfItems={typeOfItems} />} />
                     <Route path="*" element={<UndefinedPage />} />
                 </Routes>
             </div>

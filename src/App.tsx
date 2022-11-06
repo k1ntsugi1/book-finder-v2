@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAppSelector } from './store/hooks';
+import { ToastContainer } from 'react-toastify';
 
 import SidebarToggler from './components/sidebarField/sidebarToggler/SidebarToggler';
 import SidebarField from './components/sidebarField/SidebarField';
@@ -21,7 +22,7 @@ const App: React.FC = () => {
           <SidebarToggler statusOfSidebar={statusOfSidebar} setStatusOfSidebar={setStatusOfSidebar}/>
           <SidebarField statusOfSidebar={statusOfSidebar} setNewTypeOfItems={setNewTypeOfItems} />
           <MainField typeOfItems={typeOfItems} />
-
+          <ToastContainer />
         </div>
 
       </div>

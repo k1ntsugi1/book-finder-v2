@@ -5,12 +5,13 @@ import StraightProgressBar from "./progressBars/StraightProgressBar";
 import CircleProgressBar from "./progressBars/CircleProgressBar";
 import ElementOfScrollIntoView from "./ElementOfScrollIntoView";
 
-const ProgressSection: React.FC<{upperBlockRef?: RefObject<HTMLDivElement>}> = (props) => {
+const ProgressSection: React.FC<{ upperBlockRef?: RefObject<HTMLDivElement> }> = (props) => {
     const { upperBlockRef } = props;
     const { percentOfFilling } = useAppSelector(store => store.uiProgressBar);
     const { typeOfProgressBar } = useAppSelector(store => store.uiProgressBar);
 
     return (
+
         <div className='progress-section'>
             {typeOfProgressBar === 'straight'
                 ? <StraightProgressBar />
@@ -25,6 +26,7 @@ const ProgressSection: React.FC<{upperBlockRef?: RefObject<HTMLDivElement>}> = (
             }
         </div>
     )
+
 };
 
 export default ProgressSection

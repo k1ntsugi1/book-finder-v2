@@ -12,7 +12,8 @@ const scrollHandler:IScrollHandler = (element, appDispatch) => {
     const clientHeight = document.documentElement.clientHeight;
     const scrollHeight = element.scrollHeight;
     const scrollTop = element.scrollTop + element.clientHeight;
-    appDispatch(actionsUiProgressBar.updatepPercentOfFilling({ percentOfFilling: ((scrollTop - clientHeight) / (scrollHeight - clientHeight)) * 100 }))
+    const percentOfFilling = scrollHeight - clientHeight > 0 ? ((scrollTop - clientHeight) / (scrollHeight - clientHeight)) * 100 : 0;
+    appDispatch(actionsUiProgressBar.updatepPercentOfFilling({ percentOfFilling }));
 };
 
 export default scrollHandler

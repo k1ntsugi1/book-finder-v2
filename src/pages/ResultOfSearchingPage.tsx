@@ -14,7 +14,7 @@ const ResultOfSearchingPage: React.FC<{ typeOfItems: string }> = (props) => {
         <>
             {statusOfLoading === 'fulfilled' && <CardList typeOfItems={typeOfItems} />}
             {statusOfLoading === 'pending' && <SpinnerOfLoading />}
-            {(statusOfLoading === 'fulfilled' && totalItems > maxResults) && <Loader />}
+            {(statusOfLoading === 'fulfilled') && (totalItems > maxResults) && <Loader />}
         </>
     );
 };
