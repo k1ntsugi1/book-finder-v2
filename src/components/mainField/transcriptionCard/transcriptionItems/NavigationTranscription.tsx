@@ -31,7 +31,7 @@ const NavigationTranscription: React.FC<IProps> = (props) => {
             '/': 'home',
             '/result': 'result',
             '/item': 'item',
-            '/starred': 'star'
+            '/starred': 'starred'
         }
         appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: mappignPathnameToPageName[pathname] }));
         navigate(pathname)

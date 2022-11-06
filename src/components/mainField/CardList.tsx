@@ -8,7 +8,7 @@ import { selectorsResultOfSearching } from "../../store/slices/resultOfSearching
 
 import ElementOfScrollIntoView from "./ElementOfScrollIntoView";
 
-import { ReactComponent as CaretUp } from '../../assets/svg/caret-up-fill.svg';
+import ProgressSection from "../progressSection/ProgressSection";
 
 const CardList: React.FC<{ typeOfItems: string }> = (props) => {
 
@@ -41,17 +41,7 @@ const CardList: React.FC<{ typeOfItems: string }> = (props) => {
                 <EmptyResultOfSearching />
             }
 
-            {
-                percentOfFilling > 40 &&
-                <ElementOfScrollIntoView
-                    elementOfBreakPoint={upperBlockRef}
-                    className="background-color-sidebar color-text "
-                >
-                    <CaretUp width="25" height="25" />
-                </ElementOfScrollIntoView>
-            }
-
-
+            <ProgressSection upperBlockRef={upperBlockRef}/>
         </>
     )
 };

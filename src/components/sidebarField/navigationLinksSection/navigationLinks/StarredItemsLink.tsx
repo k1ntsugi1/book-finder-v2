@@ -28,7 +28,7 @@ const StarredItemsLink: React.FC<INavigationLinksProps> = (props) => {
                 navigate("/starred");
             }}
         >
-            {activePage === 'star'
+            {activePage === 'starred'
                 ? <StarFill width="25" height="25"/>
                 : <Star width="25" height="25"/>
             }

@@ -1,12 +1,35 @@
 .wrapper-straight-progress-bar {
-    width: 100%;
-    height: 100%;
+    position: relative;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    width: 24px;
+    height: 150px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 10px;
 
-    .progress {
-        width: 100%;
+    .progress-container {
+        margin: 0;
+        padding: 1px;
+        width: 24px;
         height: 100%;
-        background: #5769e9;
+        border: 1px solid var(--color-text);
+        border-radius: 8px;
+        .progress {     
+            background: #5769e9;
+        };
+    };
+
+    .progress-text {
+        padding: 1px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%) rotateZ(90deg);
+        background-color: lightgrey;
+        border-radius: 3px;
+        font-size: 0.7rem;
+        color: var(--color-text);
     }
 }

@@ -2,18 +2,19 @@ import { RefObject } from "react"
 
 import cn from 'classnames';
 
+import { ReactComponent as CaretUp } from '../../assets/svg/caret-up-fill.svg'
+
 interface IProps {
     elementOfBreakPoint: RefObject<HTMLElement>,
-    children?: React.ReactNode,
     style?: React.CSSProperties,
     className?: string,
 };
 
 const ElementOfScrollIntoView: React.FC<IProps> = (props) => {
 
-    const { elementOfBreakPoint, children, style, className } = props;
+    const { elementOfBreakPoint, style, className } = props;
 
-    const classnames = cn('scroll-into-view-container', className)
+    const classnames = cn(className)
 
     return (
         <div 
@@ -23,7 +24,7 @@ const ElementOfScrollIntoView: React.FC<IProps> = (props) => {
                 elementOfBreakPoint.current!.scrollIntoView( {block: 'center', behavior: 'smooth' })
             }}
         >
-            {children}
+            <CaretUp width="25" height="25" />
         </div>
     )
 };

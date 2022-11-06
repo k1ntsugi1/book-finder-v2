@@ -43,7 +43,7 @@ const Loader: React.FC = () => {
 
 
     return (
-        <div className="color-text d-flex justify-content-between position-relative w-100 mx-5">
+        <div className="loader color-text mt-5 d-flex flex-wrap gap-3 position-relative w-100 mx-5">
 
             <Pagination onClick={loadItemsByPaginationNumber}>
 

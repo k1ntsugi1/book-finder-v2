@@ -1,7 +1,5 @@
-@media (max-width: 1000px) {
-    .sidebar-section {
-        &.col-1 {
-            width: 100px !important;
-        };
+@media (max-width: 590px) {
+    .loader {
+        justify-content: center;
     }
 }

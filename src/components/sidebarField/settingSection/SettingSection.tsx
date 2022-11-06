@@ -55,7 +55,7 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
         'background-color-sidebar',
         'pt-3',
         'h-100',
-        'w-200px',
+        'w-appeating-section',
         'd-flex',
         'flex-column',
         'gap-3',
@@ -63,6 +63,8 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
         'position-absolute',
         'start-100',
         'top-0',
+        'overflow-auto',
+        'scrollbar',
         {
             'opacity-100 ': showStateOfBrush === 'visible' ? true : false,
             'opacity-0 ': showStateOfBrush === 'visible' ? false : true,

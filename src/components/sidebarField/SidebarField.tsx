@@ -3,8 +3,8 @@ import cn from 'classnames';
 import SearchSection from './searchSection/SearchSection';
 import SettingSection from './settingSection/SettingSection';
 
-import StraightProgressBar from "./progressBars/StraightProgressBar";
-import CircleProgressBar from './progressBars/CircleProgressBar';
+import StraightProgressBar from "../progressSection/progressBars/StraightProgressBar";
+import CircleProgressBar from '../progressSection/progressBars/CircleProgressBar';
 
 import { useAppSelector } from "../../store/hooks";
 
@@ -29,7 +29,7 @@ const SidebarField: React.FC<IProps> = (props) => {
         <>
             {statusOfSidebar === 'show' &&
                 <div
-                    className="sidebar-section color-text background-color-sidebar py-3 col-1 position-absolute h-100 d-flex flex-column justify-content-start gap-4 shadow-lg"
+                    className="sidebar-section color-text background-color-sidebar py-3 w-100px position-absolute h-100 d-flex flex-column justify-content-start gap-4 shadow-lg"
                     style={{ 'zIndex': '1000' }}
                 >
                     <SearchSection showStateOfForm={activeItemOfOptions === 'search' ? 'visible' : 'unvisible'} />
@@ -37,12 +37,6 @@ const SidebarField: React.FC<IProps> = (props) => {
 
                     <NavigationLinksSection className={className} setNewTypeOfItems={setNewTypeOfItems} />
                     <ConfigurationLinksSection className={className} />
-
-                    {typeOfProgressBar === 'straight'
-                        ? <StraightProgressBar />
-                        : <CircleProgressBar />
-                    }
-
                 </div>
             }
         </>
