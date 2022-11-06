@@ -3,7 +3,7 @@ import { useAppSelector } from "../../store/hooks";
 
 import StraightProgressBar from "./progressBars/StraightProgressBar";
 import CircleProgressBar from "./progressBars/CircleProgressBar";
-import ElementOfScrollIntoView from "../mainField/ElementOfScrollIntoView";
+import ElementOfScrollIntoView from "./ElementOfScrollIntoView";
 
 const ProgressSection: React.FC<{upperBlockRef?: RefObject<HTMLDivElement>}> = (props) => {
     const { upperBlockRef } = props;

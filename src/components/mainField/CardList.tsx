@@ -6,7 +6,7 @@ import EmptyResultOfSearching from './EmptyResultOfSearching'
 import { useAppSelector } from "../../store/hooks";
 import { selectorsResultOfSearching } from "../../store/slices/resultOfSearchingBySearchingOptionsSlice";
 
-import ElementOfScrollIntoView from "./ElementOfScrollIntoView";
+import ElementOfScrollIntoView from "../progressSection/ElementOfScrollIntoView";
 
 import ProgressSection from "../progressSection/ProgressSection";
 
