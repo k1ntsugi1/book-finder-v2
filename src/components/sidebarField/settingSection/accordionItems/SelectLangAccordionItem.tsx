@@ -2,13 +2,17 @@ import { Accordion, Button } from "react-bootstrap"
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import { actionsUiNotification } from "../../../../store/slices/uiNotificationSlice";
+
 import RunnerBorderBottom from "../../../RunnerBorderBottom";
 
 import { ReactComponent as  Check } from '../../../../assets/svg/check.svg';
+import { useAppDispatch } from "../../../../store/hooks";
 
 const SelectLangAccordionItem: React.FC = () => {
 
     const [langState, setNewLang] = useState<string>(localStorage.getItem('currentLang') ?? 'ru');
+    const appDispatch = useAppDispatch();
     const { t, i18n } = useTranslation();
 
     return (
@@ -23,7 +27,8 @@ const SelectLangAccordionItem: React.FC = () => {
 
                     <Button variant="" className="w-100" onClick={() => {
                         setNewLang('ru');
-                        i18n.changeLanguage('ru')
+                        i18n.changeLanguage('ru');
+                        appDispatch(actionsUiNotification.show({ message: 'changed', type: 'success' }));
                     }}>
 
                         <div className="d-flex justify-content-between">
@@ -40,7 +45,8 @@ const SelectLangAccordionItem: React.FC = () => {
 
                     <Button variant="" className="w-100" onClick={() => {
                         setNewLang('en');
-                        i18n.changeLanguage('en')
+                        i18n.changeLanguage('en');
+                        appDispatch(actionsUiNotification.show({ message: 'changed', type: 'success' }))
                     }}>
                         <div className="d-flex justify-content-between">
                             <span>{t("sidebarField.settingSection.language.en")}</span>

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Accordion, Button } from "react-bootstrap";
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { actionsUiProgressBar } from "../../../../store/slices/uiProgressBarSlice";
-
+import { actionsUiNotification } from "../../../../store/slices/uiNotificationSlice";
 import RunnerBorderBottom from "../../../RunnerBorderBottom";
 
 import { ReactComponent as Check } from '../../../../assets/svg/check.svg';
@@ -23,7 +23,10 @@ const SelectProgressBarAccordionItem: React.FC = () => {
 
                 <RunnerBorderBottom>
 
-                    <Button variant="" className="w-100" onClick={() => appDispatch(actionsUiProgressBar.updateTypeOfProgressBar({ typeOfProgressBar: 'straight' }))}>
+                    <Button variant="" className="w-100" onClick={() => {
+                        appDispatch(actionsUiProgressBar.updateTypeOfProgressBar({ typeOfProgressBar: 'straight' }));
+                        appDispatch(actionsUiNotification.show({ message: 'changed', type: 'success' }));
+                    }}>
                         <div className="d-flex justify-content-between">
                             <span className='me-3'>{t("sidebarField.settingSection.progressBar.straight")}</span>
                             {typeOfProgressBar === 'straight' && <Check width="25" height="25" />}
@@ -34,7 +37,10 @@ const SelectProgressBarAccordionItem: React.FC = () => {
 
                 <RunnerBorderBottom>
 
-                    <Button variant="" className="w-100" onClick={() => appDispatch(actionsUiProgressBar.updateTypeOfProgressBar({ typeOfProgressBar: 'circle' }))}>
+                    <Button variant="" className="w-100" onClick={() => {
+                        appDispatch(actionsUiProgressBar.updateTypeOfProgressBar({ typeOfProgressBar: 'circle' }));
+                        appDispatch(actionsUiNotification.show({ message: 'changed', type: 'success' }));
+                    }}>
                         <div className="d-flex justify-content-between">
                             <span className='me-3'>{t("sidebarField.settingSection.progressBar.circle")}</span>
                             {typeOfProgressBar === 'circle' && <Check width="25" height="25" />}
@@ -44,8 +50,8 @@ const SelectProgressBarAccordionItem: React.FC = () => {
                 </RunnerBorderBottom>
 
             </Accordion.Body>
-            
-        </Accordion.Item>
+
+        </Accordion.Item >
     )
 };
 

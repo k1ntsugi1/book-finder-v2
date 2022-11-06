@@ -33,11 +33,11 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
         const action = activeStatus === 'active' ? 'removeItem' : 'addItem'
 
         appDispatch(actionsDataOfStarredItems[action]({ id: item.id }));
-        appDispatch(actionsUiNotification.hide());
+        //appDispatch(actionsUiNotification.hide());
 
         newStatus === 'active'
-            ? appDispatch(actionsUiNotification.show({ message: 'saved', type: 'success', statusOfVisibility: 'visible' }))
-            : appDispatch(actionsUiNotification.show({ message: 'removed', type: 'success', statusOfVisibility: 'visible' }));
+            ? appDispatch(actionsUiNotification.show({ message: 'saved', type: 'success' }))
+            : appDispatch(actionsUiNotification.show({ message: 'removed', type: 'success'}));
     };
 
     const moveToViewableItemHandler = () => {

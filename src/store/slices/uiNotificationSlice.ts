@@ -16,11 +16,12 @@ const uiNotificationSlice = createSlice({
     name: 'Ui notification',
     initialState,
     reducers: {
-        show(state, action: PayloadAction<IInitialState>) {
-            const { message, type, statusOfVisibility } = action.payload;
+        show(state, action: PayloadAction<{[key: string]: string}>) {
+            uiNotificationSlice.caseReducers.hide(state);
+            const { message, type } = action.payload;
             state.message = message;
             state.type = type;
-            state.statusOfVisibility = statusOfVisibility;
+            state.statusOfVisibility = 'visible';
         },
         hide(state) {
             state.statusOfVisibility = 'unvisible';
