@@ -1,5 +1,6 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
+import { toast } from 'react-toastify';
 
 import SpinnerOfLoading from "../components/SpinnerOfLoading";
 import Loader from "../components/mainField/Loader";
@@ -18,6 +19,21 @@ const ResultOfSearchingPage: React.FC<{ typeOfItems: string }> = (props) => {
     ? t("mainField.errorOfSearching.networkError")
     : t("mainField.errorOfSearching.unknownError");
     
+
+    useEffect(() => {
+        if (totalItems > 0) {
+            toast('🦄 Google book API отдает при пагинации разные "total items". Пагинация через цифры реализована из-за интереса', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+        } 
+    });
 
     return (
         <>
