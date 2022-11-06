@@ -10,8 +10,8 @@ import { ReactComponent as CardImage } from '../assets/svg/card-image.svg'
 const ViewableItemPage: React.FC = () => {
     const activeItemId = useAppSelector(store => store.dataOfSearchedItems.activeItemId)
     const item = useAppSelector(store => selectorsDataOfSearchedItems.selectById(store, activeItemId!));
-    const classNamesOfParagraph = cn('paragraph-viewable-page');
-    const classNamesOfItemsBlock = cn('d-flex flex-nowrap')
+    const classNamesOfParagraph = cn('paragraph-viewable-page text-wrap');
+    const classNamesOfItemsBlock = cn('d-flex flex-wrap gap-3')
     const {
         imgUrl,
         title,
@@ -36,84 +36,92 @@ const ViewableItemPage: React.FC = () => {
             ? <EmptyResultOfSearching />
             : (
                 <GlassElement
-                    className="color-text mx-3 px-4 d-flex flex-column justify-content-start gap-5 rounded overflow-hidden"
+                    className="color-text mx-3 p-4 d-flex flex-column justify-content-between gap-5 rounded overflow-auto scrollbar"
                 >
 
                     <div className='d-flex flex-column flex-nowrap'>
                         {titleOfPage.map((dataOfItem, index) => dataOfItem && <p key={index} className="fw-bold fs-3">{dataOfItem}</p>)}
                     </div>
 
-                    <div className="d-flex flex-nowrap flex-column justify-content-between gap-3">
-                        <div className="d-flex justify-content-start gap-5">
-                            <div>
+                    <div>
+                        <p className="fw-bold fs-4">Параметры:</p>
+                        <div className="d-flex flex-wrap align-self-center gap-2">
+                            <div className={classNamesOfItemsBlock}>
                                 {
-                                    imgUrl
-                                        ? <img src={imgUrl} alt="ImgBook" height="200px" />
-                                        : <CardImage width="200" height="200" />
+                                    authors
+                                    && <p className={classNamesOfParagraph}>
+                                        <span >authors:</span> {authors}
+                                    </p>
+                                }
+                                {
+                                    categories
+                                    && <p className={classNamesOfParagraph}>
+                                        <span>categories:</span> {categories}
+                                    </p>
+                                }
+                                {
+                                    printType
+                                    && <p className={classNamesOfParagraph}>
+                                        <span>printType:</span> {printType}
+                                    </p>
+                                }
+                                {
+                                    language
+                                    && <p className={classNamesOfParagraph}>
+                                        <span>language:</span> {language}
+                                    </p>
                                 }
                             </div>
 
-                            <div className="d-flex flex-wrap align-self-center gap-5">
-                                <div className={classNamesOfItemsBlock}>
-                                    {
-                                        authors
-                                        && <p className={classNamesOfParagraph}>
-                                            <span >authors:</span> {authors}
-                                        </p>
-                                    }
-                                    {
-                                        categories
-                                        && <p className={classNamesOfParagraph}>
-                                            <span>categories:</span> {categories}
-                                        </p>
-                                    }
-                                    {
-                                        printType
-                                        && <p className={classNamesOfParagraph}>
-                                            <span>printType:</span> {printType}
-                                        </p>
-                                    }
-                                    {
-                                        language
-                                        && <p className={classNamesOfParagraph}>
-                                            <span>language:</span> {language}
-                                        </p>
-                                    }
-                                </div>
-                                
-                                <div className={classNamesOfItemsBlock}>
-                                    {
-                                        pageCount
-                                        && <p className={classNamesOfParagraph}>
-                                            <span>pageCount:</span> {pageCount}
-                                        </p>
-                                    }
-                                    {
-                                        publisher
-                                        && <p className={classNamesOfParagraph}>
-                                            <span>publisher:</span> {publisher}
-                                        </p>
-                                    }
-                                    {
-                                        publishedDate
-                                        && <p className={classNamesOfParagraph}>
-                                            <span>publishedDate:</span> {publishedDate}
-                                        </p>
-                                    }
-                                </div>
-
+                            <div className={classNamesOfItemsBlock}>
+                                {
+                                    pageCount
+                                    && <p className={classNamesOfParagraph}>
+                                        <span>pageCount:</span> {pageCount}
+                                    </p>
+                                }
+                                {
+                                    publisher
+                                    && <p className={classNamesOfParagraph}>
+                                        <span>publisher:</span> {publisher}
+                                    </p>
+                                }
+                                {
+                                    publishedDate
+                                    && <p className={classNamesOfParagraph}>
+                                        <span>publishedDate:</span> {publishedDate}
+                                    </p>
+                                }
                             </div>
 
                         </div>
+                    </div>
+
+
+                    <div className="d-flex justify-content-start flex-wrap gap-5">
+                        <div className="align-self-center">
+                            {
+                                imgUrl
+                                    ? <img src={imgUrl} alt="ImgBook" height="200px" />
+                                    : <CardImage width="200" height="200" />
+                            }
+                        </div>
+
+
+
+                        <div className="scrollbar py-2 w-100 overflow-auto align-self-center border-top border-bottom"
+                            style={{ 'maxHeight': '250px', 'maxWidth': '900px' }}
+                        >
+                            {
+                                description
+                                    ? description
+                                    : <div style={{ 'width': '100%', 'height': '200px' }}></div>
+                            }
+                        </div>
+
 
                     </div>
-                    {
-                        description &&
-                        <div className="my-3 py-2 w-100 overflow-auto align-self-center border-top border-bottom" 
-                             style={{ 'maxHeight': '300px' }}
-                        >
-                            {description}
-                        </div>}
+
                 </GlassElement>
             )
     )
