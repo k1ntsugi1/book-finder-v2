@@ -46,7 +46,7 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
         'background-color-sidebar',
         'pt-3',
         'h-100',
-        'vw-20',
+        'w-200px',
         'transitionSidebar',
         'position-absolute',
         'start-100',

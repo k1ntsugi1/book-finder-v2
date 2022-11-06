@@ -180,3 +180,18 @@ body {
         text-decoration: underline;
     }
 }
+
+.list {
+    padding: 5px !important;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    width: 40px !important;
+    height: 40px;
+    z-index: 1001;
+    transform: translateX(-50%);
+    background-color: var(--color-sidebar);
+    border: 1px solid var(--color-progressBar);
+    border-radius: 10px;
+    color: var(--color-text);
+}

@@ -37,7 +37,7 @@ const MainField: React.FC<{ typeOfItems: string }> = (props) => {
     }, [startIndex]);
 
     return (
-        <GlassElement className='col'>
+        <GlassElement className='pt-5 px-5  col'>
             <div
                 className='scroll-elem py-3 w-100 h-100 d-flex justify-content-around flex-wrap gap-2 overflow-auto'
                 ref={refScrollElement}

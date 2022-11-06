@@ -10,7 +10,7 @@ const NavigationLinksSection: React.FC<INavigationLinksProps> = (props) => {
     const { setNewTypeOfItems, className } = props;
 
     return (
-        <section className="mx-auto">
+        <section className="mt-4 mx-auto">
 
             <HomeLink className={className}/>
 
