@@ -41,7 +41,7 @@ const setBackgroundBodyImageHandler = (stateImmer: IInitialStateImmer) => {
   document.body.style.setProperty('background-size', 'cover');
 };
 
-const setBackgroundBodyColorHandlet = (stateImmer: IInitialStateImmer) => {
+const setBackgroundBodyColorHandler = (stateImmer: IInitialStateImmer) => {
   const colorWrapper = document.querySelector('[data-element="color-spinner"]') as HTMLDivElement;
   if (colorWrapper) colorWrapper.style.visibility = 'visible';
   document.body.style.setProperty('background', `${stateImmer.colors.bodyColor}`);
@@ -79,9 +79,11 @@ const StylingSection: React.FC<{ showStateOfSetting: string }> = (props) => {
   });
 
   useEffect(() => {
-    stateImmer.stateOfBodyBackground === 'color'
-      ? setBackgroundBodyColorHandlet(stateImmer)
-      : setBackgroundBodyImageHandler(stateImmer);
+    if (stateImmer.stateOfBodyBackground === 'color') {
+      setBackgroundBodyColorHandler(stateImmer);
+      return;
+    }
+    setBackgroundBodyImageHandler(stateImmer);
   });
 
   useEffect(() => {

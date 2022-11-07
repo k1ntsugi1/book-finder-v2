@@ -20,9 +20,11 @@ const SettingTranscription: React.FC<IProps> = (props) => {
   const { activeItemOfOptions } = useAppSelector((store) => store.uiActiveSectionOfSidebar);
 
   const activeItemOfOptionHandler = (itemName: string) => () => {
-    activeItemOfOptions === itemName
-      ? appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions())
-      : appDispatch(actionsUiActiveSectionOfSidebar.setActiveItemOfOptions({ item: itemName }));
+    if (activeItemOfOptions === itemName) {
+      appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions());
+      return;
+    }
+    appDispatch(actionsUiActiveSectionOfSidebar.setActiveItemOfOptions({ item: itemName }));
   };
 
   return (

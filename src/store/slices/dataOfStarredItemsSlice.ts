@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 import _ from 'lodash';
 import { ParsedItem } from '../../utils/parseResponseItems';
 import fetchGetDataByStarredItemsIDs from '../asyncThunks/fetchGetDataByStarredItemsIDs';

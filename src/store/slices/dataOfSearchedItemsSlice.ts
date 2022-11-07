@@ -1,5 +1,5 @@
-import { createSlice, createEntityAdapter, PayloadAction } from '@reduxjs/toolkit';
-
+import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
 
 import fetchGetDataBySearchingOptions from '../asyncThunks/fetchGetDataBySearchingOptions';

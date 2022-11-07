@@ -1,7 +1,8 @@
 import { useRef, useEffect } from 'react';
 import cn from 'classnames';
 import { useNavigate } from 'react-router-dom';
-import { FormikProps, useFormik } from 'formik';
+import { useFormik } from 'formik';
+import type { FormikProps } from 'formik';
 import { Button, Form } from 'react-bootstrap';
 
 import fetchDataBySearchingOptions from '../../../store/asyncThunks/fetchGetDataBySearchingOptions';

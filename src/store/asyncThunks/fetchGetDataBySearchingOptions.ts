@@ -4,8 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IThunkAPI, IResponseItem, IDataOfSearchingParams } from './interfaces';
 
 import createURLBySearchingOptions from '../../utils/createURLBySearchingOptions';
-import { ParsedItem } from '../../utils/parseResponseItems';
-import parseResponseItems from '../../utils/parseResponseItems';
+import parseResponseItems, { ParsedItem } from '../../utils/parseResponseItems';
 
 interface IResultOfSearching {
   items: ParsedItem[];

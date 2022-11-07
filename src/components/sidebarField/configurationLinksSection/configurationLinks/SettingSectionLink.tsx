@@ -17,11 +17,11 @@ const StylingItem: React.FC<ISettingItemsProps> = (props) => {
     <div
       className={className}
       onClick={() => {
-        activeItemOfOptions === 'setting'
-          ? appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions())
-          : appDispatch(
-              actionsUiActiveSectionOfSidebar.setActiveItemOfOptions({ item: 'setting' })
-            );
+        if (activeItemOfOptions === 'setting') {
+          appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions());
+          return;
+        }
+        appDispatch(actionsUiActiveSectionOfSidebar.setActiveItemOfOptions({ item: 'setting' }));
       }}
     >
       {activeItemOfOptions === 'setting' ? (

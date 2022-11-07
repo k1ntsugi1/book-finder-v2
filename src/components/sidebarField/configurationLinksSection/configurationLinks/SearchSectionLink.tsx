@@ -17,9 +17,11 @@ const SearchItem: React.FC<ISettingItemsProps> = (props) => {
     <div
       className={className}
       onClick={() => {
-        activeItemOfOptions === 'search'
-          ? appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions())
-          : appDispatch(actionsUiActiveSectionOfSidebar.setActiveItemOfOptions({ item: 'search' }));
+        if (activeItemOfOptions === 'search') {
+          appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions());
+          return;
+        }
+        appDispatch(actionsUiActiveSectionOfSidebar.setActiveItemOfOptions({ item: 'search' }));
       }}
     >
       {activeItemOfOptions === 'search' ? (
