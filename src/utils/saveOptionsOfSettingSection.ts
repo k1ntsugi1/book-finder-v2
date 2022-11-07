@@ -8,7 +8,7 @@ const saveOptionsOfSettingSection = (state: IInitialStateImmer): void => {
         },
         colors: {
             bodyColor,
-            sideBarColor,
+            sidebarColor,
             textColor,
             progressBarColor,
         },
@@ -17,10 +17,10 @@ const saveOptionsOfSettingSection = (state: IInitialStateImmer): void => {
     } = state;
 
     localStorage.setItem('bodyColor', bodyColor);
-    localStorage.setItem('sideBarColor', sideBarColor);
+    localStorage.setItem('sidebarColor', sidebarColor);
     localStorage.setItem('textColor', textColor);
     localStorage.setItem('progressBarColor', progressBarColor);
-    localStorage.setItem('stateOfBackground', stateOfBodyBackground);
+    localStorage.setItem('stateOfBodyBackground', stateOfBodyBackground);
     localStorage.setItem('activeImage', activeImage);
     localStorage.setItem('bodyImages', JSON.stringify(bodyImages));
 }

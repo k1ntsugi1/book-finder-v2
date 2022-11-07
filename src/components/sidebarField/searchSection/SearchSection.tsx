@@ -24,6 +24,8 @@ import SelectTypeOfItem from "./searchItems/SelectTypeOfItem";
 
 import RunnerBorderBottom from '../../RunnerBorderBottom';
 
+import toggleVisibility from '../../../utils/toggleVisibility';
+
 const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
 
     const { showStateOfForm } = props;
@@ -47,7 +49,7 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
         'pt-3',
         'h-100',
         'w-appeating-section',
-        'transitionSidebar',
+        'transitionOpacity',
         'position-absolute',
         'start-100',
         'top-0',
@@ -86,10 +88,7 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
     })
 
     useEffect(() => {
-        setTimeout(() => {
-            if (showStateOfForm === 'unvisible') formRef.current!.style.visibility = 'hidden';
-        }, 400);
-        if (showStateOfForm === 'visible') formRef.current!.style.visibility = '';
+        toggleVisibility(formRef, showStateOfForm)
     }, [showStateOfForm]);
 
 

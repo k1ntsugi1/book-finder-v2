@@ -12,7 +12,7 @@ const reducerImmer = (draft: IInitialStateImmer, action: IActionOfReducerImmer) 
             draft.colors.bodyColor = value;
         },
         updateSidebarColor() {
-            draft.colors.sideBarColor = value;
+            draft.colors.sidebarColor = value;
         },
         updateTextColor() {
             draft.colors.textColor = value;

@@ -15,7 +15,7 @@ const SidebarStyling: React.FC<IProps> = (props) => {
                     className="w-75 mx-auto"
                     type="color"
                     name="sidebarColor"
-                    value={stateImmer.colors.sideBarColor}
+                    value={stateImmer.colors.sidebarColor}
                     onChange={(event) => dispatchImmer({ type: 'updateSidebarColor', value: event.target.value })}
                     aria-label="select-color"
                 />

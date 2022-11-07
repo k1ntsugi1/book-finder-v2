@@ -17,11 +17,13 @@ import SelectLangAccordionItem from './accordionItems/SelectLangAccordionItem';
 import SelectParamsOfStylingAccordionItem from './accordionItems/SelectParamsOfStylingAccordionItem';
 import SelectProgressBarAccordionItem from './accordionItems/SelectProgressBarAccordionItem';
 
+import toggleVisibility from '../../../utils/toggleVisibility';
+
 import { IInitialStateImmer } from './interfaces';
 
 const setVariousOfColorsHandler = (stateImmer: IInitialStateImmer) => {
     document.documentElement.style.setProperty('--color-body', stateImmer.colors.bodyColor);
-    document.documentElement.style.setProperty('--color-sidebar', stateImmer.colors.sideBarColor);
+    document.documentElement.style.setProperty('--color-sidebar', stateImmer.colors.sidebarColor);
     document.documentElement.style.setProperty('--color-text', stateImmer.colors.textColor);
     document.documentElement.style.setProperty('--color-progressBar', stateImmer.colors.progressBarColor);
 }
@@ -43,15 +45,15 @@ const setBackgroundBodyColorHandlet = (stateImmer: IInitialStateImmer) => {
 }
 
 
-const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
+const StylingSection: React.FC<{ showStateOfSetting: string }> = (props) => {
     
-    const { showStateOfBrush } = props;
+    const { showStateOfSetting } = props;
 
     const appDispatch = useAppDispatch();
     const settingSectionRef = useRef<HTMLDivElement>(null);
     const [stateImmer, dispatchImmer] = useImmerReducer(reducerImmer, initialStateImmer);
-
-    const classnamesOfBrushSection = cn(
+    console.log(stateImmer)
+    const classnamesOfSettingSection = cn(
         'background-color-sidebar',
         'pt-3',
         'h-100',
@@ -59,38 +61,35 @@ const StylingSection: React.FC<{ showStateOfBrush: string }> = (props) => {
         'd-flex',
         'flex-column',
         'gap-3',
-        'transitionSidebar',
+        'transitionOpacity',
         'position-absolute',
         'start-100',
         'top-0',
         'overflow-auto',
         'scrollbar',
         {
-            'opacity-100 ': showStateOfBrush === 'visible' ? true : false,
-            'opacity-0 ': showStateOfBrush === 'visible' ? false : true,
+            'opacity-100 ': showStateOfSetting === 'visible' ? true : false,
+            'opacity-0 ': showStateOfSetting === 'visible' ? false : true,
         });
 
     useEffect(() => {
         setVariousOfColorsHandler(stateImmer)
-    }, [stateImmer.colors.sideBarColor, stateImmer.colors.textColor, stateImmer.colors.progressBarColor, stateImmer.colors.bodyColor])
+    })
 
     useEffect(() => {
         stateImmer.stateOfBodyBackground === 'color'
             ? setBackgroundBodyColorHandlet(stateImmer)
             : setBackgroundBodyImageHandler(stateImmer);
 
-    }, [stateImmer.images.bodyImages, stateImmer.images.activeImage, stateImmer.colors.bodyColor, stateImmer.stateOfBodyBackground])
+    })
 
     useEffect(() => {
-        setTimeout(() => {
-            if (showStateOfBrush === 'unvisible') settingSectionRef.current!.style.visibility = 'hidden';
-        }, 400);
-        if (showStateOfBrush === 'visible') settingSectionRef.current!.style.visibility = '';
-    }, [showStateOfBrush]);
+        toggleVisibility(settingSectionRef, showStateOfSetting)
+    }, [showStateOfSetting]);
 
     return (
         <section
-            className={classnamesOfBrushSection}
+            className={classnamesOfSettingSection}
             ref={settingSectionRef}
         >
             <Accordion>

@@ -1,18 +1,18 @@
 import { ReactComponent as List } from '../../../assets/svg/list.svg'
 
 interface IProps {
-    statusOfSidebar: string,
-    setStatusOfSidebar: (newStatus: string) => void
+    showStateOfSidebar: string,
+    setShowStateOfSidebar: (newStatus: string) => void
 }
 
 const SidebarToggler: React.FC<IProps> = (props) => {
-    const { statusOfSidebar, setStatusOfSidebar } = props;
-    const statusOfSidebarHandler = () => {
-        const newStatus = statusOfSidebar === 'show' ? 'hidden' : 'show';
-        setStatusOfSidebar(newStatus);
+    const { showStateOfSidebar, setShowStateOfSidebar } = props;
+    const showStateOfSidebarHandler = () => {
+        const newStatus = showStateOfSidebar === 'show' ? 'hidden' : 'show';
+        setShowStateOfSidebar(newStatus);
     }
     return (
-        <div className="list cursor-pointer" onClick={statusOfSidebarHandler}>
+        <div className="list cursor-pointer" onClick={showStateOfSidebarHandler}>
             <List width='30' height='30' />
         </div>
     )
