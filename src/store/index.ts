@@ -8,16 +8,16 @@ import uiActiveSectionOfSidebarReducer from './slices/uiActiveSectionOfSidebarSl
 import uiNotificationSliceReducer from './slices/uiNotificationSlice';
 
 const store = configureStore({
-    reducer: {
-        //dataOfSearchingOptions: dataOfSearchingOptionsReducer,
-        dataOfSearchedItems: dataOfSearchedItemsReducer,
-        dataOfStarredItems: dataOfStarredItemsReducer,
-        
-        uiProgressBar: uiProgressBarReducer,
-        uiActiveSectionOfSidebar: uiActiveSectionOfSidebarReducer,
-        uiNotificationSlice: uiNotificationSliceReducer, 
-    }
-})
+  reducer: {
+    //dataOfSearchingOptions: dataOfSearchingOptionsReducer,
+    dataOfSearchedItems: dataOfSearchedItemsReducer,
+    dataOfStarredItems: dataOfStarredItemsReducer,
+
+    uiProgressBar: uiProgressBarReducer,
+    uiActiveSectionOfSidebar: uiActiveSectionOfSidebarReducer,
+    uiNotificationSlice: uiNotificationSliceReducer
+  }
+});
 
 export type RootState = ReturnType<typeof store.getState>;
 

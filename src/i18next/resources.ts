@@ -3,10 +3,10 @@ import en from './locales/en.json';
 
 const resources = {
   ru: {
-    translation: ru,
+    translation: ru
   },
   en: {
-    translation: en,
-  },
+    translation: en
+  }
 };
 export default resources;

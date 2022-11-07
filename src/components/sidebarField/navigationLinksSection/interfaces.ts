@@ -1,4 +1,4 @@
 export interface INavigationLinksProps {
-    className: string,
-    setNewTypeOfItems?: (type: string) => void,
-};
+  className: string;
+  setNewTypeOfItems?: (type: string) => void;
+}

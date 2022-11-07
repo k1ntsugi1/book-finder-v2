@@ -3,25 +3,22 @@ import ResultOfSearchingLink from './navigationLinks/ResultOfSearchingLink';
 import ViewableItemLink from './navigationLinks/ViewableItemLink';
 import StarredItemLink from './navigationLinks/StarredItemsLink';
 
-import {INavigationLinksProps} from './interfaces'
+import { INavigationLinksProps } from './interfaces';
 
 const NavigationLinksSection: React.FC<INavigationLinksProps> = (props) => {
+  const { setNewTypeOfItems, className } = props;
 
-    const { setNewTypeOfItems, className } = props;
+  return (
+    <section className="mt-4 mx-auto">
+      <HomeLink className={className} />
 
-    return (
-        <section className="mt-4 mx-auto">
+      <ResultOfSearchingLink className={className} setNewTypeOfItems={setNewTypeOfItems} />
 
-            <HomeLink className={className}/>
+      <ViewableItemLink className={className} />
 
-            <ResultOfSearchingLink className={className} setNewTypeOfItems={setNewTypeOfItems}/>
-            
-            <ViewableItemLink className={className}/>
-            
-            <StarredItemLink className={className} setNewTypeOfItems={setNewTypeOfItems}/>
-        
-        </section>
-    )
+      <StarredItemLink className={className} setNewTypeOfItems={setNewTypeOfItems} />
+    </section>
+  );
 };
 
-export default NavigationLinksSection
+export default NavigationLinksSection;

@@ -1,3 +1,3 @@
 export interface ISettingItemsProps {
-    className: string
+  className: string;
 }
