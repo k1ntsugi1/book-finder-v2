@@ -10,7 +10,6 @@ import ColorRunner from './components/RotatingCircles';
 
 const App: React.FC = () => {
   const [showStateOfSidebar, setShowStateOfSidebar] = useState<string>('show');
-  const [typeOfItems, setNewTypeOfItems] = useState<string>('default');
   const { message, type, statusOfVisibility } = useAppSelector(
     (store) => store.uiNotificationSlice
   );
@@ -23,11 +22,8 @@ const App: React.FC = () => {
             showStateOfSidebar={showStateOfSidebar}
             setShowStateOfSidebar={setShowStateOfSidebar}
           />
-          <SidebarField
-            showStateOfSidebar={showStateOfSidebar}
-            setNewTypeOfItems={setNewTypeOfItems}
-          />
-          <MainField typeOfItems={typeOfItems} />
+          <SidebarField showStateOfSidebar={showStateOfSidebar} />
+          <MainField />
           <ToastContainer />
         </div>
       </div>

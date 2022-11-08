@@ -5,6 +5,6 @@ export const sizes: {
   };
 } = {
   s: { height: '100px', width: '200px' },
-  m: { height: '150px', width: '250px' },
-  l: { height: '150px', width: '250px' }
+  m: { height: '150px', width: '280px' },
+  l: { height: '150px', width: '300px' }
 };

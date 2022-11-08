@@ -13,9 +13,7 @@ import UndefinedPage from '../../pages/UndefinedPage';
 
 import GlassElement from '../GlassElement';
 
-const MainField: React.FC<{ typeOfItems: string }> = (props) => {
-  const { typeOfItems } = props;
-
+const MainField: React.FC = () => {
   const appDispatch = useAppDispatch();
   const refScrollElement = useRef<HTMLDivElement>(null);
 
@@ -47,9 +45,9 @@ const MainField: React.FC<{ typeOfItems: string }> = (props) => {
       >
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/result" element={<ResultOfSearchingPage typeOfItems={typeOfItems} />} />
+          <Route path="/result" element={<ResultOfSearchingPage />} />
           <Route path="/item" element={<ViewableItemPage />} />
-          <Route path="/starred" element={<StarredItemsPage typeOfItems={typeOfItems} />} />
+          <Route path="/starred" element={<StarredItemsPage />} />
           <Route path="*" element={<UndefinedPage />} />
         </Routes>
       </div>

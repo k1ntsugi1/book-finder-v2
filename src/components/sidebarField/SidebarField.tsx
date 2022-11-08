@@ -13,11 +13,10 @@ import toggleVisibility from '../../utils/toggleVisibility';
 
 interface IProps {
   showStateOfSidebar: string;
-  setNewTypeOfItems: (type: string) => void;
 }
 
 const SidebarField: React.FC<IProps> = (props) => {
-  const { setNewTypeOfItems, showStateOfSidebar } = props;
+  const { showStateOfSidebar } = props;
 
   const sidebarRef = useRef<HTMLDivElement>(null);
 
@@ -55,10 +54,7 @@ const SidebarField: React.FC<IProps> = (props) => {
         showStateOfSetting={activeItemOfOptions === 'setting' ? 'visible' : 'unvisible'}
       />
 
-      <NavigationLinksSection
-        className={classNameOfLinkSections}
-        setNewTypeOfItems={setNewTypeOfItems}
-      />
+      <NavigationLinksSection className={classNameOfLinkSections} />
       <ConfigurationLinksSection className={classNameOfLinkSections} />
     </div>
   );

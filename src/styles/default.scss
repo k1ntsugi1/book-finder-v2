@@ -199,8 +199,6 @@ body {
     z-index: 1001;
     transform: translateX(-50%);
     background-color: var(--color-sidebar);
-    border: 1px solid var(--color-text);
-    border-radius: 10px;
     color: var(--color-body);
 }
 
@@ -214,6 +212,10 @@ body {
 
 .shadow-danger {
     box-shadow: 0px 0px 15px -5px red !important;
+}
+
+.border-color-body {
+    border: 1px solid var(--color-body) !important;
 }
 
 .shadow-primary {

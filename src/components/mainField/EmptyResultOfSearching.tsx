@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import SmallInformationCard from '../informationCard/InformationCard';
+import InformationCard from '../informationCard/InformationCard';
 
 import { ReactComponent as EmojiFrown } from '../../assets/svg/emoji-frown.svg';
 
@@ -8,12 +8,12 @@ const EmptyResultOfSearching: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <SmallInformationCard
-      className="border-primary shadow-primary"
+    <InformationCard
+      className="border-color-body shadow-primary"
       message={t('mainField.emptyResult')}
     >
       <EmojiFrown width="25" height="25" />
-    </SmallInformationCard>
+    </InformationCard>
   );
 };
 

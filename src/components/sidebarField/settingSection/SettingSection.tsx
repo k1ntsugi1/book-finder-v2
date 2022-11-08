@@ -9,6 +9,7 @@ import initialStateImmer from './immer/initialStateImmer';
 
 import { useAppDispatch } from '../../../store/hooks';
 import { actionsUiNotification } from '../../../store/slices/uiNotificationSlice';
+import { actionsUiActiveSectionOfSidebar } from '../../../store/slices/uiActiveSectionOfSidebarSlice';
 
 import RunnerBorderBottom from '../../RunnerBorderBottom';
 
@@ -113,6 +114,7 @@ const StylingSection: React.FC<{ showStateOfSetting: string }> = (props) => {
                   statusOfVisibility: 'visible'
                 })
               );
+              appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions());
             }}
           >
             <span>{t('buttons.save')}</span>

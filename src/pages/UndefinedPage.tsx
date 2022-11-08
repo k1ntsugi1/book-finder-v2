@@ -15,7 +15,12 @@ const UndefinedPage: React.FC = () => {
     navigate('/');
   };
   return (
-    <InformationCard message={t('undefinedPage.message')} onClick={onClickHandler}>
+    <InformationCard
+      className="border-color-body shadow-primary"
+      message={t('undefinedPage.message')}
+      size="m"
+      onClick={onClickHandler}
+    >
       <EmojiFrown width="25" height="25" />
     </InformationCard>
   );

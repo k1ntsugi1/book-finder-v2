@@ -6,10 +6,10 @@ import ErrorOfSearching from '../components/mainField/ErrorOfSearching';
 
 import { useAppSelector } from '../store/hooks';
 
-const StarredItemsPage: React.FC<{ typeOfItems: string }> = (props) => {
-  const { typeOfItems } = props;
+const StarredItemsPage: React.FC = () => {
   const { t } = useTranslation();
   const { statusOfLoading, typeOfError } = useAppSelector((store) => store.dataOfStarredItems);
+  const starredItems = useAppSelector((store) => store.dataOfStarredItems.entities);
   const message =
     typeOfError === 'network'
       ? t('mainField.errorOfSearching.networkError')
@@ -17,7 +17,7 @@ const StarredItemsPage: React.FC<{ typeOfItems: string }> = (props) => {
 
   return (
     <>
-      {statusOfLoading === 'fulfilled' && <CardList typeOfItems={typeOfItems} />}
+      {statusOfLoading === 'fulfilled' && <CardList items={starredItems} />}
       {statusOfLoading === 'pending' && <SpinnerOfLoading />}
       {statusOfLoading === 'rejected' && <ErrorOfSearching message={message} />}
     </>

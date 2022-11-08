@@ -4,21 +4,24 @@ import CardOfItem from './CardOfItem';
 import EmptyResultOfSearching from './EmptyResultOfSearching';
 
 import { useAppSelector } from '../../store/hooks';
-import { selectorsDataOfSearchedItems } from '../../store/slices/dataOfSearchedItemsSlice';
 
 import ProgressSection from '../progressSection/ProgressSection';
 
-const CardList: React.FC<{ typeOfItems: string }> = (props) => {
-  const { typeOfItems } = props;
+import type { Dictionary } from '@reduxjs/toolkit';
+import type { ParsedItem } from '../../utils/parseResponseItems';
+
+interface IProps {
+  items: Dictionary<ParsedItem>;
+}
+
+const CardList: React.FC<IProps> = (props) => {
+  const { items } = props;
   const upperBlockRef = useRef<HTMLDivElement>(null);
 
   const { percentOfFilling } = useAppSelector((store) => store.uiProgressBar);
 
-  const searchedItems = useAppSelector(selectorsDataOfSearchedItems.selectEntities);
-  const starredItems = useAppSelector((store) => store.dataOfStarredItems.entities);
-
-  const showingItems = typeOfItems === 'searched' ? searchedItems : starredItems;
-  const isNotEmpty = showingItems && Object.values(showingItems).length ? true : false;
+  const showingItems = Object.values(items);
+  const isNotEmpty = showingItems.length ? true : false;
 
   return (
     <>

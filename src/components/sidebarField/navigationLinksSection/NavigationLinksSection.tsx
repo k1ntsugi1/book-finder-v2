@@ -6,17 +6,17 @@ import StarredItemLink from './navigationLinks/StarredItemsLink';
 import { INavigationLinksProps } from './interfaces';
 
 const NavigationLinksSection: React.FC<INavigationLinksProps> = (props) => {
-  const { setNewTypeOfItems, className } = props;
+  const { className } = props;
 
   return (
     <section className="mt-4 mx-auto">
       <HomeLink className={className} />
 
-      <ResultOfSearchingLink className={className} setNewTypeOfItems={setNewTypeOfItems} />
+      <ResultOfSearchingLink className={className} />
 
       <ViewableItemLink className={className} />
 
-      <StarredItemLink className={className} setNewTypeOfItems={setNewTypeOfItems} />
+      <StarredItemLink className={className} />
     </section>
   );
 };

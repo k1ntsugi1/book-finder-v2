@@ -8,15 +8,16 @@ import CardList from '../components/mainField/CardList';
 import ErrorOfSearching from '../components/mainField/ErrorOfSearching';
 
 import { useAppSelector } from '../store/hooks';
+import { selectorsDataOfSearchedItems } from '../store/slices/dataOfSearchedItemsSlice';
 
-const ResultOfSearchingPage: React.FC<{ typeOfItems: string }> = (props) => {
-  const { typeOfItems } = props;
+const ResultOfSearchingPage: React.FC = () => {
   const {
     range: { maxResults },
     statusOfLoading,
     typeOfError
   } = useAppSelector((store) => store.dataOfSearchedItems);
   const { totalItems } = useAppSelector((store) => store.dataOfSearchedItems);
+  const searchedItems = useAppSelector(selectorsDataOfSearchedItems.selectEntities);
   const { t } = useTranslation();
 
   const message =
@@ -41,7 +42,7 @@ const ResultOfSearchingPage: React.FC<{ typeOfItems: string }> = (props) => {
 
   return (
     <>
-      {statusOfLoading === 'fulfilled' && <CardList typeOfItems={typeOfItems} />}
+      {statusOfLoading === 'fulfilled' && <CardList items={searchedItems} />}
       {statusOfLoading === 'fulfilled' && totalItems > maxResults && <Loader />}
       {statusOfLoading === 'pending' && <SpinnerOfLoading />}
       {statusOfLoading === 'rejected' && <ErrorOfSearching message={message} />}

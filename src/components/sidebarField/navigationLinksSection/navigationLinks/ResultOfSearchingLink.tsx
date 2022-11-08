@@ -9,7 +9,7 @@ import { ReactComponent as BookMarksFill } from '../../../../assets/svg/bookmark
 import { INavigationLinksProps } from '../interfaces';
 
 const ResultOfSearchingLink: React.FC<INavigationLinksProps> = (props) => {
-  const { className, setNewTypeOfItems } = props;
+  const { className } = props;
 
   const { activePage } = useAppSelector((store) => store.uiActiveSectionOfSidebar);
 
@@ -21,7 +21,6 @@ const ResultOfSearchingLink: React.FC<INavigationLinksProps> = (props) => {
       className={className}
       onClick={() => {
         appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'result' }));
-        setNewTypeOfItems!('searched');
         navigate('/result');
       }}
     >

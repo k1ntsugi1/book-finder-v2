@@ -60,7 +60,7 @@ const dataOfSearchedItemsSlice = createSlice({
     },
     resetSearchParams(state) {
       state.range.startIndex = 0;
-      state.statusOfLoading = '';
+      state.statusOfLoading = 'fulfilled';
       state.typeOfError = '';
       state.searchParams = initialState.searchParams;
       dataOfSearchedItemsSlice.caseReducers.removeItems(state);

@@ -10,7 +10,7 @@ import { ReactComponent as StarFill } from '../../../../assets/svg/star-fill.svg
 import { INavigationLinksProps } from '../interfaces';
 
 const StarredItemsLink: React.FC<INavigationLinksProps> = (props) => {
-  const { className, setNewTypeOfItems } = props;
+  const { className } = props;
 
   const { activePage } = useAppSelector((store) => store.uiActiveSectionOfSidebar);
 
@@ -21,7 +21,6 @@ const StarredItemsLink: React.FC<INavigationLinksProps> = (props) => {
     <div
       className={className}
       onClick={() => {
-        setNewTypeOfItems!('starred');
         appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'starred' }));
         appDispatch(fetchGetDataByStarredItemsIDs());
         navigate('/starred');

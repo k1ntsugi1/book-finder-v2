@@ -11,7 +11,7 @@ import { useAppDispatch } from '../../../store/hooks';
 
 import { actionsDataOfSearchedItems } from '../../../store/slices/dataOfSearchedItemsSlice';
 import { actionsUiActiveSectionOfSidebar } from '../../../store/slices/uiActiveSectionOfSidebarSlice';
-
+import { actionsUiNotification } from '../../../store/slices/uiNotificationSlice';
 import validationSchema from './validationSchema';
 
 import { IInitialValueOfFormik } from './interfaces';
@@ -86,6 +86,7 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
       appDispatch(fetchDataBySearchingOptions(searchParams));
 
       appDispatch(actionsUiActiveSectionOfSidebar.setActivePage({ page: 'result' }));
+      appDispatch(actionsUiActiveSectionOfSidebar.removeActiveItemOfOptions());
       navigate('/result');
     }
   });
@@ -114,7 +115,19 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
             </RunnerBorderBottom>
 
             <RunnerBorderBottom>
-              <Button className="w-100 bg-transparent border-0">
+              <Button
+                className="w-100 bg-transparent border-0"
+                onClick={() => {
+                  formik.resetForm();
+                  appDispatch(actionsDataOfSearchedItems.resetSearchParams());
+                  appDispatch(
+                    actionsUiNotification.show({
+                      type: 'success',
+                      message: t('notification.reseted')
+                    })
+                  );
+                }}
+              >
                 <div>{t('buttons.reset')}</div>
               </Button>
             </RunnerBorderBottom>
