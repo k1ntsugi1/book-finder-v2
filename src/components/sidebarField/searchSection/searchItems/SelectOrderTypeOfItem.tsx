@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Form } from 'react-bootstrap';
 import { ISearchItemsProps } from '../interfaces';
 
@@ -13,10 +14,10 @@ const SelectOrderTypeOfItem: React.FC<ISearchItemsProps> = (props) => {
   } = props;
 
   const { typesOfOrder } = useContextOfSearchOprions();
-
+  const { t } = useTranslation();
   return (
     <Form.Group className={className}>
-      <Form.Label>select type of sort</Form.Label>
+      <Form.Label>{t('sidebarField.searchSection.labels.orderType')}</Form.Label>
       <Form.Select
         size="sm"
         name="currentTypeOfOrder"

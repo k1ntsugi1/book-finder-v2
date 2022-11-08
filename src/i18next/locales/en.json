@@ -1,19 +1,25 @@
 {
     "sidebarField": {
         "searchSection": {
-            "intitle": "Product",
-            "inauthor": "Author",
-            "category":"Category",
-            "filterOfItem":"",
-            "orderType":"",
-            "typeOfItem":""
+            "labels": {
+                "item": "Enter name",
+                "author": "Enter author",
+                "category":"Select category",
+                "filterOfItem":"Select variant",
+                "orderType":" Выберете актуальность",
+                "typeOfItem":"Select type"
+            },
+            "placeholders": {
+                "item": "Name",
+                "author": "Author"
+            }
         },
         "settingSection": {
             "styling": {
                 "name": "Styling",
                 "stylingItems": {
                     "text": "Text",
-                    "sidebar": "Sidebar",
+                    "sidebar": "Menu",
                     "progressBar": "Progress bar",
                     "body": {
                         "name": "Body",
@@ -23,7 +29,7 @@
                 }
             },
             "language": {
-                "name": "Language",
+                "name": "language",
                 "ru": "RU",
                 "en": "EN"
             },
@@ -36,19 +42,37 @@
     },
     "mainField": {
         "errorOfSearching": {
-            "networkError": "Ошибка сети....",
-            "unknownError": "Неизвестная Ошибка...."
+            "networkError": "Network error....",
+            "unknownError": "Unknown error...."
         },
         "emptyResult": "Empty....",
         "transcriptionCard": {
             "navigation": "Navigation",
             "homeLink": "Home page",
             "resultOfSearchingLink": "Result of searching",
-            "viewableItemLink": "Viewable product",
-            "starredItemsLink": "Starred products",
+            "viewableItemLink": "Viewable items",
+            "starredItemsLink": "Liked items",
             "configuration": "Configuration",
-            "searchOption": "Option of search",
-            "settingOption": "Option of setting"
+            "searchOption": "Search options",
+            "settingOption": "Setting"
+        },
+        "cardOfItem": {
+            "showMore": "Show"
         }
+    },
+    "notification": {
+        "saved": "Saved",
+        "reseted": "Reseted",
+        "changed": "Changed",
+        "removed": "Removed"
+    },
+    "buttons": {
+        "save": "Save",
+        "submit": "Search",
+        "reset": "Reset"
+    },
+    "paginationInfo": "🦄 Google book API отдает при пагинации разные 'total items'. Пагинация через цифры реализована из-за интереса", 
+    "undefinedPage": {
+        "message": "Undefined page"
     }
 }

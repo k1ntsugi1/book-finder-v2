@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { MouseEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
@@ -20,6 +21,7 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
   const { ids } = useAppSelector((store) => store.dataOfStarredItems);
   const activeStatus = ids.includes(item.id) ? 'active' : 'unActive';
 
+  const { t } = useTranslation();
   const appDispatch = useAppDispatch();
   const navigate = useNavigate();
   const refOfWrapper = useRef<HTMLDivElement>(null);
@@ -32,10 +34,14 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
 
     appDispatch(actionsDataOfStarredItems[action]({ id: item.id }));
     if (newStatus === 'active') {
-      appDispatch(actionsUiNotification.show({ message: 'saved', type: 'success' }));
+      appDispatch(
+        actionsUiNotification.show({ message: t('notification.saved'), type: 'success' })
+      );
       return;
     }
-    appDispatch(actionsUiNotification.show({ message: 'removed', type: 'success' }));
+    appDispatch(
+      actionsUiNotification.show({ message: t('notification.removed'), type: 'success' })
+    );
   };
 
   const moveToViewableItemHandler = () => {
@@ -94,7 +100,7 @@ const CardOfItem: React.FC<{ item: ParsedItem }> = ({ item }) => {
           className="w-75 p-2 centered-content rounded fw-bold"
           style={{ background: 'var(--color-sidebar)' }}
         >
-          show-more
+          {t('mainField.cardOfItem.showMore')}
         </div>
       </div>
     </GlassElement>

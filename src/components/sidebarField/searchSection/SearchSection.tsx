@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useRef, useEffect } from 'react';
 import cn from 'classnames';
 import { useNavigate } from 'react-router-dom';
@@ -30,6 +31,7 @@ import toggleVisibility from '../../../utils/toggleVisibility';
 const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
   const { showStateOfForm } = props;
 
+  const { t } = useTranslation();
   const appDispatch = useAppDispatch();
   const navigate = useNavigate();
   const formRef = useRef<HTMLFormElement>(null);
@@ -107,13 +109,13 @@ const SearchSection: React.FC<{ showStateOfForm: string }> = (props) => {
           <div className="mx-auto d-flex flex-column align-items-center">
             <RunnerBorderBottom>
               <Button type="submit" className="w-100 bg-transparent border-0">
-                <span>Submit</span>
+                <span>{t('buttons.submit')}</span>
               </Button>
             </RunnerBorderBottom>
 
             <RunnerBorderBottom>
               <Button className="w-100 bg-transparent border-0">
-                <div>reset all params</div>
+                <div>{t('buttons.reset')}</div>
               </Button>
             </RunnerBorderBottom>
           </div>

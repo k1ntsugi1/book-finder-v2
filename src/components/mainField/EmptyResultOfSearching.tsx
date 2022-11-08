@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import SmallInformationCard from '../SmallInformationCard';
+import SmallInformationCard from '../informationCard/InformationCard';
 
 import { ReactComponent as EmojiFrown } from '../../assets/svg/emoji-frown.svg';
 

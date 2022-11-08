@@ -1,16 +1,20 @@
 import { useRef, useEffect } from 'react';
 import cn from 'classnames';
 
-import GlassElement from './GlassElement';
+import GlassElement from '../GlassElement';
+
+import { sizes } from './sizes';
 
 interface IProps {
   message: string;
+  size?: string;
   className?: string;
   children?: React.ReactNode;
+  onClick?: () => void;
 }
 
-const SmallInformationCard: React.FC<IProps> = (props) => {
-  const { children, message, className } = props;
+const InformationCard: React.FC<IProps> = (props) => {
+  const { children, message, className, size = 's', onClick = () => {} } = props;
 
   const textRef = useRef<HTMLSpanElement>(null);
   const classNames = cn('color-text align-self-center border rounded', className);
@@ -43,14 +47,8 @@ const SmallInformationCard: React.FC<IProps> = (props) => {
   });
 
   return (
-    <GlassElement
-      className={classNames}
-      style={{
-        width: '200px',
-        height: '100px'
-      }}
-    >
-      <div className="h-100 centered-content border rounded">
+    <GlassElement className={classNames} style={sizes[size]}>
+      <div className="h-100 centered-content border rounded" onClick={onClick}>
         {children}
         <span className="ps-3" ref={textRef}>
           {message}
@@ -67,4 +65,4 @@ const SmallInformationCard: React.FC<IProps> = (props) => {
   );
 };
 
-export default SmallInformationCard;
+export default InformationCard;

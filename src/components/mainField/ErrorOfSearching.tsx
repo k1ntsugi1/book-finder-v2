@@ -1,4 +1,4 @@
-import SmallInformationCard from '../SmallInformationCard';
+import SmallInformationCard from '../informationCard/InformationCard';
 
 import { ReactComponent as EmojiFrown } from '../../assets/svg/emoji-frown.svg';
 

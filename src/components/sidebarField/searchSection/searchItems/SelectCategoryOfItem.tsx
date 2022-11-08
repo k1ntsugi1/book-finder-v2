@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Form } from 'react-bootstrap';
 import { ISearchItemsProps } from '../interfaces';
 
@@ -12,10 +13,10 @@ const SelectCategoryOfItem: React.FC<ISearchItemsProps> = (props) => {
     className
   } = props;
   const { typesOfCategory } = useContextOfSearchOprions();
-
+  const { t } = useTranslation();
   return (
     <Form.Group className={className}>
-      <Form.Label>select categories</Form.Label>
+      <Form.Label>{t('sidebarField.searchSection.labels.category')}</Form.Label>
       <Form.Select
         size="sm"
         name="currentTypeOfCategory"

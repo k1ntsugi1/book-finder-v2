@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Form } from 'react-bootstrap';
 import { ISearchItemsProps } from '../interfaces';
 
@@ -12,10 +13,10 @@ const SelectTypeOfItem: React.FC<ISearchItemsProps> = (props) => {
     className
   } = props;
   const { typesOfItem } = useContextOfSearchOprions();
-
+  const { t } = useTranslation();
   return (
     <Form.Group className={className}>
-      <Form.Label>select type</Form.Label>
+      <Form.Label>{t('sidebarField.searchSection.labels.typeOfItem')}</Form.Label>
       <Form.Select
         size="sm"
         name="currentTypeOfItem"

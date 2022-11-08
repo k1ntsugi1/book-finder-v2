@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Form } from 'react-bootstrap';
 import { ISearchItemsProps } from '../interfaces';
 
@@ -11,30 +12,32 @@ const EnterSearchItems: React.FC<ISearchItemsProps> = (props) => {
     className
   } = props;
 
+  const { t } = useTranslation();
+
   return (
     <>
       <Form.Group className={className}>
-        <Form.Label>Enter Book-name</Form.Label>
+        <Form.Label>{t('sidebarField.searchSection.labels.item')}</Form.Label>
         <Form.Control
           type="text"
           name="currentNameOfItem"
           value={currentNameOfItem}
           onChange={handleChange}
           aria-label="searchByName"
-          placeholder="enter Book-name"
+          placeholder={t('sidebarField.searchSection.placeholders.item')}
           isInvalid={!!errors.currentNameOfItem}
         />
       </Form.Group>
 
       <Form.Group className={className}>
-        <Form.Label>Enter Author</Form.Label>
+        <Form.Label>{t('sidebarField.searchSection.labels.author')}</Form.Label>
         <Form.Control
           type="text"
           name="currentAuthorOfItem"
           value={currentAuthorOfItem}
           onChange={handleChange}
           aria-label="searchByAuthor"
-          placeholder="enter author"
+          placeholder={t('sidebarField.searchSection.placeholders.author')}
         />
       </Form.Group>
     </>

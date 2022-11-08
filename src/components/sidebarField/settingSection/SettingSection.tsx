@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useEffect, useRef } from 'react';
 import { useImmerReducer } from 'use-immer';
 import cn from 'classnames';
@@ -50,10 +51,11 @@ const setBackgroundBodyColorHandler = (stateImmer: IInitialStateImmer) => {
 const StylingSection: React.FC<{ showStateOfSetting: string }> = (props) => {
   const { showStateOfSetting } = props;
 
+  const { t } = useTranslation();
   const appDispatch = useAppDispatch();
   const settingSectionRef = useRef<HTMLDivElement>(null);
   const [stateImmer, dispatchImmer] = useImmerReducer(reducerImmer, initialStateImmer);
-  console.log(stateImmer);
+
   const classnamesOfSettingSection = cn(
     'background-color-sidebar',
     'pt-3',
@@ -106,14 +108,14 @@ const StylingSection: React.FC<{ showStateOfSetting: string }> = (props) => {
               saveOptionsOfStyleHandler(stateImmer);
               appDispatch(
                 actionsUiNotification.show({
-                  message: 'saved',
+                  message: t('notification.saved'),
                   type: 'success',
                   statusOfVisibility: 'visible'
                 })
               );
             }}
           >
-            <span>Save</span>
+            <span>{t('buttons.save')}</span>
           </Button>
         </RunnerBorderBottom>
 
@@ -124,14 +126,14 @@ const StylingSection: React.FC<{ showStateOfSetting: string }> = (props) => {
               dispatchImmer({ type: 'reset' });
               appDispatch(
                 actionsUiNotification.show({
-                  message: 'reseted',
+                  message: t('notification.reseted'),
                   type: 'success',
                   statusOfVisibility: 'visible'
                 })
               );
             }}
           >
-            <span>Reset all params</span>
+            <span>{t('buttons.reset')}</span>
           </Button>
         </RunnerBorderBottom>
       </div>
