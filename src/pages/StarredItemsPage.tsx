@@ -17,8 +17,8 @@ const StarredItemsPage: React.FC = () => {
 
   return (
     <>
-      {statusOfLoading === 'fulfilled' && <CardList items={starredItems} />}
-      {statusOfLoading === 'pending' && <SpinnerOfLoading />}
+      <CardList statusOfLoading={statusOfLoading} items={starredItems} />
+
       {statusOfLoading === 'rejected' && <ErrorOfSearching message={message} />}
     </>
   );

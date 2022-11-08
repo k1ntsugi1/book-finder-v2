@@ -14,9 +14,9 @@ const fetchGetDataByStarredItemsIDs = createAsyncThunk<IResultOfSearching, void,
   'fetchDataByStarredItemsIDs',
   async (_, thunkAPI) => {
     try {
-      const { ids } = thunkAPI.getState().dataOfStarredItems;
-
-      const urls = createURLsByStarredItemsIDs(ids);
+      const { ids, entities } = thunkAPI.getState().dataOfStarredItems;
+      const untouchedIds = ids.filter((id) => !entities[id]);
+      const urls = createURLsByStarredItemsIDs(untouchedIds);
 
       const responses = await Promise.all(urls.map((url) => axios.get<IResponseItem>(url)));
 

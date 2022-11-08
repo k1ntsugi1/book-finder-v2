@@ -42,9 +42,10 @@ const ResultOfSearchingPage: React.FC = () => {
 
   return (
     <>
-      {statusOfLoading === 'fulfilled' && <CardList items={searchedItems} />}
+      <CardList statusOfLoading={statusOfLoading} items={searchedItems} />
+
       {statusOfLoading === 'fulfilled' && totalItems > maxResults && <Loader />}
-      {statusOfLoading === 'pending' && <SpinnerOfLoading />}
+
       {statusOfLoading === 'rejected' && <ErrorOfSearching message={message} />}
     </>
   );

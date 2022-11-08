@@ -9,13 +9,15 @@ import ProgressSection from '../progressSection/ProgressSection';
 
 import type { Dictionary } from '@reduxjs/toolkit';
 import type { ParsedItem } from '../../utils/parseResponseItems';
+import SpinnerOfLoading from '../SpinnerOfLoading';
 
 interface IProps {
   items: Dictionary<ParsedItem>;
+  statusOfLoading: string;
 }
 
 const CardList: React.FC<IProps> = (props) => {
-  const { items } = props;
+  const { items, statusOfLoading } = props;
   const upperBlockRef = useRef<HTMLDivElement>(null);
 
   const { percentOfFilling } = useAppSelector((store) => store.uiProgressBar);
@@ -34,7 +36,8 @@ const CardList: React.FC<IProps> = (props) => {
           if (!item) return item;
           return <CardOfItem key={item.id} item={item} />;
         })}
-      {!isNotEmpty && <EmptyResultOfSearching />}
+      {!isNotEmpty && statusOfLoading !== 'pending' && <EmptyResultOfSearching />}
+      {statusOfLoading === 'pending' && <SpinnerOfLoading />}
       {percentOfFilling > 0 && <ProgressSection upperBlockRef={upperBlockRef} />}
     </>
   );
